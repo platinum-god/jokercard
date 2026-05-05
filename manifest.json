@@ -1,0 +1,14 @@
+{
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

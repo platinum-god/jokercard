@@ -1,0 +1,1932 @@
+[
+    {
+        "trinketId": "1",
+        "name": "Swallowed Penny",
+        "pickup": "\"Gulp!\"",
+        "description": [
+            "Cada vez que te golpean, dejas caer una o dos monedas."
+        ],
+        "tags": "* , the lost item pool, cent, gold, water, wet, blue",
+        "unlock": "Desbloquea este objeto superando el desafío n.º 15 (Slow Roll)."
+    },
+    {
+        "trinketId": "2",
+        "name": "Petrified Poop",
+        "pickup": "\"It feels lucky?\"",
+        "description": [
+            "Isaac tiene una probabilidad significativamente mayor de encontrar objetos al romper mierdas."
+        ],
+        "tags": "*, grey, gray",
+        "cat": "up"
+    },
+    {
+        "trinketId": "3",
+        "name": "AAA Battery",
+        "pickup": "\"Trickle charge\"",
+        "description": [
+            "Reduce la tasa de carga del objeto de la barra espaciadora en 1",
+            "Por ejemplo, ahora podrá utilizar un elemento de carga de 3 habitaciones después de 2"
+        ],
+        "tags": "*, bullet, grey, gray, yellow"
+    },
+    {
+        "trinketId": "4",
+        "name": "Broken Remote",
+        "pickup": "\"It's broken\"",
+        "description": [
+            "Tee teletransporta cada vez que usas tu item activo"
+        ],
+        "tags": "*, joystick, grey, gray"
+    },
+    {
+        "trinketId": "5",
+        "name": "Purple Heart",
+        "pickup": "\"Challenge up\"",
+        "description": [
+            "Mayor probabilidad de enemigos campeones"
+        ],
+        "tags": "*, pink"
+    },
+    {
+        "trinketId": "6",
+        "name": "Broken Magnet",
+        "pickup": "\"It kinda works\"",
+        "description": [
+            "Tiene un efecto Magneto parcial y atraerá monedas, atrayéndolas hacia Isaac desde la distancia.",
+            "No atrae otras pastillas como lo hace el item Magneto"
+        ],
+        "tags": "*, red"
+    },
+    {
+        "trinketId": "7",
+        "name": "Rosary Bead",
+        "pickup": "\"Faith up\"",
+        "description": [
+            "Aumenta tus posibilidades de encontrar una Sala de Ángeles en lugar de una Sala de Diablo",
+            "Normalmente, hay un 50%\/50% de probabilidad de que aparezca una sala de ángel o demonio si aparece una puerta después del jefe. El Rosario cambia esto a un 75%\/25% de probabilidad de que aparezca una sala de ángel o demonio (respectivamente)."
+        ],
+        "tags": "*, red, black, circle"
+    },
+    {
+        "trinketId": "8",
+        "name": "Cartridge",
+        "pickup": "\"I remember these\"",
+        "description": [
+            "Cuando Isaac recibe daño, existe la posibilidad de que obtenga el efecto Gamekid, volviéndolo invencible e infligiendo daño por contacto a cualquier enemigo que toque.",
+            "La posibilidad de activar el efecto de invencibilidad se ve afectada por tu estadística de suerte y, con +38 Suerte, se activará cada vez que recibas un golpe."
+        ],
+        "tags": "* , the lost item pool, nes, game, grey, gray, brown"
+    },
+    {
+        "trinketId": "9",
+        "name": "Pulse Worm",
+        "pickup": "\"Wub wub!\"",
+        "description": [
+            "Las lágrimas se encogen y aumentan de tamaño a medida que recorren la habitación.",
+            "No parece afectar tu daño y solo el tamaño del área de impacto de las lágrimas."
+        ],
+        "tags": "*, white, lump"
+    },
+    {
+        "trinketId": "10",
+        "name": "Wiggle Worm",
+        "pickup": "\"Wiggle wiggle!\"",
+        "description": [
+            "Las lágrimas ahora se mueven en forma de ola por toda la habitación.",
+            "Otorga lágrimas espectrales",
+            "+0.4 Cadencia"
+        ],
+        "tags": "*, white, s, snake"
+    },
+    {
+        "trinketId": "11",
+        "name": "Ring Worm",
+        "pickup": "\"Woop woop!\"",
+        "description": [
+            "Mientras se sostienen, las lágrimas se mueven en un patrón en espiral a través de la pantalla a gran velocidad.",
+            "Otorga lágrimas espectrales",
+            "+0.4 Cadencia"
+        ],
+        "tags": "*, white, circle, snake"
+    },
+    {
+        "trinketId": "12",
+        "name": "Flat Worm",
+        "pickup": "\"Blub blub!\"",
+        "description": [
+            "Las lágrimas se vuelven planas y en forma de disco, lo que les da un área de impacto más grande.",
+            "Mayor efecto de retroceso con tus lágrimas."
+        ],
+        "tags": "*, white, eyes"
+    },
+    {
+        "trinketId": "13",
+        "name": "Store Credit",
+        "pickup": "\"YES!\"",
+        "description": [
+            "Mientras se mantenga este trinket, todos los artículos en la Tienda cuestan 0 monedas.",
+            "Después de comprar cualquier artículo de 0 centavos en la Tienda, la baratija desaparece."
+        ],
+        "tags": "*, grey, gray, dollar, bill, note, cash, money",
+        "unlock": "Desbloquea este objeto superando el cofre con Lázaro."
+    },
+    {
+        "trinketId": "14",
+        "name": "Callus",
+        "pickup": "\"Your feet feel stronger\"",
+        "description": [
+            "Isaac ya no recibe daño al caminar sobre púas y sangre"
+        ],
+        "tags": "* , the lost item pool, brown, pink, lump, ball, spot"
+    },
+    {
+        "trinketId": "15",
+        "name": "Lucky Rock",
+        "pickup": "\"There's something inside\"",
+        "description": [
+            "33% de probabilidad de obtener una moneda por cada roca que destruyas"
+        ],
+        "tags": "*, grey, gray, stone, square",
+        "unlock": "Desbloquea este objeto destruyendo 100 rocas."
+    },
+    {
+        "trinketId": "16",
+        "name": "Mom's Toenail",
+        "pickup": "\"???\"",
+        "description": [
+            "La Pierna de Mamá ahora aparecerá cada 20 segundos y pisoteará aleatoriamente en la habitación, infligiendo 300 de daño a los enemigos.",
+            "Pero ten cuidado: ¡la pierna de mamá también puede pisotear y lastimar a Isaac!"
+        ],
+        "tags": "*, mustache, moustache, yellow, white, moms toenail"
+    },
+    {
+        "trinketId": "17",
+        "name": "Black Lipstick",
+        "pickup": "\"Evil up\"",
+        "description": [
+            "Aumenta la probabilidad de que aparezcan corazones negros."
+        ],
+        "tags": "* , the lost item pool, grey, black, gray, makeup",
+        "unlock": "Desbloquea este objeto superando la Habitación Oscura con Eve."
+    },
+    {
+        "trinketId": "18",
+        "name": "Bible Tract",
+        "pickup": "\"Faith up\"",
+        "description": [
+            "Te da una mayor probabilidad de obtener corazones eternos/blancos."
+        ],
+        "tags": "* , the lost item pool, grey, gray, yellow black, book"
+    },
+    {
+        "trinketId": "19",
+        "name": "Paper Clip",
+        "pickup": "\"Master of lockpicking\"",
+        "description": [
+            "Permite desbloquear cofres dorados sin necesidad de una llave.",
+            "No funciona en habitaciones cerradas."
+        ],
+        "tags": "* starting, silver, grey, gray, metal, wire"
+    },
+    {
+        "trinketId": "20",
+        "name": "Monkey Paw",
+        "pickup": "\"Wish granted\"",
+        "description": [
+            "Cuando llegues a la mitad de la vida restante, aparecerá un corazón negro.",
+            "Después de que aparecen tres corazones negros, la baratija desaparece."
+        ],
+        "tags": "* , the lost item pool, hand, brown, pink, monkeys paw, monkey's paw"
+    },
+    {
+        "trinketId": "21",
+        "name": "Mysterious Paper",
+        "pickup": "\"???\"",
+        "description": [
+            "Imita los comportamientos de algunos de los otros items\/trinkets de \"papel\".",
+            "Una página faltante: al recibir daño, Isaac tiene la posibilidad de infligir daño a toda la habitación con un efecto estilo Necronomicon.",
+            "Polaroid o Negative (Probabilidad de bajar al piso respectivo).",
+            "Missing Poster."
+        ],
+        "tags": "*, white, grey, gray, page",
+        "unlock": "Desbloquea este objeto superando el Cofre con Edén"
+    },
+    {
+        "trinketId": "22",
+        "name": "Daemon's Tail",
+        "pickup": "\"Evil up\"",
+        "description": [
+            "El 80% de los drops de corazón se sustituyen por llaves",
+            "Los corazones se convierten en corazones negros siempre que sea posible. Esto no convierte los corazones que se obtienen antes de recoger este trinket, ni se aplica a los corazones de conjunto, es decir, los corazones eternos que se obtienen en las salas supersecretas con temática de ángeles.",
+            "Todos los corazones que obtengas de Ace of Hearts serán Corazones Negros."
+        ],
+        "tags": "*, black, devil, pointy, daemons tail, demons tail, demon tail",
+        "unlock": "Desbloquea este objeto derrotando a Satanás con Azazel."
+    },
+    {
+        "trinketId": "23",
+        "name": "Missing Poster",
+        "pickup": "\"???\"",
+        "description": [
+            "Morir en una sala de sacrificios mientras sostienes este trinket desbloqueará el personaje de El Perdido.",
+            "Después de desbloquear The Lost, morir en cualquier lugar con esta trinket te devolverá a la vida como The Lost y la trinket se eliminará."
+        ],
+        "tags": "*, page, paper, isaac, white, writing",
+        "unlock": "Desbloquea este objeto al superar Dark Room con Isaac."
+    },
+    {
+        "trinketId": "24",
+        "name": "Butt Penny",
+        "pickup": "\"Wealth of gas\"",
+        "description": [
+            "Cada vez que recoges una moneda, te tiras un pedo, lo que inflige daño por veneno a los enemigos cercanos.",
+            "Aumenta enormemente la posibilidad de que caigan monedas de las mierdas."
+        ],
+        "tags": "*, brown, orange, flat"
+    },
+    {
+        "trinketId": "25",
+        "name": "Mysterious Candy",
+        "pickup": "\"Uh-oh!\"",
+        "description": [
+            "Hace que Isaac cree mierdas aleatoriamente."
+        ],
+        "tags": "*, chocolate, brown, rectangle"
+    },
+    {
+        "trinketId": "26",
+        "name": "Hook Worm",
+        "pickup": "\"Zip zoop!\"",
+        "description": [
+            "Las lágrimas ahora se mueven hacia adelante en ángulos rectos, desplazándose de izquierda a derecha por la habitación.",
+            "+0.4 Cadencia",
+            "Otorga lágrimas espectrales"
+        ],
+        "tags": "*, white, snake, square"
+    },
+    {
+        "trinketId": "27",
+        "name": "Whip Worm",
+        "pickup": "\"Wooosh!\"",
+        "description": [
+            "+0,5 aumento de velocidad del disparo",
+            "Tus lágrimas ahora recorren la habitación a una velocidad muy alta.",
+            "La velocidad de disparo le da a tus lágrimas un alcance más efectivo, pero no aumenta tu estadística de alcance directamente."
+        ],
+        "tags": "*, snake, white"
+    },
+    {
+        "trinketId": "28",
+        "name": "Broken Ankh",
+        "pickup": "\"Eternal life?\"",
+        "description": [
+            "Tiene un 22,22 % de probabilidad de reaparecer con 3 corazones de alma como Blue Baby cuando mueres."
+        ],
+        "tags": "*, ank, grey, gray",
+        "unlock": "Desbloquea este objeto derrotando a Satanás con Lázaro."
+    },
+    {
+        "trinketId": "29",
+        "name": "Fish Head",
+        "pickup": "\"It stinks\"",
+        "description": [
+            "Cada vez que Isaac recibe daño, aparecerá una mosca azul."
+        ],
+        "tags": "* , the lost item pool, green, red, bloody, dead"
+    },
+    {
+        "trinketId": "30",
+        "name": "Pinky Eye",
+        "pickup": "\"Poison shots\"",
+        "description": [
+            "Las lágrimas de Isaac tienen la posibilidad de envenenar a los enemigos.",
+            "El efecto del veneno deja un daño a lo largo del tiempo, que causa 4 o 6 de daño por cada tic.",
+            "La posibilidad de envenenar a los enemigos se ve afectada por tu estadística de suerte y, con +18 Suerte, se activará cada vez."
+        ],
+        "tags": "*, red, pink"
+    },
+    {
+        "trinketId": "31",
+        "name": "Push Pin",
+        "pickup": "\"Piercing shots\"",
+        "description": [
+            "Isaac ahora tiene la probablidad de hacer una lágrima espectral y penetrante."
+        ],
+        "tags": "*, blue"
+    },
+    {
+        "trinketId": "32",
+        "name": "Liberty Cap",
+        "pickup": "\"Touch fuzzy, get dizzy!\"",
+        "description": [
+            "Otorga un efecto de hongo aleatorio en cada habitación.",
+            "Los hongos posibles incluyen: Mini Mush, Odd Mushroom (Thin), Odd Mushroom (Grueso), The Compass"
+        ],
+        "tags": "*, ping, pong, paddle, grey, gray, mushroom"
+    },
+    {
+        "trinketId": "33",
+        "name": "Umbilical Cord",
+        "pickup": "\"Fetal protection\"",
+        "description": [
+            "Mientras tengas 1\/2 corazón rojo de salud, obtienes un familiar Pequeño Steve que te sigue y dispara lágrimas teledirigidas.",
+            "El Cordón Umbilical tiene una alta probabilidad de generar un familiar Géminis para la sala cuando Isaac recibe daño. Este efecto es acumulable."
+        ],
+        "tags": "*, the lost item pool, pink, red, guts, intestine, tube"
+    },
+    {
+        "trinketId": "34",
+        "name": "Child's Heart",
+        "pickup": "\"It calls out to its brothers\"",
+        "description": [
+            "Le da a Isaac una mayor probabilidad de encontrar corazones en los botines después de limpiar una habitación y en los cofres."
+        ],
+        "tags": "* , the lost item pool, red, purple, childs heart, child heart"
+    },
+    {
+        "trinketId": "35",
+        "name": "Curved Horn",
+        "pickup": "\"DMG up\"",
+        "description": [
+            "+2 aumento de daño"
+        ],
+        "tags": "*, pink, brown, purple, twisted",
+        "unlock": "Desbloquea este objeto superando el Cuarto Oscuro con Judas."
+    },
+    {
+        "trinketId": "36",
+        "name": "Rusted Key",
+        "pickup": "\"It feels lucky?\"",
+        "description": [
+            "Le da a Isaac una mayor probabilidad de encontrar llaves y cofres."
+        ],
+        "tags": "*, brown, wooden, broken"
+    },
+    {
+        "trinketId": "37",
+        "name": "Goat Hoof",
+        "pickup": "\"Speed up\"",
+        "description": [
+            "+0,15 Speed"
+        ],
+        "tags": "* , black, grey, gray, bloody, square"
+    },
+    {
+        "trinketId": "38",
+        "name": "Mom's Pearl",
+        "pickup": "\"It emanates purity\"",
+        "description": [
+            "Otorga una posibilidad secundaria de que cualquier objeto de corazón no específico se convierta en un corazón de alma."
+        ],
+        "tags": "* , the lost item pool, white, grey, gray, circle, round, moms pearl"
+    },
+    {
+        "trinketId": "39",
+        "name": "Cancer",
+        "pickup": "\"Yay, cancer!\"",
+        "description": [
+            "-2 Retraso de lágrimas (Mejor Cadencia)",
+            "El aumento de cadencia se aplica de tal manera que cuanto mayor sea tu estadística de cadencia, más efectivo será el cáncer.",
+            "Rompe el límite de cadencia normal, lo que te permite disparar más rápido que el máximo normal."
+        ],
+        "tags": "*, green, brown, red, saddle, tube",
+        "cat": "up"
+    },
+    {
+        "trinketId": "40",
+        "name": "Red Patch",
+        "pickup": "\"Your rage grows\"",
+        "description": [
+            "Tienes la posibilidad, al recibir daño, de obtener +1,8 de aumento de daño para el resto de la sala."
+        ],
+        "tags": "*, the lost item pool, red"
+    },
+    {
+        "trinketId": "41",
+        "name": "Match Stick",
+        "pickup": "\"Tastes like burning\"",
+        "description": [
+            "Le da a Isaac una mayor probabilidad de encontrar bombas.",
+            "Recoger la cerilla es la única forma de quitar la baratija de la garrapata."
+        ],
+        "tags": "*, red, white"
+    },
+    {
+        "trinketId": "42",
+        "name": "Lucky Toe",
+        "pickup": "\"Luck up!\"",
+        "description": [
+            "+1 Suerte mientras se mantiene"
+        ],
+        "tags": "*, finger, thumb, nail, bone, pink, red",
+        "unlock": "Desbloquea este objeto haciendo explotar a 20 comerciantes (esto incluye a los de la habitación secreta)."
+    },
+    {
+        "trinketId": "43",
+        "name": "Cursed Skull",
+        "pickup": "\"Cursed?\"",
+        "description": [
+            "Cuando recibes daño mientras tienes 1\/2 corazón, te teletransportas a la sala anterior."
+        ],
+        "tags": "* , the lost item pool, head, bone, silver, grey, gray,"
+    },
+    {
+        "trinketId": "44",
+        "name": "Safety Cap",
+        "pickup": "\"Don't swallow it\"",
+        "description": [
+            "Le da a Isaac una mayor probabilidad de encontrar pastillas."
+        ],
+        "tags": "*, white, pill"
+    },
+    {
+        "trinketId": "45",
+        "name": "Ace of Spades",
+        "pickup": "\"Luck of the draw\"",
+        "description": [
+            "Le da a Isaac una mayor probabilidad de encontrar cartas del Tarot después de limpiar una habitación o de los cofres."
+        ],
+        "tags": "*, white, card"
+    },
+    {
+        "trinketId": "46",
+        "name": "Isaac's Fork",
+        "pickup": "\"Consume thy enemy\"",
+        "description": [
+            "Después de limpiar una habitación, tienes la posibilidad de curarte por medio corazón rojo."
+        ],
+        "tags": "*, the lost item pool, silver, metal, grey, gray, isaacs fork"
+    },
+    {
+        "trinketId": "48",
+        "name": "A Missing Page",
+        "pickup": "\"It glows with power\"",
+        "description": [
+            "Al recibir daño, Isaac tiene la posibilidad de infligir daño a toda la habitación con un efecto estilo Necronomicon.",
+            "La posibilidad de dañar a los enemigos se ve afectada por tu estadística de suerte y, con +50 o más de suerte, se activará el 50 % del tiempo."
+        ],
+        "tags": "* , the lost item pool, brown, red"
+    },
+    {
+        "trinketId": "49",
+        "name": "Bloody Penny",
+        "pickup": "\"Wealth of health\"",
+        "description": [
+            "Cada vez que recoges un centavo, tienes un 25% de posibilidades de que aparezca un corazón rojo en el suelo."
+        ],
+        "tags": "* , the lost item pool, red, coin, cent, money",
+        "unlock": "Desbloquea este objeto superando el cofre con Sansón."
+    },
+    {
+        "trinketId": "50",
+        "name": "Burnt Penny",
+        "pickup": "\"Wealth of chaos\"",
+        "description": [
+            "Cada vez que recoges una moneda, tienes un 25% de posibilidades de generar una bomba en el suelo."
+        ],
+        "tags": "*, money, grey, gray, steam, smoke, cent",
+        "unlock": "Desbloquea este objeto superando el desafío n.° 13 (¡Frijoles!)"
+    },
+    {
+        "trinketId": "51",
+        "name": "Flat Penny",
+        "pickup": "\"Wealth of answers\"",
+        "description": [
+            "Cada vez que recoges una moneda, tienes un 25% de posibilidades de generar una llave."
+        ],
+        "tags": "*, white, grey, gray, coin, cent, money, cash"
+    },
+    {
+        "trinketId": "52",
+        "name": "Counterfeit Penny",
+        "pickup": "\"Wealth of wealth\"",
+        "description": [
+            "Al recoger una moneda, tienes la posibilidad de ganar automáticamente una moneda más."
+        ],
+        "tags": "*, yellow, golden, coin, cent, money, cash, sparkle",
+        "unlock": "Desbloquea este objeto jugando al juego de conchas en la sala de juegos 100 veces"
+    },
+    {
+        "trinketId": "53",
+        "name": "Tick",
+        "pickup": "\"Well, that's not coming off\"",
+        "description": [
+            "Cuando ingresas a la sala de un jefe, eliminas inmediatamente el 15% de salud del jefe y restauras 1 corazón rojo.",
+            "No se puede soltar manteniendo pulsada la tecla de soltar ni recogiendo otros trinkets. La única forma de quitarla es tener una segunda ranura para trinkets, absorberla o recoger el trinket de Cerilla, que la quemará."
+        ],
+        "tags": "*, insect, bug, spider, beetle, brown, grey, gray, brown",
+        "cat": "down"
+    },
+    {
+        "trinketId": "54",
+        "name": "Isaac's Head",
+        "pickup": "\"Dead friend\"",
+        "description": [
+            "Mientras se sostiene, le otorga a Isaac un familiar que dispara lágrimas penetrantes que infligen 3.5 de daño."
+        ],
+        "tags": "*, dead, crying, pink, isaacs head",
+        "unlock": "Desbloquea este objeto al vencer Boss Rush con Isaac"
+    },
+    {
+        "trinketId": "55",
+        "name": "Maggy's Faith",
+        "pickup": "\"Faith's reward\"",
+        "description": [
+            "Al comenzar un nuevo piso, obtienes un corazón eterno."
+        ],
+        "tags": "* , the lost item pool, cross, yellow, golden, glow, maggys faith",
+        "unlock": "Desbloquea este objeto superando la Habitación Oscura con Maggy"
+    },
+    {
+        "trinketId": "56",
+        "name": "Judas' Tongue",
+        "pickup": "\"Payment received\"",
+        "description": [
+            "Los artículos que cuestan 2 contenedores de corazón en un trato con el diablo se reducen a costar solo 1 corazón."
+        ],
+        "tags": "* , the lost item pool, tong, red, bloody, lips, judas tongue",
+        "unlock": "Desbloquea este objeto derrotando a Satanás con Judas."
+    },
+    {
+        "trinketId": "57",
+        "name": "???'s Soul",
+        "pickup": "\"Imaginary friend\"",
+        "description": [
+            "Crea un familiar que se mueve por la habitación de manera similar a The Peeper, lanzando lágrimas en la misma dirección que Isaac."
+        ],
+        "tags": "*, dead, baby, blue, ???s soul, blue baby's soul, blue babys soul",
+        "unlock": "Desbloquea este objeto superando la Habitación Oscura con Bebé Azul"
+    },
+    {
+        "trinketId": "58",
+        "name": "Samson's Lock",
+        "pickup": "\"Your rage grows\"",
+        "description": [
+            "Cuando matas a un enemigo, tienes la posibilidad de obtener +0,5 de daño para la sala actual."
+        ],
+        "tags": "*, hair, pony, tail, brown, red, samsons lock",
+        "unlock": "Desbloquea este objeto superando la Habitación Oscura con Samson"
+    },
+    {
+        "trinketId": "59",
+        "name": "Cain's Eye",
+        "pickup": "\"May you see your destination\"",
+        "description": [
+            "Otorga un 25% de probabilidad de revelar íconos del mapa al comienzo de un nuevo piso (el mismo efecto que la brújula)"
+        ],
+        "tags": "*, circle, white, black",
+        "unlock": "Desbloquea este objeto superando el cofre con Caín."
+    },
+    {
+        "trinketId": "60",
+        "name": "Eve's Bird Foot",
+        "pickup": "\"Revenge from beyond\"",
+        "description": [
+            "Cuando matas a un enemigo, tienes la posibilidad de generar un familiar pájaro muerto transparente.",
+            "El familiar Pájaro Muerto inflige 2 de daño por tic a los enemigos mientras está en contacto con ellos."
+        ],
+        "tags": "*, grey, gray, black, striped, eves bird foot",
+        "unlock": "Desbloquea este objeto al derrotar al jefe Isaac con Eve."
+    },
+    {
+        "trinketId": "61",
+        "name": "The Left Hand",
+        "pickup": "\"The left hand path reaps dark rewards\"",
+        "description": [
+            "Reemplaza los cofres que aparecen con cofres rojos.",
+            "No reemplaza los cofres que ya han aparecido."
+        ],
+        "tags": "* northernlion, drop the left hand, paw, bloody, bleeding, grey, gray",
+        "unlock": "Desbloquea este objeto superando Ultra Pride"
+    },
+    {
+        "trinketId": "62",
+        "name": "Shiny Rock",
+        "pickup": "\"It shines for it's brothers\"",
+        "description": [
+            "Mientras se sostiene, las tainted rocks y las rocas con un espacios especiales debajo de ellas parpadearán en blanco cada 10 segundos."
+        ],
+        "tags": "*, silver, grey, gray, silver, lump, metal, stone"
+    },
+    {
+        "trinketId": "63",
+        "name": "Safety Scissors",
+        "pickup": "\"Fuse cutter\"",
+        "description": [
+            "Convierte todas las bombas de troll en bombas que puedes recoger y usar.",
+            "Las bombas de Super Troll se convierten en 1+1 bombas dobles gratis"
+        ],
+        "tags": "*, blue, metal, sissors"
+    },
+    {
+        "trinketId": "64",
+        "name": "Rainbow Worm",
+        "pickup": "\"Bleep bloop blop\"",
+        "description": [
+            "Le da a tus lágrimas un efecto de gusano aleatorio cada pocos segundos."
+        ],
+        "tags": "*, lgbt, circle, snake"
+    },
+    {
+        "trinketId": "65",
+        "name": "Tape Worm",
+        "pickup": "\"Floooooooooop!\"",
+        "description": [
+            "Mientras lo sostienes, Tape Worm duplica tu estadística de alcance y reduce a la mitad tu estadística de altura de lágrima."
+        ],
+        "tags": "*, intestine, white, snake"
+    },
+    {
+        "trinketId": "66",
+        "name": "Lazy Worm",
+        "pickup": "\"Pft\"",
+        "description": [
+            "-0,4 reducción de velocidad de disparo"
+        ],
+        "tags": "*, circle, button, eyes, white"
+    },
+    {
+        "trinketId": "67",
+        "name": "Cracked Dice",
+        "pickup": "\"You feel cursed... kinda.\"",
+        "description": [
+            "Cada vez que recibes un golpe, tienes la posibilidad de activar el efecto D6, D20, D8, D10 o D12."
+        ],
+        "tags": "*, stone, rock, white, grey, gray, white, dice, pip, broken, die",
+        "unlock": "Desbloquea este objeto superando el modo Greed con ???"
+    },
+    {
+        "trinketId": "68",
+        "name": "Super Magnet",
+        "pickup": "\"It pulls\"",
+        "description": [
+            "Mientras sostienes este trinket, todos los objetos y enemigos se mueven lentamente hacia ti.",
+            "También atraerá a las entidades de la puerta Pie de Mamá y Ultra Greed."
+        ],
+        "tags": "*, silver, white, grey, gray, pill, medicine, drug"
+    },
+    {
+        "trinketId": "69",
+        "name": "Faded Polaroid",
+        "pickup": "\"You feel faded\"",
+        "description": [
+            "De forma aleatoria, Isaac obtendrá un camuflaje durante unos segundos y todos los enemigos en la sala actual tendrán un efecto de estado confundido aplicado.",
+            "Este trinket se puede usar para abrir la puerta del Mausoleo en las Profundidades II"
+        ],
+        "tags": "*, brown, photo, family, old"
+    },
+    {
+        "trinketId": "70",
+        "name": "Louse",
+        "pickup": "\"Itchy, tasty...\"",
+        "description": [
+            "Da una pequeña posibilidad de generar una araña de ataque amistosa mientras estás en una habitación hostil con enemigos."
+        ],
+        "tags": "*, bug, insect, pink, legs"
+    },
+    {
+        "trinketId": "71",
+        "name": "Bob's Bladder",
+        "pickup": "\"Creepy bombs\"",
+        "description": [
+            "Deja un charco verde debajo de todas las bombas que coloques, lo que daña a los enemigos que caminan sobre él."
+        ],
+        "tags": "*, green, bogey, snot, ocarina, bobs bladder, bob bladder"
+    },
+    {
+        "trinketId": "72",
+        "name": "Watch Battery",
+        "pickup": "\"Lil charge\"",
+        "description": [
+            "Otorga un 6,66 % de probabilidad de obtener una batería pequeña después de limpiar una habitación.",
+            "Otorga un +2,0 % de probabilidad de que las pastillas sean baterías pequeñas.",
+            "Otorga un +5,0 % de probabilidad de agregar una carga adicional a tu objeto activo después de limpiar una habitación."
+        ],
+        "tags": "*, metal, silver, grey, gray, silver, pill, cross"
+    },
+    {
+        "trinketId": "73",
+        "name": "Blasting Cap",
+        "pickup": "\"Pop! Pop!\"",
+        "description": [
+            "Las bombas explosivas ahora tienen la posibilidad de dejar caer otra bomba que puedes recoger."
+        ],
+        "tags": "*, red, circle"
+    },
+    {
+        "trinketId": "74",
+        "name": "Stud Finder",
+        "pickup": "\"The ground below feels hollow...\"",
+        "description": [
+            "Mayor probabilidad de encontrar espacios especiales al explotar rocas"
+        ],
+        "tags": "*, toe, finger, thumb, grey, gray, black, red, yellow",
+        "unlock": "Desbloquea este trinket superando el desafío n.° 27 (Cerebros)."
+    },
+    {
+        "trinketId": "75",
+        "name": "Error",
+        "pickup": "\"Effect not found?\"",
+        "description": [
+            "Otorga un efecto de tinket diferente por habitación.",
+            "Cada habitación está limitada a un efecto de trinket específico, lo que significa que si sales y vuelves a entrar en una habitación, esa habitación específica siempre tendrá el mismo efecto."
+        ],
+        "tags": "*, 404, red"
+    },
+    {
+        "trinketId": "76",
+        "name": "Poker Chip",
+        "pickup": "\"It's double down time!\"",
+        "description": [
+            "Los cofres ahora tienen una probabilidad del 50\/50 de pagar con consumibles adicionales o nada o un enemigo."
+        ],
+        "tags": "*, red, white, circle, pill, bow",
+        "unlock": "Desbloquea este trinket superando el desafío n.° 26 (Yo mando)"
+    },
+    {
+        "trinketId": "77",
+        "name": "Blister",
+        "pickup": "\"Bounce back!\"",
+        "description": [
+            "Las lágrimas tienen un efecto de retroceso más fuerte mientras se sostiene este trinket."
+        ],
+        "tags": "*, white, lump, circle, hairy"
+    },
+    {
+        "trinketId": "78",
+        "name": "Second Hand",
+        "pickup": "\"Extended stat effect time\"",
+        "description": [
+            "Aumenta el tiempo que los efectos de estado permanecen en los enemigos. Por ejemplo, con efectos de veneno, el daño a lo largo del tiempo del veneno durará mucho más."
+        ],
+        "tags": "*, red, stick, dynamite, tnt, rod"
+    },
+    {
+        "trinketId": "79",
+        "name": "Endless Nameless",
+        "pickup": "\"I'm stuck in a loop...\"",
+        "description": [ 
+            "Eiste una pequeña posibilidad de al usar una carta o píldora del tarot una copia de la misma aparezca en el suelo."
+        ],
+        "tags": "*, grey, gray, black, infinity, oo"
+    },
+    {
+        "trinketId": "80",
+        "name": "Black Feather",
+        "pickup": "\"With darkness comes power\"",
+        "description": [
+            "+0,2 de daño por cada objeto \"malvado\" que tengas",
+            "Los objetos clasificados como malignos en este caso son: vela negra, túnicas ceremoniales, Abaddon, cabeza de cabra, libro de cerillas, missing page 2 y alfiler de seguridad."
+        ],
+        "tags": "*, grey, gray, leaf",
+        "unlock": "Desbloquea este objeto superando el modo Greed con Eve."
+    },
+    {
+        "trinketId": "81",
+        "name": "Blind Rage",
+        "pickup": "\"Blind to damage\"",
+        "description": [
+            "La invencibilidad dura más tiempo después de ser golpeado (i-frames aumentados)",
+            "Esto permite utilizar la máquina de donación de sangre dos veces con un solo golpe de daño."
+        ],
+        "tags": "*, bandana, sling, white, knot, blindfold",
+        "unlock": "Desbloquea este objeto al derrotar a Blue Womb (Hush) con Samson."
+    },
+    {
+        "trinketId": "82",
+        "name": "Golden Horse Shoe",
+        "pickup": "\"Feel lucky?\"",
+        "description": [
+            "+15 % de probabilidad de que aparezca una sala de objetos doble en el siguiente piso",
+            "Si el efecto se activa, aparecen dos elementos en tu sala de items, pero solo se puede tomar uno.",
+            "La probabilidad se duplica a +30% con el efecto de la Caja de Mamá."
+        ],
+        "tags": "*, gold, yellow, u, magnet"
+    },
+    {
+        "trinketId": "83",
+        "name": "Store Key",
+        "pickup": "\"Stores are open\"",
+        "description": [
+            "Abre automáticamente todas las puertas de la tienda de forma gratuita."
+        ],
+        "tags": "*, silver, starting, grey, gray, metal",
+        "unlock": "Desbloquea este trinket donando 666 monedas a la Máquina de Donación de Greed"
+    },
+    {
+        "trinketId": "84",
+        "name": "Rib of Greed",
+        "pickup": "\"Feels greedy\"",
+        "description": [
+            "Obliga a los minijefes Greed y Súper Greed a no aparecer más en tiendas o salas secretas.",
+            "Aumenta tus posibilidades de recibir monedas."
+        ],
+        "tags": "*, white, trunk, bent",
+        "unlock": "Desbloquea este trinket al vencer a Ultra Greed con Keeper"
+    },
+    {
+        "trinketId": "85",
+        "name": "Karma",
+        "pickup": "\"Karma up\"",
+        "description": [
+            "Donar a una máquina de donaciones tiene la posibilidad de curar a Isaac y devolverle un corazón rojo completo o generar un mendigo."
+        ],
+        "tags": "*, green, black, three, spiral",
+        "unlock": "Desbloquea este objeto al derrotar al jefe Cordero con Keeper."
+    },
+    {
+        "trinketId": "86",
+        "name": "Lil Larva",
+        "pickup": "\"the poop is moving...\"",
+        "description": [
+            "Destruir mierdas ahora te da una mosca azul"
+        ],
+        "tags": "*, white, grey, gray, bent"
+    },
+    {
+        "trinketId": "87",
+        "name": "Mom's Locket",
+        "pickup": "\"you feel her love\"",
+        "description": [
+            "Te curas medio corazón rojo cada vez que usas una llave para abrir una puerta o un cofre dorado.",
+            "Convierte todos los medios corazones rojos en corazones completos."
+        ],
+        "tags": "*, red, brown, grey, gray, necklace, moms locket, mom locket"
+    },
+    {
+        "trinketId": "88",
+        "name": "NO!",
+        "pickup": "\"Never again!\"",
+        "description": [
+            "Tendrás una probabilidad significativamente menor de encontrar items activos.",
+            "Hará que aparezcan elementos pasivos excepto cuando el juego no pueda generar más elementos pasivos."
+        ],
+        "tags": "*, stop, red, circle, line, cross, entry, warning"
+    },
+    {
+        "trinketId": "89",
+        "name": "Child Leash",
+        "pickup": "\"Keep your friends close...\"",
+        "description": [
+            "Hace que tus familiares permanezcan más cerca unos de otros."
+        ],
+        "tags": "*, ribbon, green, cyan, blue"
+    },
+    {
+        "trinketId": "90",
+        "name": "Brown Cap",
+        "pickup": "\"Fartoom!\"",
+        "description": [
+            "La mierda en el entorno ahora explotará cuando se destruya."
+        ],
+        "tags": "*, circle, rectangle, brown"
+    },
+    {
+        "trinketId": "91",
+        "name": "Meconium",
+        "pickup": "\"Eww\"",
+        "description": [
+            "Tienes una mayor probabilidad de que aparezcan mierdas Negras, que infligen daño a todos los enemigos en la sala cuando son destruidas.",
+            "Le da al objeto activo Poop la posibilidad de generar también una mierda Negra"
+        ],
+        "tags": "*, black, grey, gray, poop",
+        "unlock": "Desbloquea este trinket al derrotar al modo Greedier con ???"
+    },
+    {
+        "trinketId": "92",
+        "name": "Cracked Crown",
+        "pickup": "\"Boost Stats\"",
+        "description": [
+            "Aumenta la velocidad, el alcance, la velocidad de disparo, Cadencia y el daño si están por encima de sus valores base en aproximadamente un +20 %."
+        ],
+        "tags": "*, broken, damaged, yellow, golden",
+        "unlock": "Desbloquea este trinket consiguiendo una racha de 5 victorias en los desafíos diarios (debe tener una puntuación superior a 0 en la pantalla de puntuación)"
+    },
+    {
+        "trinketId": "93",
+        "name": "Used Diaper",
+        "pickup": "\"You Stink\"",
+        "description": [
+            "Otorga el efecto Skatole solo en ciertas habitaciones, lo que convertirá a las moscas hostiles en neutrales y evitará que otras disparen.",
+            "Las moscas de ataque, dardo y anilla se convierten en moscas negras neutrales y las moscas Pooters y gordas ya no te dispararán."
+        ],
+        "tags": "*, circle, white, fly, brown, poop"
+    },
+    {
+        "trinketId": "94",
+        "name": "Fish Tail",
+        "pickup": "\"It also stinks!\"",
+        "description": [
+            "Los objetos y trinkets que generan moscas azules y arañas tendrán el doble de efecto, lo que provocará que aparezcan el doble de ellas."
+        ],
+        "tags": "*, grey, gray, green, arrow, flower, plant"
+    },
+    {
+        "trinketId": "95",
+        "name": "Black Tooth",
+        "pickup": "\"It looks dead\"",
+        "description": [
+            "Algunas lágrimas se convertirán aleatoriamente en un diente negro, que inflige el doble de daño de lágrimas normal y puede envenenar a los enemigos."
+        ],
+        "tags": "*, black, grey, gray, horn"
+    },
+    {
+        "trinketId": "96",
+        "name": "Ouroboros Worm",
+        "pickup": "\"Foop foop!\"",
+        "description": [
+            "Las lágrimas se vuelven espectrales y viajan en un enorme patrón en espiral.",
+            "+1,5 aumento de alcance",
+            "+0.4 Cadencia"
+        ],
+        "tags": "*, black, grey, gray, brown, circle, snake"
+    },
+    {
+        "trinketId": "97",
+        "name": "Tonsil",
+        "pickup": "\"Sick...\"",
+        "description": [
+            "Cada vez que recibes daño tienes una posibilidad muy pequeña de obtener un familiar Tonsil, que te sigue y bloquea los proyectiles enemigos.",
+            "Este efecto puede ocurrir dos veces antes de que el trinket se destruya.",
+            "No inflige daño de contacto a los enemigos."
+        ],
+        "tags": "*, pink, red, bloody, brain"
+    },
+    {
+        "trinketId": "98",
+        "name": "Nose Goblin",
+        "pickup": "\"Seems magic...\"",
+        "description": [
+            "Tus lágrimas tienen una probabilidad aleatoria de convertirse en lágrimas de moco.",
+            "Las lágrimas de moco se adhieren a los enemigos e infligen daño venenoso periódico hasta que mueren o transcurren 60 segundos. Cada tic de daño venenoso equivale a tu daño de lágrima normal."
+        ],
+        "tags": "*, green, snot, booger, bogey, slime"
+    },
+    {
+        "trinketId": "99",
+        "name": "Super Ball",
+        "pickup": "\"Boing!\"",
+        "description": [
+            "Algunas lágrimas rebotarán."
+        ],
+        "tags": "*, yellow, orange, red, circle, stripe"
+    },
+    {
+        "trinketId": "100",
+        "name": "Vibrant Bulb",
+        "pickup": "\"It needs power\"",
+        "description": [
+            "Otorga +0,25 de velocidad, +0,75 de alcance, +0,1 de velocidad de disparo, +0,2 cadencia, +0,5 de daño y +1 de suerte cuando el objeto activo de Isaac está completamente cargado.",
+            "Los artículos de uso infinito, como el pelador de patatas, cuentan como cargados y proporcionan la bonificación de este trinket."
+        ],
+        "tags": "*, yellow, light"
+    },
+    {
+        "trinketId": "101",
+        "name": "Dim Bulb",
+        "pickup": "\"I think it's broken\"",
+        "description": [
+            "Otorga +0,5 de velocidad, +1,5 de alcance, +0,3 de velocidad de disparo, +0,4 cadencia y +1,5 de daño cuando el objeto activo de Isaac está completamente descargado.",
+            "Los artículos de un solo uso, como Mama Mega, se consideran sin cargar y proporcionan la bonificación de este trinket."
+        ],
+        "tags": "*, grey, gray, light"
+    },
+    {
+        "trinketId": "102",
+        "name": "Fragmented Card",
+        "pickup": "\"Double moon\"",
+        "description": [
+            "Te da otra habitación secreta en cada nuevo piso mientras lo mantienes",
+            "No genera más de una sala súper secreta, solo la sala secreta normal."
+        ],
+        "tags": "*, purple, torn, ripped, paper, page, poster"
+    },
+    {
+        "trinketId": "103",
+        "name": "Equality!",
+        "pickup": "\"=\"",
+        "description": [
+            "Cuando tienes la misma cantidad de monedas, bombas y llaves, la mitad de los consumibles se convierten en su versión duplicada."
+        ],
+        "tags": "*, red, lines, redpill"
+    },
+    {
+        "trinketId": "104",
+        "name": "Wish Bone",
+        "pickup": "\"Make a wish\"",
+        "description": [
+            "Cada vez que recibes daño tienes una posibilidad muy pequeña de generar un objeto de pedestal aleatorio.",
+            "Cuando se activa el efecto, el trinket se destruye."
+        ],
+        "tags": "*, grey, gray, claw, rib"
+    },
+    {
+        "trinketId": "105",
+        "name": "Bag Lunch",
+        "pickup": "\"I wonder what it is\"",
+        "description": [
+            "Cada vez que recibes daño tienes una posibilidad muy pequeña de generar el objeto Almuerzo, que otorga +1 HP",
+            "Cuando se activa el efecto, este trinket se destruye."
+        ],
+        "tags": "*, brown, sack, hoof"
+    },
+    {
+        "trinketId": "106",
+        "name": "Lost Cork",
+        "pickup": "\"Uncorked\"",
+        "description": [
+            "Aumenta el radio de cualquier charco que produzcas."
+        ],
+        "tags": "*, brown, yellow, orange, black"
+    },
+    {
+        "trinketId": "107",
+        "name": "Crow Heart",
+        "pickup": "\"Drain me\"",
+        "description": [
+            "Cualquier daño recibido elimina primero los corazones rojos, antes que los corazones del alma, los corazones negros y el daño del corazón podrido.",
+            "En 1\/2 de un corazón rojo, comenzará a eliminar nuevamente sus otros corazones."
+        ],
+        "tags": "* crow's, purple, blue, bloody",
+        "unlock": "Desbloquea este objeto superando el modo Greedier con Eve."
+    },
+    {
+        "trinketId": "108",
+        "name": "Walnut",
+        "pickup": "\"Thats a hard nut to crack!\"",
+        "description": [
+            "La nuez puede romperse al recibir daño de una explosión. Si lo hace, soltará un trinket, una moneda, un corazón y una llave al azar.",
+            "Se destruye una vez que se activa el efecto."
+        ],
+        "tags": "*, brown, brain, stone, rock"
+    },
+    {
+        "trinketId": "109",
+        "name": "Duct Tape",
+        "pickup": "\"Stuck!\"",
+        "description": [
+            "Provoca que cualquier orbital que tengas deje de moverse mientras lo mantienes presionado"
+        ],
+        "tags": "*, grey, gray, tp, toilet, paper, roll, silver"
+    },
+    {
+        "trinketId": "110",
+        "name": "Silver Dollar",
+        "pickup": "\"Feels lucky...\"",
+        "description": [
+            "Las tiendas ahora aparecerán en los pisos del útero (The Womb, Utero y Scarred Womb)."
+        ],
+        "tags": "*, silver, coin, money, cash, cent",
+        "unlock": "Desbloquea este objeto al derrotar a Delirium en el piso The Void con Cain."
+    },
+    {
+        "trinketId": "111",
+        "name": "Bloody Crown",
+        "pickup": "\"Drips with blood...\"",
+        "description": [
+            "Las salas de objetos ahora aparecen en los pisos del útero (El útero, El útero y El útero cicatrizado)."
+        ],
+        "tags": "*, red, dripping",
+        "unlock": "Desbloquea este objeto al derrotar a Delirium en el piso The Void con Samson."
+    },
+    {
+        "trinketId": "112",
+        "name": "Pay To Win",
+        "pickup": "\"...\"",
+        "description": [
+            "Las cajas de reposición siempre aparecerán en las salas de objetos."
+        ],
+        "tags": "*, cent, money, cash, coin, pixel, blue, green, p2w"
+    },
+    {
+        "trinketId": "113",
+        "name": "Locust of War",
+        "pickup": "\"I Bring Wrath\"",
+        "description": [
+            "Al entrar a una habitación con enemigos, genera una mosca roja que detona al impactar con los enemigos, lo que causa el doble de daño de lagrimas por el impacto de la mosca y 60 de daño por la explosión.",
+            "Puede ser peligroso ya que la mosca apuntará al enemigo más cercano, que puede estar lo suficientemente cerca como para atrapar a Isaac en su radio de explosión."
+        ],
+        "tags": "*, red, wings, fly, locust of wrath",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac en la Catedral como Apollyon."
+    },
+    {
+        "trinketId": "114",
+        "name": "Locust of Pestilence",
+        "pickup": "\"I Bring Pestilence\"",
+        "description": [
+            "Al comienzo de cada nueva sala hostil, generas una mosca de ataque verde, que apuntará a un enemigo cercano, causará el doble de daño por lágrimas y luego lo envenenará."
+        ],
+        "tags": "*, green, wings, fly",
+        "unlock": "Desbloquea este objeto derrotando a Satanás con Apollyon."
+    },
+    {
+        "trinketId": "115",
+        "name": "Locust of Famine",
+        "pickup": "\"I bring Famine\"",
+        "description": [
+            "Al comienzo de cada nueva sala hostil, generas una mosca de ataque amarilla, que apuntará a un enemigo cercano, causará el doble de daño por lagrima y le aplicará un efecto de ralentización."
+        ],
+        "tags": "*, brown, wings, fly",
+        "unlock": "Desbloquea este trinket derrotando a ??? en El Cofre como Apollyon"
+    },
+    {
+        "trinketId": "116",
+        "name": "Locust of Death",
+        "pickup": "\"I bring Death\"",
+        "description": [
+            "Al entrar en una habitación con enemigos, genera una mosca que inflige cuatro veces el daño de Isaac, aplicado como dos golpes de doble daño."
+        ],
+        "tags": "*, black, wings, fly",
+        "unlock": "Desbloquea este trinket al derrotar a El Cordero como Apollyon"
+    },
+    {
+        "trinketId": "117",
+        "name": "Locust of Conquest",
+        "pickup": "\"I Bring Conquest\"",
+        "description": [
+            "Al comienzo de cada nueva sala hostil, generas de 2 a 5 moscas de ataque blancas, que apuntarán a un enemigo cercano y le causarán el doble de daño por lagrima."
+        ],
+        "tags": "*, white, wings, fly",
+        "unlock": "Desbloquea este trinket al derrotar a Boss Rush como Apollyon"
+    },
+    {
+        "trinketId": "118",
+        "name": "Bat Wing",
+        "pickup": "\"They Are Growing...\"",
+        "description": [
+            "Al matar a un enemigo, tienes una posibilidad muy pequeña de obtener la capacidad de volar por el resto de la habitación."
+        ],
+        "tags": "*, black, grey, gray",
+        "unlock": "Desbloquea este trinket al derrotar al Modo Greed con Azazel"
+    },
+    {
+        "trinketId": "119",
+        "name": "Stem Cell",
+        "pickup": "\"Regen!\"",
+        "description": [
+            "Cura los contenedores de corazón rojo de Isaac al 50% en cada piso",
+            "Si Isaac ya tiene 50% de salud o más, cura la mitad de un corazón en su lugar."
+        ],
+        "tags": "*, red, pink, orange, eye, circle",
+        "unlock": "Desbloquea este trinket al derrotar al Modo Greed con Samson"
+    },
+    {
+        "trinketId": "120",
+        "name": "Hairpin",
+        "pickup": "\"Danger charge\"",
+        "description": [
+            "Recarga completamente tu objeto activo al comienzo de cada pelea contra un jefe."
+        ],
+        "tags": "*, yellow, whip, glow, black"
+    },
+    {
+        "trinketId": "121",
+        "name": "Wooden Cross",
+        "pickup": "\"My faith protects me\"",
+        "description": [
+            "Te otorga el efecto de escudo del Holy Mantle al comienzo de cada nuevo piso, que te protege del siguiente golpe de daño que recibas."
+        ],
+        "tags": "*, brown, crucifix"
+    },
+    {
+        "trinketId": "122",
+        "name": "Butter!",
+        "pickup": "\"Can't hold it!\"",
+        "description": [
+            "Si usas tu objeto activo mientras sostienes este trinket, esta volverá a caer en un pedestal en el suelo.",
+            "Además, después de recibir daño, tienes una probabilidad muy pequeña de perder uno de tus objetos pasivos."
+        ],
+        "tags": "*, yellow, golden, box, block, square, cube",
+        "unlock": "Desbloquea este trinket al dar dos vueltas a tu run"
+    },
+    {
+        "trinketId": "123",
+        "name": "Filigree Feather",
+        "pickup": "\"Angelic spoils!\"",
+        "description": [
+            "Hará que los mini jefes Ángeles suelten elementos normales en lugar de piezas clave."
+        ],
+        "tags": "*, silver, grey, gray, white, quill"
+    },
+    {
+        "trinketId": "124",
+        "name": "Door Stop",
+        "pickup": "\"Hold the door!\"",
+        "description": [
+            "La última puerta por la que pasó Isaac permanece abierta, lo que le permite salir de la habitación incluso si hay enemigos en ella.",
+            "Esta baratija funciona en las salas de jefes (excepto Ultra Greed) y en las salas de demonios que contienen Krampus, lo que te permite salir a mitad de la pelea."
+        ],
+        "tags": "*, door, stop, wedge, cheese, wood, brown, hodor, game of thrones, Wylis",
+        "unlock": "Desbloquea este trinket haciendo estallar puertas y paredes de habitaciones secretas 50 veces."
+    },
+    {
+        "trinketId": "125",
+        "name": "Extension Cord",
+        "pickup": "\"Charged friends\"",
+        "description": [
+            "Una cadena láser amarilla fluye ahora a través de los familiares de Isaac."
+        ],
+        "tags": "*,white, yellow"
+    },
+    {
+        "trinketId": "126",
+        "name": "Rotten Penny",
+        "pickup": "\"Wealth of flies\"",
+        "description": [
+            "Mientras lo mantienes presionado, genera +1 mosca azul amigable cada vez que recoges una moneda"
+        ],
+        "tags": "*,green, brown",
+        "unlock": "Desbloquea este trinket teniendo muchas moscas azules a la vez"
+    },
+    {
+        "trinketId": "127",
+        "name": "Baby-Bender",
+        "pickup": "\"Feed them magic!\"",
+        "description": [
+            "Mientras sostienes este trinket, otorgas a tus familiares disparos teledirigidos."
+        ],
+        "tags": "*, baby bender babybender, blue, white",
+        "unlock": "Desbloquea este objeto al tener dos objetos o efectos que otorguen disparos teledirigidos a la vez"
+    },
+    {
+        "trinketId": "128",
+        "name": "Finger Bone",
+        "pickup": "\"It looks brittle\"",
+        "description": [
+            "Te da un 5% de probabilidad de obtener un corazón de hueso cada vez que recibes daño."
+        ],
+        "tags": "*,white",
+        "unlock": "Desbloquea este trinket al derrotar a Ultra Greed como The Forgotten."
+    },
+    {
+        "trinketId": "129",
+        "name": "Jawbreaker",
+        "pickup": "\"Don't chew on it\"",
+        "description": [
+            "Las lágrimas tienen la posibilidad de convertirse en un diente, lo que inflige 3,2 veces más daño.",
+            "La probabilidad de disparar un diente con este trinket se ve afectada por tu estadística de Suerte.",
+            "Con +0 de suerte tienes ~12% de probabilidad de que se active este efecto.",
+            "Con +9 de suerte, cada lágrima que dispares será un diente."
+        ],
+        "tags": "*,"
+    },
+    {
+        "trinketId": "130",
+        "name": "Chewed Pen",
+        "pickup": "\"It's leaking\"",
+        "description": [
+            "Las lágrimas tienen la posibilidad de ralentizar a los enemigos."
+        ],
+        "tags": "*,black"
+    },
+    {
+        "trinketId": "131",
+        "name": "Blessed Penny",
+        "pickup": "\"Wealth of purity\"",
+        "description": [
+            "Posibilidad de generar medio corazón de alma al recoger una moneda",
+            "La probabilidad aumenta según el valor de la moneda: Penny = 16,66%, Double Penny = 30,5%, Nickel = 59,7%, Dime = 83,3%"
+        ],
+        "tags": "*,cyan, blue",
+        "unlock": "Desbloquea este trinket derrotando a ??? como Bethany"
+    },
+    {
+        "trinketId": "132",
+        "name": "Broken Syringe",
+        "pickup": "\"Mystery medicine\"",
+        "description": [
+            "Te da un efecto de jeringa aleatorio en cada habitación."
+        ],
+        "tags": "*,red"
+    },
+    {
+        "trinketId": "133",
+        "name": "Short Fuse",
+        "pickup": "\"Faster explosions\"",
+        "description": [
+            "Las bombas colocadas explotan después de 0,66 segundos en lugar de los 1,5 segundos habituales."
+        ],
+        "tags": "*,red"
+    },
+    {
+        "trinketId": "134",
+        "name": "Gigante Bean",
+        "pickup": "\"Mega farts\"",
+        "description": [
+            "Los pedos producidos por Isaac o sus familiares serán el doble de grandes."
+        ],
+        "tags": "*,brown, white"
+    },
+    {
+        "trinketId": "135",
+        "name": "A Lighter",
+        "pickup": "\"Watch the world burn\"",
+        "description": [
+            "Posibilidad de que los enemigos se quemen al entrar en una habitación.",
+            "La probabilidad de que este efecto se active depende de tu estadística de Suerte."
+        ],
+        "tags": "*,black, gray"
+    },
+    {
+        "trinketId": "136",
+        "name": "Broken Padlock",
+        "pickup": "\"Bombs are key\"",
+        "description": [
+            "Las explosiones pueden abrir puertas cerradas",
+            "Esto incluye bloques de llaves y cofres dorados."
+        ],
+        "tags": "*,gray"
+    },
+    {
+        "trinketId": "137",
+        "name": "Myosotis",
+        "pickup": "\"Forget me not...\"",
+        "description": [
+            "Los objetos que queden en el piso actual aparecerán en la sala de inicio del siguiente piso, hasta un máximo de 4 objetos."
+        ],
+        "tags": "*, flower, blue, petal, leaf, mysotis"
+    },
+    {
+        "trinketId": "138",
+        "name": "'M",
+        "pickup": "\"t's broken9Reroll your dest       \"",
+        "description": [
+            "Los objetos activos se renovarán al usarlos.",
+            "Usarlo con el Libro de las Virtudes solo cambiará el objeto que contiene el libro."
+        ],
+        "tags": "*,",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Edén."
+    },
+    {
+        "trinketId": "139",
+        "name": "Teardrop Charm",
+        "pickup": "\"It feels lucky\"",
+        "description": [
+            "Los efectos de lágrimas aleatorios basados en la suerte tienen una probabilidad adicional de ocurrir.",
+            "La probabilidad adicional es efectivamente +3 Suerte"
+        ],
+        "tags": "*,cyan"
+    },
+    {
+        "trinketId": "140",
+        "name": "Apple of Sodom",
+        "pickup": "\"It feels empty\"",
+        "description": [
+            "Recoger corazones rojos ahora tiene una alta probabilidad de generar entre 1 y 4 arañas de ataque azules, en lugar de devolverte salud.",
+            "Este efecto también funciona cuando estás completamente curado, lo que garantiza la posibilidad de atrapar arañas.",
+            "Si no hay salud roja, la probabilidad de que aparezcan arañas es menor.",
+            "Funciona para personajes que no usan salud roja, lo que siempre te da arañas.",
+            "Los corazones en las tiendas se pueden convertir en arañas gratis"
+        ],
+        "tags": "*,green"
+    },
+    {
+        "trinketId": "141",
+        "name": "Forgotten Lullaby",
+        "pickup": "\"Sing for your friends\"",
+        "description": [
+            "Proporciona a tus familiares una velocidad de disparo mejorada."
+        ],
+        "tags": "*,white, black",
+        "unlock": "Desbloquea este trinket bombardeando el cráneo que dejó el jefe Sirena después de su muerte."
+    },
+    {
+        "trinketId": "142",
+        "name": "Beth's Faith",
+        "pickup": "\"My faith protects me\"",
+        "description": [
+            "Al comienzo de cada piso, este trinket genera cuatro orbitales familiares alrededor de Isaac."
+        ],
+        "tags": "*,blue, beths faith",
+        "unlock": "Desbloquea este trinket al derrotar al jefe Rush como Bethany"
+    },
+    {
+        "trinketId": "143",
+        "name": "Old Capacitor",
+        "pickup": "\"Voltage starving\"",
+        "description": [
+            "Tu objeto activo ya no gana cargas, pero las caídas de batería se vuelven mucho más comunes"
+        ],
+        "tags": "*,blue, gray",
+        "unlock": "Desbloquea este trinket haciendo explotar 10 Battery Beggars"
+    },
+    {
+        "trinketId": "144",
+        "name": "Brain Worm",
+        "pickup": "\"Ding!\"",
+        "description": [
+            "Las lágrimas que no alcanzan a los enemigos se redirigirán y viajarán 90 grados hacia ellos.",
+            "Las lágrimas deben tener aproximadamente 2 casillas o menos para activar este efecto."
+        ],
+        "tags": "*, white",
+        "cat": "up"
+    },
+    {
+        "trinketId": "145",
+        "name": "Perfection",
+        "pickup": "\"Luck way up. Don't lose it!\"",
+        "description": [
+            "+10 Suerte mientras se sostiene, pero se destruye cuando se recibe daño.",
+            "Las máquinas de donación de sangre, las salas de maldiciones y las salas de sacrificio no lo destruirán.",
+            "Recibir un golpe y activar el Manto Sagrado no lo destruirá.",
+            "Se puede dejar caer para evitar romperlo.",
+            "Esta baratija se te entrega automáticamente después de eliminar a 3 jefes sin recibir daño."
+        ],
+        "tags": "*,white, red"
+    },
+    {
+        "trinketId": "146",
+        "name": "Devil's Crown",
+        "pickup": "\"His special customer\"",
+        "description": [
+            "Las Salas del Tesoro se reemplazan con Salas del Tesoro Rojas, que contienen un trato con el diablo en lugar de un pedestal de objetos normal.",
+            "Si aún no se ha ingresado a una sala de objetos, se puede transformar en una sala del tesoro normal o roja recogiendo o dejando caer este trinket antes de ingresar.",
+            "No afecta a la sala del tesoro reflejada en Downpour II"
+        ],
+        "tags": "*, devils crown, black, red",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Azazel."
+    },
+    {
+        "trinketId": "147",
+        "name": "Charged Penny",
+        "pickup": "\"Wealth of power\"",
+        "description": [
+            "Cada vez que recoges una moneda, tienes una pequeña posibilidad de ganar 1 barra de carga en tu objeto activo.",
+            "La probabilidad de que ocurra este efecto es 1\/6 del valor de la moneda recogida.",
+            "Solo se puede activar una vez por cada moneda recolectada."
+        ],
+        "tags": "*, yellow, gold",
+        "unlock": "Desbloquea este trinket donándola a un mendigo de baterías hasta que pague con un objeto 5 veces"
+    },
+    {
+        "trinketId": "148",
+        "name": "Friendship Necklace",
+        "pickup": "\"Gather round\"",
+        "description": [
+            "Mientras lo mantengas, tus familiares ahora orbitarán alrededor de Isaac en lugar de seguirlo."
+        ],
+        "tags": "*, red, pink"
+    },
+    {
+        "trinketId": "149",
+        "name": "Panic Button",
+        "pickup": "\"Push in case of emergency\"",
+        "description": [
+            "Activa tu objeto activo justo antes de que sufras daño.",
+            "No se activa gratis: las cargas se agotan normalmente si se activa este efecto."
+        ],
+        "tags": "*, gray, red"
+    },
+    {
+        "trinketId": "150",
+        "name": "Blue Key",
+        "pickup": "\"Look between the rooms\"",
+        "description": [
+            "Las puertas se pueden abrir sin utilizar una llave.",
+            "Sin embargo, al entrar por la puerta, te lleva a una sala de útero azul con enemigos que derrotar. Esta sala siempre te dará una recompensa al final, lo que te permitirá regresar al piso real."
+        ],
+        "tags": "*,blue, gray",
+        "unlock": "Desbloquea este trinket al derrotar a La Bestia como Tainted Cain"
+    },
+    {
+        "trinketId": "151",
+        "name": "Flat File",
+        "pickup": "\"No more spikes\"",
+        "description": [
+            "Las púas se retraen hacia el suelo.",
+            "Funciona para salas malditas: ya no sufres daño al entrar o salir.",
+            "Te permite abrir cofres con pinchos sin recibir daño."
+        ],
+        "tags": "*,gray, brown"
+    },
+    {
+        "trinketId": "152",
+        "name": "Telescope Lens",
+        "pickup": "\"Seek the stars\"",
+        "description": [
+            "+9% de probabilidad de que aparezca un Planetario",
+            "Permite que los planetarios se generen en los pisos del útero."
+        ],
+        "tags": "*,blue, gray",
+        "unlock": "Desbloquea este trinket reuniendo tres de los siguientes objetos en una misma partida: Bola Mágica 8, Planeta Mini, Bola de Cristal, Estrella de Belén o cualquier objeto relacionado con la Astrología (p. ej., Aries, Cáncer, Capricornio, Leo, etc.). El objeto llamado Zodiaco no cuenta."
+    },
+    {
+        "trinketId": "153",
+        "name": "Mom's Lock",
+        "pickup": "\"A piece of her love\"",
+        "description": [
+            "Tiene una alta probabilidad de darte el efecto de un item de mamá aleatorio en cada habitación."
+        ],
+        "tags": "*, moms lock, yellow, red",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Isaac."
+    },
+    {
+        "trinketId": "154",
+        "name": "Dice Bag",
+        "pickup": "\"Bonus roll\"",
+        "description": [
+            "Cada vez que ingresas a una habitación nueva, tienes la posibilidad de obtener un dado aleatorio de un solo uso (por ejemplo, D6, D20, etc.)"
+        ],
+        "tags": "*,purple, yellow",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Isaac contaminado."
+    },
+    {
+        "trinketId": "155",
+        "name": "Holy Crown",
+        "pickup": "\"Walk the path of the saint\"",
+        "description": [
+            "Hace que aparezcan salas de objetos y tiendas en la Catedral."
+        ],
+        "tags": "*, cyan, blue, white",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Magdalene."
+    },
+    {
+        "trinketId": "156",
+        "name": "Mother's Kiss",
+        "pickup": "\"HP up\"",
+        "description": [
+            "Mientras lo mantienes, obtienes +1 HP Up",
+            "La primera vez que recojas este trinket, el contenedor de corazones se llenará. Este efecto no se puede abusar; la próxima vez, estará vacío si se cae."
+        ],
+        "tags": "*, mothers kiss, red",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Magdalena."
+    },
+    {
+        "trinketId": "157",
+        "name": "Torn Card",
+        "pickup": "\"Death awaits\"",
+        "description": [
+            "Cada 15 disparos dispararás un disparo de Ipecac + Mi Reflejo",
+            "La lágrima volará por los aires durante unos 3 segundos y seguirá a Isaac hasta que caiga y explote. Debes apartarte o herirá a Isaac, pero puede usarse para abrir cualquier objeto que requiera una bomba, como las Salas Secretas."
+        ],
+        "tags": "*,",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Lazarus"
+    },
+    {
+        "trinketId": "158",
+        "name": "Torn Pocket",
+        "pickup": "\"A hole in your pocket\"",
+        "description": [
+            "Cada vez que recibes daño, dejas caer hasta 2 tipos diferentes de consumibles al suelo.",
+            "Los consumibles caídos pueden ser de cualquier variante de su tipo: por ejemplo, una bomba puede convertirse en una bomba troll, o una moneda caída puede convertirse en una moneda de diez centavos.",
+            "No hace nada si no tienes consumibles"
+        ],
+        "tags": "*,gray, brown",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Lazarus"
+    },
+    {
+        "trinketId": "159",
+        "name": "Gilded Key",
+        "pickup": "\"Less is more\"",
+        "description": [
+            "Todos los cofres nuevos se convierten en cofres dorados bloqueados"
+        ],
+        "tags": "*,gold",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Cain."
+    },
+    {
+        "trinketId": "160",
+        "name": "Lucky Sack",
+        "pickup": "\"Free goodies!\"",
+        "description": [
+            "Genera un saco al comienzo de cada nuevo piso."
+        ],
+        "tags": "*,brown, green",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Cain"
+    },
+    {
+        "trinketId": "161",
+        "name": "Wicked Crown",
+        "pickup": "\"Walk the path of the wicked\"",
+        "description": [
+            "Hace que aparezcan una sala de objetos y una tienda en Sheol."
+        ],
+        "tags": "*,red",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Azazel."
+    },
+    {
+        "trinketId": "162",
+        "name": "Azazel's Stump",
+        "pickup": "\"Unleash your inner demon\"",
+        "description": [
+            "Al ingresar a una nueva habitación, otorga una pequeña posibilidad de obtener el láser Brimstone de corto alcance de Azazel para la habitación actual y la capacidad de volar."
+        ],
+        "tags": "*, azazels stump, black",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Azazel."
+    },
+    {
+        "trinketId": "163",
+        "name": "Dingle Berry",
+        "pickup": "\"Oops!\"",
+        "description": [
+            "Genera 2 Dips amistosos al limpiar una habitación.",
+            "Los dips que aparecen después de matar a un Squirt se vuelven amigables"
+        ],
+        "tags": "*, brown",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Blue Baby"
+    },
+    {
+        "trinketId": "164",
+        "name": "Ring Cap",
+        "pickup": "\"Twice the bang!\"",
+        "description": [
+            "Deja caer 2 bombas a la vez (solo se elimina 1 bomba del total)"
+        ],
+        "tags": "*, red",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Bebé Azul"
+    },
+    {
+        "trinketId": "165",
+        "name": "Nuh Uh!",
+        "pickup": "\"Don't want!\"",
+        "description": [
+            "Más allá del piso del útero, reemplaza todas las monedas y llaves generadas por una recolección aleatoria de la siguiente manera:",
+            "Bomba: 26,6 % de probabilidad. Corazón: 26,6 % de probabilidad.",
+            "Píldora: 16,6 % de probabilidad. Carta: 16,6 % de probabilidad.",
+            "Abalorio: 6,6 % de probabilidad. Batería: 6,6 % de probabilidad.",
+            "También agrega un 20% de probabilidad de generar una mosca si el objeto original fue una moneda."
+        ],
+        "tags": "*, red",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Eden."
+    },
+    {
+        "trinketId": "166",
+        "name": "Modeling Clay",
+        "pickup": "\"???\"",
+        "description": [
+            "En cada nueva habitación, este trinket tiene la posibilidad de transformarse en una copia de un elemento pasivo aleatorio, lo que le otorga el efecto mientras dura esta habitación."
+        ],
+        "tags": "*,brown, red",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Eden."
+    },
+    {
+        "trinketId": "167",
+        "name": "Polished Bone",
+        "pickup": "\"Friends from beyond\"",
+        "description": [
+            "Da una pequeña posibilidad de generar un Bony amigable al limpiar una habitación, que lanzará huesos a los enemigos hasta que reciba suficiente daño para morir.",
+            "Puede ser el Bony blanco normal o la variante negra."
+        ],
+        "tags": "*,white, yellow",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Forgotten"
+    },
+    {
+        "trinketId": "168",
+        "name": "Hollow Heart",
+        "pickup": "\"A brittle blessing\"",
+        "description": [
+            "Te otorga +1 Corazón de Hueso cada vez que ingresas a un nuevo piso"
+        ],
+        "tags": "*,white, gray",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Forgotten"
+    },
+    {
+        "trinketId": "169",
+        "name": "Kid's Drawing",
+        "pickup": "\"Looks familiar...\"",
+        "description": [
+            "Cuenta como 1 de los 3 elementos de gato necesarios para la transformación de Guppy",
+            "Si vuelves a dejar caer este trinket, se elimina la transformación si no tienes otros 3 elementos Guppy."
+        ],
+        "tags": "*, kids drawing, brown",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Lost"
+    },
+    {
+        "trinketId": "170",
+        "name": "Crystal Key",
+        "pickup": "\"Call to the other side\"",
+        "description": [
+            "Cada vez que limpias una habitación existe la posibilidad de que aparezca una Habitación Roja en una de las paredes.",
+            "La posibilidad de desbloquear una Habitación Roja aumenta a medida que recoges más Llaves de Cristal.",
+            "Estando en una habitación normal, las posibilidades de que aparezca una Habitación Roja son: 1 Llave = 33,33 % de posibilidades. 2 Llaves = 50 % de posibilidades. 3 o más Llaves = 100 % de posibilidades.",
+            "Mientras estés en una habitación roja, las posibilidades de que aparezca una habitación roja son: 1 llave = 12,5 % de posibilidades. 2 llaves = 16,6 % de posibilidades. 3 llaves = 25 % de posibilidades. 4 llaves = 50 % de posibilidades. 5 llaves = 100 % de posibilidades.",
+            "Las salas pasivas sin enemigos no tienen posibilidad de generar salas rojas.",
+            "Es posible tener más de una baratija tomando el Bolso de Mamá, el Ombligo o usando la Fundición para convertirlas en objetos pasivos. Tener una versión dorada de este trinket cuenta como 2 llaves."
+        ],
+        "tags": "*, white, gray",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Lost"
+    },
+    {
+        "trinketId": "171",
+        "name": "Keeper's Bargain",
+        "pickup": "\"Money talks\"",
+        "description": [
+            "Tiene una probabilidad decente de que los tratos con el diablo cuesten dinero en lugar de salud.",
+            "La tasa de conversión es de 1 contenedor de corazón a 15 monedas.",
+            "Los artículos pueden tener descuento de forma similar a la tienda, por lo que 1 contenedor de corazón = 7 monedas en su lugar.",
+            "Sin efecto sobre los perdidos o los perdidos contaminados",
+            "Se puede dejar caer para desactivar este efecto mientras estás en la habitación."
+        ],
+        "tags": "*, keepers bargain, keeper bargain, brown, red",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como el Tainted Keeper."
+    },
+    {
+        "trinketId": "172",
+        "name": "Cursed Penny",
+        "pickup": "\"Wealth of misery\"",
+        "description": [
+            "Serás teletransportado a una habitación aleatoria cada vez que recojas una moneda."
+        ],
+        "tags": "*, purple",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Keeper."
+    },
+    {
+        "trinketId": "173",
+        "name": "Your Soul",
+        "pickup": "\"Give it to me\"",
+        "description": [
+            "Te permite pagar un trato con el diablo con este trinket."
+        ],
+        "tags": "*, white",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Judas."
+    },
+    {
+        "trinketId": "174",
+        "name": "Number Magnet",
+        "pickup": "\"6\"",
+        "description": [
+            "+10% de probabilidad de entrar en la sala del diablo mientras está en posesión",
+            "Se han modificado los diseños de las Salas del Diablo. Las nuevas salas contienen de 0 a 3 objetos de trato del diablo, de 1 a 3 Corazones Negros y enemigos aleatorios del piso del Seol.",
+            "Evita que aparezca Krampus"
+        ],
+        "tags": "*,red",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Judas."
+    },
+    {
+        "trinketId": "175",
+        "name": "Strange Key",
+        "pickup": "\"What could it open?\"",
+        "description": [
+            "Abre la puerta al Útero Azul, independientemente de si cumples con el temporizador de velocidad de 30 minutos",
+            "Abrir la Caja de Pandora con este objeto ignorará el efecto normal y, en su lugar, generará 6 pedestales de objetos aleatorios. Tanto la caja como la baratija se consumen al hacerlo."
+        ],
+        "tags": "*,blue",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Eve."
+    },
+    {
+        "trinketId": "176",
+        "name": "Lil Clot",
+        "pickup": "\"Mini friend\"",
+        "description": [
+            "Un pequeño amigo abrazará a Isaac, siguiendo sus movimientos exactos y derramando lágrimas cuando lo haga.",
+            "El coágulo se puede mover mediante la colisión con un objeto o una pared, lo que le permite reposicionarlo.",
+            "El daño del coágulo es aproximadamente 1\/3 del daño causado por el desgarro.",
+            "Si recibe algunos golpes, morirá y reaparecerá en la siguiente habitación."
+        ],
+        "tags": "*, mini clot, red",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Eve"
+    },
+    {
+        "trinketId": "177",
+        "name": "Temporary Tattoo",
+        "pickup": "\"You feel braver\"",
+        "description": [
+            "Genera un cofre aleatorio después de completar una sala de desafío normal.",
+            "Genera un elemento de pedestal después de completar una sala de desafío de jefe."
+        ],
+        "tags": "*, red, yellow",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Samson."
+    },
+    {
+        "trinketId": "178",
+        "name": "Swallowed M80",
+        "pickup": "\"Bang!\"",
+        "description": [
+            "Al recibir daño tienes la posibilidad de explotar y causar 185 de daño a todos los enemigos que te rodean (el mismo daño que una bomba Mr. Mega)"
+        ],
+        "tags": "*, red, blue",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Samson"
+    },
+    {
+        "trinketId": "179",
+        "name": "RC Remote",
+        "pickup": "\"Controllable buddies!\"",
+        "description": [
+            "Los familiares siguen los movimientos exactos de Isaac (similar a cómo trabajan Jacob y Esaú), en lugar de seguirlos libremente como suelen hacerlo.",
+            "Mantener presionado el botón de soltar (Ctrl en la versión de Steam) hace que dejen de moverse.",
+            "No afecta a algunos familiares con patrones de movimiento específicos, por ejemplo, Abel."
+        ],
+        "tags": "*, gray, red",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Jacob."
+    },
+    {
+        "trinketId": "180",
+        "name": "Found Soul",
+        "pickup": "\"Finally!\"",
+        "description": [
+            "Te da un familiar que sigue los movimientos exactos de Isaac y dispara lágrimas espectrales.",
+            "Al igual que en el caso de Jacob y Esaú, las posiciones se pueden modificar al chocar contra objetos o al mantener presionado el botón de soltar (Ctrl en la versión Steam).",
+            "Cuando colocas una bomba, el Alma Encontrada también dejará caer una.",
+            "Si recibe algún daño, morirá y no reaparecerá hasta el siguiente piso.",
+            "Siempre coincidirá con tu velocidad de movimiento actual."
+        ],
+        "tags": "*,white",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Jacob."
+    },
+    {
+        "trinketId": "181",
+        "name": "Expansion Pack",
+        "pickup": "\"Fun extras\"",
+        "description": [
+            "Cada vez que uses tu objeto activo, tendrás la oportunidad de activar otro objeto activo aleatorio."
+        ],
+        "tags": "*, gray, red, green",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Bethany"
+    },
+    {
+        "trinketId": "182",
+        "name": "Beth's Essence",
+        "pickup": "\"Virtue's reward\"",
+        "description": [
+            "Recibir daño te da la posibilidad de generar un orbital de llamas, similar a los creados por el Libro de las Virtudes.",
+            "Entrar a una Sala de Ángeles te otorga +5 orbitales de llamas. La Sala de Ángeles generada por el objeto Escalera también cuenta.",
+            "Darle dinero a un mendigo le da una llama orbital."
+        ],
+        "tags": "*, beths essence, blue",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Bethany"
+    },
+    {
+        "trinketId": "183",
+        "name": "The Twins",
+        "pickup": "\"I'm seeing double...\"",
+        "description": [
+            "Al ingresar a cada nueva habitación, este trinket tiene la posibilidad de copiar a uno de tus familiares actuales.",
+            "Si no tienes familiares, en su lugar aparecerán el Hermano Bobby o la Hermana Maggy.",
+            "Solo dura la habitación actual"
+        ],
+        "tags": "*,blue,red",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Lilith"
+    },
+    {
+        "trinketId": "184",
+        "name": "Adoption Papers",
+        "pickup": "\"Give them a home\"",
+        "description": [
+            "Todas las tiendas solo venden familiares mientras tienen este trinket.",
+            "Si entras a una tienda mientras sostienes este trinket, el efecto no se deshará al dejarla caer hasta que te muevas a un nuevo piso."
+        ],
+        "tags": "*,white",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Lilith"
+    },
+    {
+        "trinketId": "185",
+        "name": "Cricket Leg",
+        "pickup": "\"Infested\"",
+        "description": [
+            "Cada vez que un enemigo muere, tienes la posibilidad de ganar un Locust aleatorio.",
+            "Las langostas de diferentes colores corresponden a los jinetes. Cada una inflige el doble de daño de desgarro, similar al funcionamiento de las moscas azules estándar.",
+            "Guerra (Rojo): Explota al tocar al enemigo. La explosión inflige 60 de daño fijo.",
+            "Pestilencia (Verde): Envenena al enemigo al que ataca.",
+            "Hambruna (marrón): aplica un efecto de ralentización.",
+            "Muerte (Negro): Inflige x4 de daño en lugar de x2",
+            "Conquista (Blanco): genera de 2 a 5 a la vez"
+        ],
+        "tags": "*,brown",
+        "unlock": "Desbloquea este trinket al derrotar a Isaac, ???, Satanás y El Cordero como Tainted Apollyon"
+    },
+    {
+        "trinketId": "186",
+        "name": "Apollyon's Best Friend",
+        "pickup": "\"Attack buddy\"",
+        "description": [
+            "Te otorga un ataque volador rojo que cargará contra los enemigos en la misma dirección en la que estás disparando.",
+            "Inflige daño igual a tu daño.",
+            "Deja de cargar una vez que golpea a un enemigo y regresa al lado de Isaac."
+        ],
+        "tags": "*, apollyons best friend, red",
+        "unlock": "Desbloquea este trinket al derrotar a Madre como Tainted Apollyon"
+    },
+    {
+        "trinketId": "187",
+        "name": "Broken Glasses",
+        "pickup": "\"Double vision?\"",
+        "description": [
+            "Otorga un 33 % de probabilidad de generar un pedestal ciego adicional en todas las salas de objetos futuras. Este será un signo de interrogación oculto.",
+            "Permite ver qué son ambos elementos en los pisos de rutas alternativas (Aguacero\/Escoria, Minas\/Cenicero, Gehena\/Mausoleo)."
+        ],
+        "tags": "*, black, white",
+        "unlock": "Desbloquea este trinket al derrotar el desafío n.° 40 (Ver doble)"
+    },
+    {
+        "trinketId": "188",
+        "name": "Ice Cube",
+        "pickup": "\"Stay frosty\"",
+        "description": [
+            "Al entrar en una sala, los enemigos tienen una pequeña probabilidad de quedar petrificados durante 4 segundos. Matar a un enemigo petrificado lo congelará.",
+            "La probabilidad de que este efecto se active depende de tu estadística de Suerte."
+        ],
+        "tags": "*, cyan, blue",
+        "unlock": "Desbloquea este trinket al derrotar el desafío n.º 41 (Pica Run)"
+    },
+    {
+        "trinketId": "189",
+        "name": "Sigil of Baphomet",
+        "pickup": "\"Revel in death\"",
+        "description": [
+            "Cada vez que matas a un enemigo obtienes un escudo de invencibilidad durante 1 segundo.",
+            "Mientras esté protegido, cada enemigo asesinado agrega +1 segundo a la duración."
+        ],
+        "tags": "*,black",
+        "unlock": "Desbloquea este trinket al derrotar el desafío n.° 37 (Bloody Mary)"
+    }
+]

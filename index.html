@@ -1,0 +1,4263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+15&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon"
+        href="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/icon.png">
+    <link rel="manifest" href="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Joker Card</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/icon.png"
+        type="image/x-icon">
+    <style>
+        /* Webkit (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        html {
+            background-color: black;
+            background-image: url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/background.png');
+            background-repeat: repeat-y;
+            background-size: contain;
+            background-position: center;
+            min-height: 100vh;
+            width: 100vw;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            cursor: url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/hover.cur'), auto !important;
+        }
+
+        #loader-quote {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        img,
+        .clear-search,
+        button,
+        .modal-close,
+        .modal-nav {
+            cursor: url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/cursor.cur'), auto !important;
+        }
+
+        input {
+            cursor: url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/write.cur'), auto !important;
+        }
+
+        body {
+            font-family: 'Jersey 15', Arial, sans-serif;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        .content {
+            width: 75%;
+            margin: 30px auto;
+            /* Centra el contenido */
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        .itemgrid,
+        .trinketgrid,
+        .cardgrid {
+            border-radius: 20px;
+            padding: 0;
+        }
+
+        /* Nueva clase para cuando los grids están activos */
+        .itemgrid.active,
+        .trinketgrid.active,
+        .cardgrid.active {
+            padding: 10px 0;
+        }
+
+        .itemgrid {
+            background: rgba(255, 255, 0, 0.08);
+        }
+
+        .trinketgrid {
+            background: rgba(128, 128, 128, 0.12);
+        }
+
+        .cardgrid {
+            background: rgba(165, 104, 42, 0.15);
+        }
+
+        h2 {
+            color: rgb(240, 234, 234);
+            text-align: center;
+            font-family: 'Jersey 15', Arial, sans-serif;
+            margin: 0 0;
+            text-shadow: rgb(18, 13, 13) 5px 5px 0px, rgb(0, 0, 0) 0px 0px 10px;
+            font-size: 5em;
+            letter-spacing: 5px;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 0;
+            font-family: 'Jersey 15', Arial, sans-serif;
+            font-weight: lighter;
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        .img-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            /* Menor separación */
+            align-items: flex-end;
+            /* Alinea arriba */
+            justify-content: center;
+            /* Centra horizontalmente */
+            margin: 0px auto;
+            /* Centra el grid en la pantalla */
+        }
+
+        .img-grid img {
+            image-rendering: pixelated;
+            display: block;
+            margin: 0;
+            transition: all 0.2s;
+            z-index: 1;
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .modal[style*="display: flex"] {
+            display: flex !important;
+        }
+
+        .modal-content {
+            border: 10px inset #99866e;
+            background: #f6d6b0;
+            padding: 1em 4em;
+            border-radius: 8px;
+            min-width: 200px;
+            max-width: 550px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            scrollbar-gutter: stable;
+        }
+
+        .modal-content img {
+            image-rendering: pixelated;
+        }
+
+        #modal-content-characters {
+            text-align: center;
+            width: 500px;
+            height: 650px;
+            box-shadow: inset 0px 200px 100px -20px rgb(0 0 0 / 47%);
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            cursor: pointer;
+            font-size: 2em;
+        }
+
+        .search-bar-content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            gap: 0px;
+        }
+
+        .search-bar {
+            margin-top: 5px;
+            width: 94%;
+            padding: 10px 30px 10px 10px;
+            /* Agregado padding-right para dar espacio a la x */
+            font-size: 2em;
+            border-radius: 8px;
+            border: 4px inset #99866e;
+            background: #f6d6b0;
+            color: #222;
+            font-family: 'Jersey 15', Arial, sans-serif;
+        }
+
+        .search-bar-container {
+            position: relative;
+            width: 65%;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 3em;
+            color: #614e3c;
+            display: none;
+            user-select: none;
+            padding: 5px;
+        }
+
+        .clear-search:hover {
+            color: #000000;
+        }
+
+        .lang-img {
+            padding: 5px;
+            margin-top: 5px;
+            margin-left: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            image-rendering: pixelated;
+        }
+
+        .info-img {
+            padding: 5px;
+            margin-top: 5px;
+            margin-right: -5px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            image-rendering: pixelated;
+        }
+
+        .char-img {
+            padding: 5px;
+            margin-top: 5px;
+            margin-left: 10px;
+            height: 50px;
+            cursor: pointer;
+            image-rendering: pixelated;
+        }
+
+        .filter-bar {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .filter-btn {
+            font-family: 'Jersey 15', Arial, sans-serif;
+            font-size: 1.2em;
+            padding: 0;
+            /* Elimina padding para que la imagen ocupe todo el botón */
+            padding-bottom: 4px;
+            border-radius: 10px;
+            border: outset 3px #99866e;
+            background: var(--filter-unselected-bg, #99866e);
+            color: #222;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            outline: none;
+            width: 100px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .filter-btn img {
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+            pointer-events: none;
+            /* Permite que el click pase al botón */
+            display: block;
+            image-rendering: pixelated;
+            filter: brightness(75%) saturate(0.25);
+
+        }
+
+        .filter-btn.active {
+            background: var(--filter-active-bg, #99866e);
+            font-weight: bold;
+            box-shadow: 0 0 8px #fff2;
+        }
+
+        .filter-btn.active img {
+            filter: brightness(100%) saturate(100%);
+        }
+
+        .cat-corner {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            width: 125px;
+            height: 125px;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0 0 5px #000000);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 5em;
+            color: #614e3c;
+            cursor: pointer;
+            padding: 0px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            transition: color 0.2s;
+            user-select: none;
+        }
+
+        .modal-nav:hover {
+            color: #000000;
+        }
+
+        .modal-prev {
+            left: 10px;
+        }
+
+        .modal-next {
+            right: 10px;
+        }
+
+        #items-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        #items-header button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        #items-header img {
+            width: 48px;
+            height: 48px;
+            pointer-events: none;
+            image-rendering: pixelated;
+        }
+
+        #trinkets-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        #trinkets-header button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        #trinkets-header img {
+            width: 48px;
+            height: 48px;
+            pointer-events: none;
+            image-rendering: pixelated;
+        }
+
+        #items-header button,
+        #trinkets-header button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            border-radius: 100%;
+            filter: brightness(50%) saturate(100%) blur(1px);
+            transition: all 0.2s;
+
+        }
+
+        #items-header button.active,
+        #trinkets-header button.active {
+            background: rgba(246, 214, 176, 0.2);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+            filter: blur(0px);
+        }
+
+        #items-header img,
+        #trinkets-header img {
+            width: 48px;
+            height: 48px;
+            pointer-events: none;
+            image-rendering: pixelated;
+        }
+
+        .img-wrap {
+            display: inline-block;
+        }
+
+        .img-wrap.cat-up,
+        .img-wrap.cat-down {
+            animation: pixel-stretch 10s infinite;
+        }
+
+        @keyframes pixel-stretch {
+
+            0%,
+            93%,
+            98%,
+            100% {
+                transform: scaleX(1) scaleY(1);
+            }
+
+            94% {
+                transform: scaleX(1.2) scaleY(0.9);
+            }
+
+            95% {
+                transform: scaleX(0.8) scaleY(1.1);
+            }
+
+            96% {
+                transform: scaleX(1.15) scaleY(0.85);
+            }
+
+            97% {
+                transform: scaleX(0.85) scaleY(1.15);
+            }
+        }
+
+        .img-wrap img:hover {
+            transform: scale(1.5);
+            z-index: 1000;
+            filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 10px #ff0000);
+        }
+
+        .rainbow-effect {
+            animation: rainbow-hue 2s linear infinite;
+            filter: hue-rotate(0deg);
+        }
+
+        @keyframes rainbow-hue {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .brimstone-laser {
+            filter: brightness(1.5) blur(1px);
+            position: fixed;
+            pointer-events: none;
+            overflow: visible;
+            /* Añade estas dos líneas para que el pseudo-elemento herede la rotación */
+            transform-origin: top center;
+        }
+
+        .brimstone-laser::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 60px;
+            height: 40px;
+            background: radial-gradient(ellipse at center, #ffae00 60%, #ff2222 100%, transparent 100%);
+            transform: translateX(-50%) rotate(var(--curve-rotate, 0deg)) translateY(var(--curve-translate, 0px));
+            opacity: 0.8;
+            z-index: 10000;
+            pointer-events: none;
+        }
+
+        .azazel-hide {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+        
+
+        #modal-content-settings {
+            max-width: none;
+            padding: 2em 1em;
+        }
+
+        /* Loader styles */
+        #loader-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 200000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s;
+        }
+
+        #loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            position: relative;
+        }
+
+        .loader::before,
+        .loader::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80em;
+            height: 80em;
+            background-image:
+                radial-gradient(circle 12px, #f6d6b0 100%, transparent 0);
+            background-position: 18em 0em;
+            background-repeat: no-repeat;
+            font-size: 1px;
+            border-radius: 50%;
+            animation: blast .5s linear infinite;
+        }
+
+        .loader::after {
+            font-size: 1px;
+            background: #f6d6b0;
+            animation: blink .5s ease infinite;
+        }
+
+        .loader-fusion {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-fusion .loader {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .loader-fusion .loader-circular-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            z-index: 3;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-fusion .loader-percent-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6f604f;
+            font-family: 'Jersey 15', Arial, sans-serif;
+            font-size: 1.2em;
+            pointer-events: none;
+            user-select: none;
+            z-index: 4;
+        }
+
+        #loader-circle-bg {
+            stroke: #222;
+        }
+
+        #loader-circle {
+            transition: stroke-dashoffset 0.4s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        @keyframes blink {
+
+            0%,
+            90%,
+            100% {
+                transform: translate(-50%, -50%) scaleY(1);
+                /* ojo abierto */
+            }
+
+            40%,
+            50%,
+            60% {
+                transform: translate(-50%, -50%) scaleY(0.9);
+                /* ojo cerrado */
+            }
+        }
+
+
+        @keyframes blast {
+
+            0%,
+            20% {
+                font-size: 0.5px;
+            }
+
+            70% {
+                opacity: 1;
+                font-size: 4px;
+            }
+
+            100% {
+                font-size: 6px;
+                opacity: 0;
+            }
+        }
+
+        .loader-text {
+            color: #f6d6b0;
+            font-size: 2em;
+            font-family: 'Jersey 15', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .loader-progress-bar {
+            width: 150px;
+            height: 20px;
+            background: #222;
+            border-radius: 8px;
+            margin-top: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 8px #000;
+        }
+
+        .loader-progress-bar-inner {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #f6d6b0 0%, #ffe6a0 100%);
+            border-radius: 8px;
+            transition: width 0.5s;
+        }
+
+        #floating-quiz-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 2001;
+            background: #f6d6b0;
+            border: 4px outset #99866e;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            box-shadow: 0 4px 16px #0008;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        #floating-link-btn {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 2001;
+            background: #f6d6b0;
+            border: 4px outset #99866e;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            box-shadow: 0 4px 16px #0008;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        #floating-quiz-btn:hover {
+            box-shadow: 0 8px 24px #000a;
+            transform: scale(1.08);
+        }
+
+        #floating-link-btn:hover {
+            box-shadow: 0 8px 24px #000a;
+            transform: scale(1.08);
+        }
+
+        #floating-quiz-btn img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            image-rendering: pixelated;
+            pointer-events: none;
+        }
+
+        #floating-link-btn img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            image-rendering: pixelated;
+            pointer-events: none;
+        }
+
+        /* Mini-tooltip para hover en items/trinkets/cards */
+        .mini-tooltip {
+            position: fixed;
+            background: #f6d6b0;
+            color: #000;
+            border: 4px inset #99866e;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-family: 'Jersey 15', Arial, sans-serif;
+            font-size: 1.2em;
+            pointer-events: none;
+            z-index: 100000;
+            transform-origin: center bottom;
+            transition: opacity 0.12s ease, transform 0.12s ease;
+            opacity: 0;
+            box-shadow: 0 6px 18px #0008;
+            white-space: nowrap;
+        }
+
+        .mini-tooltip.visible {
+            opacity: 1;
+            transform: translateY(-6px);
+        }
+
+        .mini-tooltip .tooltip-id {
+            margin-left: 8px;
+        }
+
+        .character-carousel-container {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+
+        .character-carousel {
+            position: relative;
+        }
+
+        .character-item {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.6s ease;
+            opacity: 0.6;
+            transform: scale(0.7);
+        }
+
+        .character-item.center {
+            opacity: 1;
+            transform: scale(1) translateZ(0);
+            z-index: 100;
+        }
+
+        .character-item img {
+            object-fit: contain;
+            width: 300px;
+        }
+
+        .character-info {
+            margin-top: 30px;
+            min-height: 100px;
+        }
+
+        .character-info h2 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .character-unlock {
+            font-size: 1.5em;
+            color: #ccc;
+            max-width: 600px;
+            padding: 10px 5px 10px 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #characters-next,
+        #characters-prev {
+            z-index: 10;
+            color: black;
+        }
+
+        @media (max-width: 700px) {
+            html {
+                background-color: rgb(19, 12, 9);
+                background-image: url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/background_mobile.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            #trinkets-header,
+            #items-header {
+                gap: 10px;
+            }
+
+            #items-header img,
+            #trinkets-header img {
+                width: 38px;
+                height: 38px;
+            }
+
+            h2 {
+                font-size: 3.5em;
+            }
+
+            .content {
+                width: 95vw;
+                padding: 2px;
+                border-radius: 0;
+                margin-top: 0;
+            }
+
+            .img-grid {
+                gap: 5px;
+                /* Menor separación */
+            }
+
+            .img-grid img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .search-bar-content {
+                width: 95vw;
+                margin: 0;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .search-bar {
+                font-size: 1em;
+                padding: 10px 30px 10px 10px;
+                /* Agregado padding-right para dar espacio a la x */
+                width: 70vw;
+                box-sizing: border-box;
+            }
+
+            .search-bar-container {
+                width: 70vw;
+            }
+
+            .clear-search {
+                font-size: 2em;
+                right: 8px;
+            }
+
+            .lang-img {
+                width: 40px;
+                height: 40px;
+                margin-left: 10px;
+                padding: 2px;
+            }
+
+            .info-img {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                padding: 2px;
+            }
+
+            .char-img {
+                height: 40px !important;
+                margin-left: 5px !important;
+                padding: 2px;
+            }
+
+            .filter-bar {
+                flex-wrap: wrap;
+                gap: 2px;
+                padding: 5px;
+            }
+
+            .filter-btn {
+                width: 55px;
+                height: 40px;
+                font-size: .8em;
+                padding-bottom: 2px;
+            }
+
+            .itemgrid,
+            .trinketgrid,
+            .cardgrid {
+                padding: 0px;
+            }
+
+            .modal-content {
+                max-width: 70vw;
+                padding: 2em 2em;
+            }
+
+            .modal-close {
+                right: .2em;
+                top: 0;
+                font-size: 3em;
+            }
+
+            .cat-corner {
+                top: 0;
+                left: .2em;
+                width: 100px;
+                height: 100px;
+            }
+
+            .modal-nav {
+                font-size: 2em;
+            }
+
+            .modal-prev {
+                left: 5px;
+            }
+
+            .modal-next {
+                right: 5px;
+            }
+
+            #floating-quiz-btn {
+                width: 48px;
+                height: 48px;
+                right: 12px;
+                bottom: 12px;
+            }
+
+            #floating-quiz-btn img {
+                width: 32px;
+                height: 32px;
+            }
+
+            #floating-link-btn {
+                width: 48px;
+                height: 48px;
+                left: 12px;
+                bottom: 12px;
+            }
+
+            #floating-link-btn img {
+                width: 32px;
+                height: 32px;
+            }
+
+            /* Grid de temas en móvil: 2 columnas */
+            #theme-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                max-width: 100% !important;
+            }
+
+            .theme-grid-btn {
+                aspect-ratio: 16 / 10 !important;
+                width: 140px !important;
+            }
+
+            .theme-grid-btn img {
+                height: 50px !important;
+            }
+
+            .character-carousel-container {
+                height: 250px;
+                position: relative;
+                top: 10%;
+            }
+
+            .character-item {
+                width: 80px;
+                height: 80px;
+            }
+
+            .character-info {
+                margin-top: 55%;
+            }
+
+            .character-info h2 {
+                font-size: 2em !important;
+            }
+
+            .character-unlock {
+                font-size: 1.2em;
+            }
+
+            #character-portal-toggle {
+                transform: translate(-100%, -60%) !important;
+            }
+
+            #characters-next,
+            #characters-prev {
+                font-size: 3em !important;
+            }
+
+            #modal-close-characters {
+
+                padding: 5px 10px;
+                z-index: 10000000000000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader-bg">
+        <div id="loader">
+            <div class="loader-fusion">
+                <span class="loader"></span>
+                <div class="loader-circular-progress">
+                    <div id="loader-percent" class="loader-percent-text">0%</div>
+                </div>
+            </div>
+            <div class="loader-text" id="loader-quote">
+                <span id="loader-phrase"></span>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div id="floating-quiz-btn" title="Quiz Isaac">
+        <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/quiz.png" alt="Quiz">
+    </div>
+    <div id="floating-link-btn" title="Enlace">
+        <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/All_Items/item_54.png" alt="Enlace">
+    </div>
+    <div class="content">
+        <!-- Search bar -->
+        <div class="search-bar-content">
+            <!-- Botón de ajustes (sustituye al de info) -->
+            <img id="settings-btn"
+                src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/settings.png"
+                alt="Ajustes" class="info-img" title="Ajustes">
+            <div class="search-bar-container">
+                <input class="search-bar" id="search-bar" type="text" placeholder="Nombre, habitación, etc...">
+                <span class="clear-search" id="clear-search">&times;</span>
+            </div>
+            <!-- Botón de personajes -->
+            <img id="characters-btn"
+                src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/stompy.png"
+                alt="Personajes" class="char-img" title="Personajes" style="cursor: pointer;">
+        </div>
+        <!-- Filtro -->
+        <div class="filter-bar" id="filter-bar">
+            <button class="filter-btn" data-filter="all">
+                <span
+                    style="pointer-events: none;margin:0;font-family: 'Jersey 10';font-weight: lighter;font-size: 3em;">ALL</span>
+            </button>
+            <button class="filter-btn" data-filter="shop">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/shop_door.png"
+                    alt="Shop">
+            </button>
+            <button class="filter-btn" data-filter="itemroom">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/itemroom_door.png"
+                    alt="Item Room">
+            </button>
+            <button class="filter-btn" data-filter="planetarium">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/planetarium_door.png"
+                    alt="Planetarium">
+            </button>
+            <button class="filter-btn" data-filter="library">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/library_door.png"
+                    alt="Library">
+            </button>
+            <button class="filter-btn" data-filter="curseroom">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/curseroom_door.png"
+                    alt="Curse Room">
+            </button>
+            <button class="filter-btn" data-filter="secretroom">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/secretroom_door.png"
+                    alt="Secret Room">
+            </button>
+            <button class="filter-btn" data-filter="bossroom">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/bossroom_door.png"
+                    alt="Boss Room">
+            </button>
+            <button class="filter-btn" data-filter="devilroom">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/devilroom_door.png"
+                    alt="Devil Room">
+            </button>
+            <button class="filter-btn" data-filter="angelroom">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/angelroom_door.png"
+                    alt="Angel Room">
+            </button>
+            <button class="filter-btn" data-filter="trinkets">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/trinkets.png"
+                    alt="Trinkets">
+            </button>
+            <button class="filter-btn" data-filter="consumibles">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/pools/consumibles.png"
+                    alt="Consumibles">
+            </button>
+        </div>
+        <div id="items-header">
+            <button id="sort-id-btn">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/id.png"
+                    alt="Ordenar por ID">
+            </button>
+            <h2 id="h2-items" style="margin:0;">ITEMS</h2>
+            <button id="sort-color-btn">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/color.png"
+                    alt="Ordenar por Color">
+            </button>
+        </div>
+        <div id="items" class="img-grid itemgrid"></div>
+        <div id="trinkets-header">
+            <button id="sort-id-trinkets-btn">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/id.png"
+                    alt="Ordenar por ID">
+            </button>
+            <h2 id="h2-trinkets">TRINKETS</h2>
+            <button id="sort-color-trinkets-btn">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/color.png"
+                    alt="Ordenar por Color">
+            </button>
+        </div>
+        <div id="trinkets" class="img-grid trinketgrid"></div>
+        <h2 id="h2-cards">MISC</h2>
+        <div id="cards" class="img-grid cardgrid"></div>
+    </div>
+    <!-- Mensaje de error -->
+    <div id="error-msg" style="color:red; margin:1em 0;"></div>
+    <!-- Modals -->
+    <div id="item-modal" class="modal">
+        <div class="modal-content" id="modal-content-item">
+            <span class="modal-close" id="modal-close-item">&times;</span>
+            <!-- Info del item aquí -->
+        </div>
+    </div>
+    <div id="trinket-modal" class="modal">
+        <div class="modal-content" id="modal-content-trinket">
+            <span class="modal-close" id="modal-close-trinket">&times;</span>
+            <!-- Info del trinket aquí -->
+        </div>
+    </div>
+    <div id="card-modal" class="modal">
+        <div class="modal-content" id="modal-content-card">
+            <span class="modal-close" id="modal-close-card">&times;</span>
+            <!-- Info de la card aquí -->
+        </div>
+    </div>
+
+    <div id="info-modal_es" class="modal">
+        <div class="modal-content" id="modal-content-info">
+            <span class="modal-close" id="modal-close-info">&times;</span>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px;"><img
+                    src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/icon50.png"
+                    style="pointer-events: none;">
+                <h3>Joker Card</h3><img
+                    src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/icon50.png"
+                    style="pointer-events: none;">
+            </div>
+            <p>Esta es una aplicación web para consultar rápidamente información sobre los objetos de The Binding of
+                Isaac</p>
+            <p>Puedes usar los filtros de la parte superior para mostrar objetos de habitaciones específicas, o usar la
+                barra de búsqueda para encontrar objetos por nombre o descripción.</p>
+            <p>Haz clic en cualquier objeto para ver su información detallada.</p>
+            <p>El botón de idioma en la esquina superior derecha permite cambiar entre español e inglés.</p>
+            <img style="width: 75%;border-radius: 20px; border:pink inset 10px; display: block; margin: 0 auto; pointer-events: none;"
+                src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/kokomiLogo.png">
+            <p>Esta página ha sido desarrollada especificamente para cubrir las necesidades de mi novia y asegurarme de
+                que en su camino al platinum god se lo pase lo mejor posible</p>
+            <p>Todo aquel que la use sabrá que esto va por ti 💜👀</p>
+            <p>P.D. ya descubriras lo que es el platinum god</p>
+        </div>
+    </div>
+    <div id="info-modal_en" class="modal">
+        <div class="modal-content" id="modal-content-info">
+            <span class="modal-close" id="modal-close-info">&times;</span>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/icon50.png">
+                <h3>Joker Card</h3><img
+                    src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/icon50.png">
+            </div>
+            <p>This is a web application to quickly consult information about items in The Binding of Isaac</p>
+            <p>You can use the filters at the top to show items from specific rooms, or use the search bar to find items
+                by name or description.</p>
+            <p>Click on any item to see its detailed information.</p>
+            <p>The language button in the top right corner allows you to switch between Spanish and English.</p>
+            <img style="width: 75%;border-radius: 20px; border:pink inset 10px; display: block; margin: 0 auto;"
+                src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/kokomiLogo.png">
+            <p>This page has been developed specifically to meet my girlfriend's needs and ensure that she enjoys her
+                journey to platinum god as much as possible</p>
+            <p>Anyone who uses it will know that this is for you 💜👀</p>
+            <p>P.S. you'll find out what platinum god is</p>
+        </div>
+
+    </div>
+
+
+    <!-- Modal de Personajes -->
+    <div id="characters-modal" class="modal" aria-hidden="true">
+
+        <div class="modal-content" id="modal-content-characters">
+            <span class="modal-close" id="modal-close-characters">&times;</span>
+            <!-- Navegación por botones: solo con estas flechas se cambiará de personaje -->
+            <div class="modal-nav modal-prev" id="characters-prev" title="Anterior">&lt;</div>
+            <div class="modal-nav modal-next" id="characters-next" title="Siguiente">&gt;</div>
+
+            <!-- Carousel de personajes -->
+            <div class="character-carousel-container">
+                <div class="character-carousel" id="character-carousel">
+                    <!-- Los personajes se generarán aquí -->
+                </div>
+            </div>
+
+            <!-- Información del personaje seleccionado -->
+            <div class="character-info" id="character-info">
+                <h2 id="character-name"></h2>
+                <div id="character-unlock" class="character-unlock"></div>
+                <button id="character-unlock-btn"
+                    style="margin-top: 15px; width:100%;padding: 10px 20px; font-size: 1.1em; border-radius: 8px; color:white; background: rgb(72, 72, 72); cursor: pointer; font-family: 'Jersey 15'; display: none;">
+                    DESBLOQUEAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="modal" aria-hidden="true">
+        <div class="modal-content" id="modal-content-settings" style="text-align:center;">
+            <span class="modal-close" id="modal-close-settings">&times;</span>
+
+            <!-- Nombre del tema visible -->
+            <div id="theme-name" style="font-size: 2em;font-weight:700;margin-bottom:8px;text-align:center;"></div>
+
+            <!-- Grid de temas en lugar de Carousel -->
+            <div id="theme-grid"
+                style="display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:12px;margin:1em 0;max-width:600px;margin-left:auto;margin-right:auto;">
+                <!-- Los botones se generarán con JS -->
+            </div>
+
+
+            <!-- Botones de idioma e info juntos -->
+            <div
+                style="margin-top:10px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;">
+                <img id="lang-toggle"
+                    src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/languages_es.png"
+                    alt="Cambiar idioma" class="lang-img"
+                    style="width:40px;height:40px;margin:0;padding:5px;cursor:pointer;">
+
+                <img id="info-btn"
+                    src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/info.png"
+                    alt="Info" class="info-img" style="width:40px;height:40px;margin:0;padding:5px;cursor:pointer;">
+            </div>
+
+        </div>
+    </div>
+
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content" id="quiz-modal-content" style="text-align:center;">
+            <span class="modal-close" id="quiz-modal-close">&times;</span>
+            <!-- Aquí va la pregunta del quiz -->
+        </div>
+        <script>
+            clearAllGrids(); // Limpia los grids al inicio
+            const baseUrl = "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/";
+
+            // Variables para almacenar los datos
+            let allItems = [];
+            let allTrinkets = [];
+            let allCards = [];
+
+            // Estado de orden actual (mover estas declaraciones aquí arriba)
+            let sortMode = "id";
+            let sortModeTrinkets = "id";
+
+            let language = 'es'; // Por defecto español
+
+            // Helper para crear imágenes y eventos
+            function createImg(src, alt, clickHandler) {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = alt;
+                img.style.objectFit = "contain";
+                img.onerror = function () { this.style.display = 'none'; };
+                img.addEventListener('click', clickHandler);
+                return img;
+            }
+
+            function initializeButtonStates() {
+                // Activar botones de ID al inicio
+                document.getElementById('sort-id-btn').classList.add('active');
+                document.getElementById('sort-id-trinkets-btn').classList.add('active');
+                // Asegurar que los botones de color estén desactivados
+                document.getElementById('sort-color-btn').classList.remove('active');
+                document.getElementById('sort-color-trinkets-btn').classList.remove('active');
+            }
+
+            const isaacLoadingQuotes = [
+                { text: "Afilando cuchillo de mama...", prob: 10 },
+                { text: "Bebiendo Soy Milk...", prob: 10 },
+                { text: "BLLLARRRRGGG!", prob: 10 },
+                { text: "Rerolleando...", prob: 10 },
+                { text: "Buscando la sala secreta...", prob: 10 },
+                { text: "Cargando Objetos...", prob: 10 },
+                { text: "El primer boss en un minuto...", prob: 5 },
+                { text: "Derrotando a ??????...", prob: 5 },
+                { text: "Ve a por Hush...", prob: 5 },
+                { text: "🐈Blondigo estuvo aquí🐈", prob: 1 },
+                { text: "🐈Carbonaro estuvo aquí🐈", prob: 1 }
+            ];
+
+            function pickWeightedQuote(quotes) {
+                const total = quotes.reduce((sum, q) => sum + q.prob, 0);
+                let r = Math.random() * total;
+                for (const q of quotes) {
+                    if (r < q.prob) return q.text;
+                    r -= q.prob;
+                }
+                return quotes[0].text; // fallback
+            }
+
+            const loaderQuote = document.getElementById('loader-quote');
+            if (loaderQuote) loaderQuote.textContent = pickWeightedQuote(isaacLoadingQuotes);
+
+            // Oculta solo la frase hasta que la fuente esté lista
+            loaderQuote.style.opacity = '0';
+            document.fonts.ready.then(() => {
+                loaderQuote.style.opacity = '1';
+            });
+
+            document.fonts.ready.then(() => {
+                document.getElementById('loader-bg').style.opacity = '1'; // Muestra el loader solo cuando la fuente está lista
+                // Aquí puedes poner la línea que asigna la frase aleatoria si quieres que aparezca justo con la fuente:
+                const loaderQuote = document.getElementById('loader-quote');
+                if (loaderQuote) loaderQuote.textContent = pickWeightedQuote(isaacLoadingQuotes);
+            });
+
+            function preloadAllImages() {
+                const baseUrl = "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/";
+                let images = [];
+                // Items
+                allItems.forEach(item => {
+                    if (item.id) {
+                        images.push(`${baseUrl}All_Items/item_${item.id}.png`);
+                    }
+                });
+                // Trinkets
+                allTrinkets.forEach(trinket => {
+                    if (trinket.trinketId) {
+                        images.push(`${baseUrl}All_Trinkets/trinket_${trinket.trinketId}.png`);
+                    }
+                });
+                // Cards
+                allCards.forEach(card => {
+                    if (card.cardId) {
+                        images.push(`${baseUrl}All_Consumables/card_${card.cardId}.png`);
+                    }
+                });
+                // Personajes y extras
+                const characterImgs = [
+                    "isaac.png", "isaac_t.png", "magdalene.png", "magdalene_t.png",
+                    "cain.png", "cain_t.png", "judas.png", "judas_t.png",
+                    "bluebaby.png", "bluebaby_t.png", "eve.png", "eve_t.png",
+                    "samson.png", "samson_t.png", "azazel.png", "azazel_t.png",
+                    "lazarus.png", "lazarus_t.png", "eden.png", "eden_t.png",
+                    "thelost.png", "thelost_t.png", "lilith.png", "lilith_t.png",
+                    "keeper.png", "keeper_t.png", "apollyon.png", "apollyon_t.png",
+                    "theforgotten.png", "theforgotten_t.png", "bethany.png", "bethany_t.png",
+                    "jacobandesau.png", "jacobandesau_t.png", "portal.png", "death.png"
+                ];
+                characterImgs.forEach(img => images.push(baseUrl + 'characters/' + img));
+                // Otros iconos y recursos
+                images.push(
+                    `${baseUrl}other/icon.png`,
+                    `${baseUrl}other/icon50.png`,
+                    `${baseUrl}other/info.png`,
+                    `${baseUrl}other/languages_es.png`,
+                    `${baseUrl}other/languages_en.png`,
+                    `${baseUrl}other/kokomiLogo.png`,
+                    `${baseUrl}other/cat_up.png`,
+                    `${baseUrl}other/cat_up2.png`,
+                    `${baseUrl}other/cat_down.png`,
+                    `${baseUrl}other/cat_stunned.png`,
+                    `${baseUrl}other/cat_stunned2.png`,
+                    `${baseUrl}bars/1.png`, `${baseUrl}bars/2.png`, `${baseUrl}bars/3.png`, `${baseUrl}bars/4.png`, `${baseUrl}bars/6.png`, `${baseUrl}bars/12.png`,
+                    `${baseUrl}other/mosca.png`, `${baseUrl}other/mosca2.png`,
+                    `${baseUrl}pools/shop_door.png`, `${baseUrl}pools/itemroom_door.png`, `${baseUrl}pools/planetarium_door.png`, `${baseUrl}pools/library_door.png`, `${baseUrl}pools/curseroom_door.png`, `${baseUrl}pools/secretroom_door.png`, `${baseUrl}pools/bossroom_door.png`, `${baseUrl}pools/devilroom_door.png`, `${baseUrl}pools/angelroom_door.png`, `${baseUrl}pools/trinkets.png`, `${baseUrl}pools/consumibles.png`,
+                    `${baseUrl}other/id.png`, `${baseUrl}other/color.png`
+                );
+                let loaded = 0;
+                const total = images.length;
+                if (total === 0) {
+                    hideLoader();
+                    return;
+                }
+                function hideLoader() {
+                    const loader = document.getElementById('loader-bg');
+                    if (loader) {
+                        loader.style.opacity = '0';
+                        setTimeout(() => loader.style.display = 'none', 200);
+                    }
+                }
+                const circle = document.getElementById('loader-circle');
+                const percentText = document.getElementById('loader-percent');
+                const circleLength = 2 * Math.PI * 26; // r=26
+
+                images.forEach(src => {
+                    const img = new window.Image();
+                    img.onload = img.onerror = () => {
+                        loaded++;
+                        const percent = Math.round((loaded / total) * 100);
+                        if (percentText) percentText.textContent = `${percent}%`;
+                        if (circle) {
+                            circle.style.strokeDashoffset = circleLength * (1 - percent / 100);
+                        }
+                        if (loaded === total) hideLoader();
+                    };
+                    img.src = src;
+                });
+            }
+
+            // Modificar la función loadAllData para llamar a initializeButtonStates
+            function loadAllData() {
+                // Limpia los arrays antes de cargar
+                allItems = [];
+                allTrinkets = [];
+                allCards = [];
+                clearAllGrids();
+
+                // Restablecer el estado de ordenamiento por defecto
+                sortMode = "id";
+                sortModeTrinkets = "id";
+                initializeButtonStates();
+
+                fetch(`${baseUrl}items_${language}.json`)
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(items => { allItems = items; renderByFilters(); preloadAllImages(); })
+                    .catch(err => {
+                    });
+
+                fetch(`${baseUrl}trinkets_${language}.json`)
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(trinkets => { allTrinkets = trinkets; renderByFilters(); preloadAllImages(); })
+                    .catch(err => {
+                    });
+
+                fetch(`${baseUrl}cards_${language}.json`)
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(cards => { allCards = cards; renderByFilters(); preloadAllImages(); })
+                    .catch(err => {
+                    });
+            }
+
+            // Inicializa con español
+            loadAllData();
+
+            // Filtros activos
+            let activeFilters = [];
+
+            // Limpia todos los grids y oculta los h2
+            function clearAllGrids() {
+                document.getElementById('items').innerHTML = '';
+                document.getElementById('trinkets').innerHTML = '';
+                document.getElementById('cards').innerHTML = '';
+                document.getElementById('items-header').style.display = 'none';
+                document.getElementById('trinkets-header').style.display = 'none';
+                document.getElementById('h2-cards').style.display = 'none';
+            }
+
+            // Search logic
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                window.searchText = e.target.value.trim().toLowerCase();
+                // Si no hay filtros activos y hay texto, activa "all"
+                if (window.searchText && activeFilters.length === 0) {
+                    activeFilters = ['all'];
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                }
+                renderByFilters();
+            });
+            window.searchText = "";
+            const searchInput = document.getElementById('search-bar');
+            const clearButton = document.getElementById('clear-search');
+
+            searchInput.addEventListener('input', function () {
+                clearButton.style.display = this.value ? 'block' : 'none';
+            });
+
+            clearButton.addEventListener('click', function () {
+                const html = document.documentElement;
+                const items = document.querySelectorAll('.img-grid img');
+                searchInput.value = '';
+                window.searchText = '';
+                this.style.display = 'none';
+                html.classList.remove('rainbow-effect');
+                items.forEach(img => img.classList.remove('rainbow-effect'));
+                renderByFilters();
+            });
+
+            // Renderiza según los filtros activos
+            function renderByFilters() {
+                clearAllGrids();
+                let showItems = [];
+                let showTrinkets = [];
+                let showCards = [];
+
+                // Filtrado por filtros
+                if (activeFilters.length === 0) {
+                    // Nada seleccionado, no mostrar nada
+                } else if (activeFilters.includes('all')) {
+                    showItems = allItems;
+                    showTrinkets = allTrinkets;
+                    showCards = allCards;
+                } else {
+                    const pools = {
+                        shop: 'Shop',
+                        itemroom: 'Item Room',
+                        bossroom: 'Boss Room',
+                        devilroom: 'Devil Room',
+                        angelroom: 'Angel Room',
+                        curseroom: 'Curse Room',
+                        secretroom: 'Secret Room',
+                        library: 'Library',
+                        planetarium: 'Planetarium'
+                    };
+                    let itemFilters = Object.keys(pools).filter(f => activeFilters.includes(f));
+                    if (itemFilters.length > 0) {
+                        showItems = allItems.filter(i =>
+                            i.item_pool && itemFilters.some(f =>
+                                i.item_pool.some(poolStr =>
+                                    poolStr && poolStr.toLowerCase().includes(pools[f].toLowerCase())
+                                )
+                            )
+                        );
+                    }
+                    if (activeFilters.includes('trinkets')) showTrinkets = allTrinkets;
+                    if (activeFilters.includes('consumibles')) showCards = allCards;
+                }
+
+                // Filtrado por search
+                if (window.searchText && window.searchText !== 'rainbow') {
+                    const matchesText = obj => {
+                        return Object.values(obj).some(val => {
+                            if (!val) return false;
+                            if (typeof val === 'string') return val.toLowerCase().includes(window.searchText);
+                            if (typeof val === 'number') return val.toString().includes(window.searchText);
+                            if (Array.isArray(val)) return val.join(' ').toLowerCase().includes(window.searchText);
+                            return false;
+                        });
+                    };
+                    showItems = showItems.filter(matchesText);
+                    showTrinkets = showTrinkets.filter(matchesText);
+                    showCards = showCards.filter(matchesText);
+                }
+
+                // Render y manejo de clases active
+                const itemsGrid = document.getElementById('items');
+                const trinketsGrid = document.getElementById('trinkets');
+                const cardsGrid = document.getElementById('cards');
+
+                if (showItems.length > 0) {
+                    renderItems(showItems);
+                    itemsGrid.classList.add('active');
+                } else {
+                    itemsGrid.classList.remove('active');
+                }
+
+                if (showTrinkets.length > 0) {
+                    renderTrinkets(showTrinkets);
+                    trinketsGrid.classList.add('active');
+                } else {
+                    trinketsGrid.classList.remove('active');
+                }
+
+                if (showCards.length > 0) {
+                    renderCards(showCards);
+                    cardsGrid.classList.add('active');
+                } else {
+                    cardsGrid.classList.remove('active');
+                }
+
+                document.getElementById('items-header').style.display = document.getElementById('items').children.length ? '' : 'none';
+                document.getElementById('trinkets-header').style.display = document.getElementById('trinkets').children.length ? '' : 'none';
+                document.getElementById('h2-cards').style.display = document.getElementById('cards').children.length ? '' : 'none';
+            }
+
+            function renderCards(cards) {
+                const container = document.getElementById('cards');
+                container.innerHTML = '';
+                cards.forEach(card => {
+                    if (!card.cardId) return;
+                    const img = createImg(
+                        `${baseUrl}All_Consumables/card_${card.cardId}.png`,
+                        card.name,
+                        () => showCardModal(card)
+                    );
+                    let wrap = document.createElement('div');
+                    wrap.className = 'img-wrap';
+                    wrap.appendChild(img);
+                    container.appendChild(wrap);
+                });
+            }
+
+            // Filtros: stackeables, "All" es exclusivo
+            document.getElementById('filter-bar').addEventListener('click', function (e) {
+                if (!e.target.classList.contains('filter-btn')) return;
+                const filter = e.target.dataset.filter;
+
+                // Si el botón ya está activo, desactivarlo
+                if (activeFilters.includes(filter)) {
+                    activeFilters = [];
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                } else {
+                    // Desactivar todos los botones y activar solo el nuevo
+                    activeFilters = [filter];
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                }
+
+                renderByFilters();
+            });
+
+            // MODALS
+            // Item modal
+            const itemModal = document.getElementById('item-modal');
+            const itemModalContent = document.getElementById('modal-content-item');
+            function showItemModal(item) {
+                let catImg = '';
+                if (item.cat === 'up' || item.cat === 'up2' || item.cat === 'down') {
+                    catImg = `<img src="${baseUrl}/other/cat_${item.cat}.png" alt="cat_${item.cat}" class="cat-corner">`;
+                }
+                let rechargeImg = '';
+                if (item.recharge_time && Array.isArray(item.recharge_time)) {
+                    const validNumbers = ['1', '2', '3', '4', '6', '12'];
+                    const firstValue = item.recharge_time[0];
+                    if (firstValue) {
+                        // Extrae el número al principio del string
+                        const match = firstValue.match(/^(\d+)/);
+                        if (match && validNumbers.includes(match[1])) {
+                            rechargeImg = `<img src="${baseUrl}bars/${match[1]}.png" alt="recharge_${match[1]}" style="margin-left:10px;pointer-events: none;">`;
+                        }
+                    }
+                }
+                // Encontrar el índice actual y comprobar si hay anterior/siguiente
+                const currentIndex = allItems.findIndex(i => i.id === item.id);
+                const prevItem = currentIndex > 0 ? allItems[currentIndex - 1] : null;
+                const nextItem = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
+                itemModalContent.innerHTML = `
+                <span class="modal-close" id="modal-close-item">&times;</span>
+                ${prevItem ? `<div class="modal-nav modal-prev" onclick="showItemModal(allItems[${currentIndex - 1}])">&lt;</div>` : ''}
+                ${nextItem ? `<div class="modal-nav modal-next" onclick="showItemModal(allItems[${currentIndex + 1}])">&gt;</div>` : ''}
+                <div style="position:relative;display:flex;align-items:center;justify-content:center;">
+                    <img src="${baseUrl}All_Items/item_${item.id}.png" alt="${item.name}" style="width:100px;height:100px;display:block;object-fit: contain;pointer-events: none;">
+                    ${rechargeImg}
+                </div>
+                ${catImg}
+                <h3>${item.name}</h3>
+                ${item.pickup ? `<h3>"${item.pickup}"</h3>` : ''}
+                <p>${Array.isArray(item.description) ? item.description.join('<br><br>') : item.description || ''}</p>
+                ${item.recharge_time ? `<p><i><strong>USOS:</strong></i> ${item.recharge_time}</p>` : ''}
+                <p><i><strong>TIPO:</strong></i> ${item.type_list ? item.type_list.join(', ') : ''}</p>
+                ${item.unlock ? `<p><i><strong>DESBLOQUEO:</strong></i> ${item.unlock}</p>` : ''}
+                <p><i><strong>ID:</strong></i> ${item.id}</p>
+            `;
+                itemModal.style.display = 'flex';
+                document.getElementById('modal-close-item').onclick = () => { itemModal.style.display = 'none'; };
+            }
+            itemModal.onclick = function (e) {
+                if (e.target === itemModal) itemModal.style.display = 'none';
+            };
+
+            // Trinket modal
+            const trinketModal = document.getElementById('trinket-modal');
+            const trinketModalContent = document.getElementById('modal-content-trinket');
+            function showTrinketModal(trinket) {
+                let catImg = '';
+                if (trinket.cat === 'up' || trinket.cat === 'down') {
+                    catImg = `<img src="${baseUrl}cat_${trinket.cat}.png" alt="cat_${trinket.cat}" class="cat-corner">`;
+                }
+
+                // Encontrar el índice actual y comprobar si hay anterior/siguiente
+                const currentIndex = allTrinkets.findIndex(t => t.trinketId === trinket.trinketId);
+                const prevTrinket = currentIndex > 0 ? allTrinkets[currentIndex - 1] : null;
+                const nextTrinket = currentIndex < allTrinkets.length - 1 ? allTrinkets[currentIndex + 1] : null;
+
+                trinketModalContent.innerHTML = `
+                <span class="modal-close" id="modal-close-trinket">&times;</span>
+                ${prevTrinket ? `<div class="modal-nav modal-prev" onclick="showTrinketModal(allTrinkets[${currentIndex - 1}])">&lt;</div>` : ''}
+                ${nextTrinket ? `<div class="modal-nav modal-next" onclick="showTrinketModal(allTrinkets[${currentIndex + 1}])">&gt;</div>` : ''}
+                <img src="${baseUrl}All_Trinkets/trinket_${trinket.trinketId}.png" alt="${trinket.name}" style="width:100px;height:100px;display:block;margin:auto;object-fit: contain;pointer-events: none;">
+                ${catImg}
+                <h3>${trinket.name}</h3>
+                ${trinket.pickup ? `<h3>"${trinket.pickup}"</h3>` : ''}
+                <p>${Array.isArray(trinket.description) ? trinket.description.join('<br><br>') : trinket.description || ''}</p>
+                ${trinket.unlock ? `<p><i><strong>DESBLOQUEO:</strong></i> ${trinket.unlock}</p>` : ''}
+                <p><i><strong>ID:</strong></i> ${trinket.trinketId}</p>
+            `;
+                trinketModal.style.display = 'flex';
+                document.getElementById('modal-close-trinket').onclick = () => { trinketModal.style.display = 'none'; };
+            }
+            trinketModal.onclick = function (e) {
+                if (e.target === trinketModal) trinketModal.style.display = 'none';
+            };
+
+            // Card modal
+            const cardModal = document.getElementById('card-modal');
+            const cardModalContent = document.getElementById('modal-content-card');
+            function showCardModal(card) {
+                let catImg = '';
+                if (card.cat === 'up' || card.cat === 'down') {
+                    catImg = `<img src="${baseUrl}cat_${card.cat}.png" alt="cat_${card.cat}" class="cat-corner">`;
+                }
+
+                // Encontrar el índice actual y comprobar si hay anterior/siguiente
+                const currentIndex = allCards.findIndex(c => c.cardId === card.cardId);
+                const prevCard = currentIndex > 0 ? allCards[currentIndex - 1] : null;
+                const nextCard = currentIndex < allCards.length - 1 ? allCards[currentIndex + 1] : null;
+
+                let description;
+                if (card.cardId == 114) {
+                    description = card.description;
+                } else {
+                    description = Array.isArray(card.description) ? card.description.join('<br><br>') : card.description || '';
+                }
+
+                cardModalContent.innerHTML = `
+                <span class="modal-close" id="modal-close-card">&times;</span>
+                ${prevCard ? `<div class="modal-nav modal-prev" onclick="showCardModal(allCards[${currentIndex - 1}])">&lt;</div>` : ''}
+                ${nextCard ? `<div class="modal-nav modal-next" onclick="showCardModal(allCards[${currentIndex + 1}])">&gt;</div>` : ''}
+                <img src="${baseUrl}All_Consumables/card_${card.cardId}.png" alt="${card.name}" style="width:100px;height:100px;display:block;margin:auto;object-fit: contain;pointer-events: none;">
+                ${catImg}
+                <h3>${card.name}</h3>
+                ${card.pickup ? `<h3>"${card.pickup}"</h3>` : ''}
+                <p>${description}</p>
+                ${card.unlock ? `<p><i><strong>DESBLOQUEO:</strong></i> ${card.unlock}</p>` : ''}
+                <p><i><strong>ID:</strong></i> ${card.cardId}</p>
+            `;
+                cardModal.style.display = 'flex';
+                document.getElementById('modal-close-card').onclick = () => { cardModal.style.display = 'none'; };
+            }
+            cardModal.onclick = function (e) {
+                if (e.target === cardModal) cardModal.style.display = 'none';
+            };
+
+            // Info modal
+            const infoBtn = document.getElementById('info-btn');
+            if (infoBtn) {
+                infoBtn.addEventListener('click', function () {
+                    // If settings modal is open, close it first
+                    if (settingsModal && settingsModal.style.display === 'flex') settingsModal.style.display = 'none';
+
+                    const infoModal = (language === 'es') ? document.getElementById('info-modal_es') : document.getElementById('info-modal_en');
+                    if (!infoModal) return;
+                    infoModal.style.display = 'flex';
+
+                    const closeBtn = infoModal.querySelector('.modal-close');
+                    if (closeBtn) closeBtn.onclick = () => { infoModal.style.display = 'none'; };
+
+                    infoModal.onclick = function (e) {
+                        if (e.target === infoModal) infoModal.style.display = 'none';
+                    };
+                });
+            }
+
+            const settingsBtn = document.getElementById('settings-btn');
+            const settingsModal = document.getElementById('settings-modal');
+            const settingsClose = document.getElementById('modal-close-settings');
+
+            // Temas disponibles (fácil de extender)
+            const THEMES = {
+                basement: {
+                    bg: window.innerWidth <= 700
+                        ? "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/background_mobile.png')"
+                        : "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/background.png')",
+                    icon: "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/background_icon.png",
+                    border: '#99866e',
+                    modalBg: '#f6d6b0',
+                    unselectedBg: '#ad9e84',
+                    tooltipBg: '#f6d6b0',
+                    tooltipBorder: '#99866e',
+                    textColor: '#000'
+                },
+                depths: {
+                    bg: window.innerWidth <= 700
+                        ? "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/depths_background_mobile.png')"
+                        : "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/depths_background.png')",
+                    icon: "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/depths_background_icon.png",
+                    border: '#232323',
+                    modalBg: '#181818',
+                    unselectedBg: '#2e2d2d',
+                    tooltipBg: '#222222',
+                    tooltipBorder: '#333333',
+                    textColor: '#cccccc'
+                },
+                womb: {
+                    bg: window.innerWidth <= 700
+                        ? "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/womb_background_mobile.png')"
+                        : "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/womb_background.png')",
+                    icon: "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/womb_background_icon.png",
+                    border: '#b56576',
+                    modalBg: '#ffe0e9',
+                    unselectedBg: '#9e868d',
+                    tooltipBg: '#ffe0e9',
+                    tooltipBorder: '#b56576',
+                    textColor: '#000'
+                },
+                cathedral: {
+                    bg: window.innerWidth <= 700
+                        ? "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/angel_background_mobile.png')"
+                        : "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/angel_background.png')",
+                    icon: "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/angel_background_icon.png",
+                    border: '#a3c9c1',
+                    modalBg: '#e3f6f5',
+                    unselectedBg: '#7e9e9c',
+                    tooltipBg: '#e3f6f5',
+                    tooltipBorder: '#a3c9c1',
+                    textColor: '#000'
+                },
+                chest: {
+                    bg: window.innerWidth <= 700
+                        ? "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/chest_background_mobile.png')"
+                        : "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/chest_background.png')",
+                    icon: "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/chest_background_icon.png",
+                    border: '#d4af37',
+                    modalBg: '#fff8dc',
+                    unselectedBg: '#ad9e84',
+                    tooltipBg: '#fff8dc',
+                    tooltipBorder: '#d4af37',
+                    textColor: '#000'
+                },
+                dark: {
+                    bg: window.innerWidth <= 700
+                        ? "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/dark_background_mobile.png')"
+                        : "url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/dark_background.png')",
+                    icon: "https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/bckground/dark_background_icon.png",
+                    border: '#7c4d9c',
+                    modalBg: '#2d183a',
+                    unselectedBg: '#5e3a75',
+                    tooltipBg: '#3a2352',
+                    tooltipBorder: '#b48be3',
+                    textColor: '#e0d6f7'
+                }
+            };
+
+            const supportsHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            const DEVICE = supportsHover ? 'desktop' : 'mobile';
+            const THEME_KEY_DESKTOP = 'jc_theme_desktop';
+            const THEME_KEY_MOBILE = 'jc_theme_mobile';
+
+            // Guarda la key del tema que está actualmente aplicada
+            let CURRENT_THEME_KEY = null;
+
+            function applyTheme(key, saveForDevice) {
+                const t = THEMES[key] || THEMES.default || Object.values(THEMES)[0];
+                // actualiza CSS vars y background
+                document.documentElement.style.setProperty('--bg-image', t.bg || '');
+                document.documentElement.style.setProperty('--border-color', t.border || '');
+                document.documentElement.style.setProperty('--modal-bg', t.modalBg || '');
+                document.documentElement.style.setProperty('--tooltip-bg', t.tooltipBg || '');
+                document.documentElement.style.setProperty('--tooltip-border', t.tooltipBorder || '');
+                document.documentElement.style.setProperty('--text-color', t.textColor || '');
+                document.documentElement.style.backgroundImage = t.bg || '';
+                document.documentElement.style.setProperty('--filter-unselected-bg', t.unselectedBg || '#99866e');
+                document.documentElement.style.setProperty('--filter-active-bg', t.modalBg || '#f6d6b0');
+
+                // actualizar solo los elementos que requieren inline forzoso (ej. search bar)
+                document.querySelectorAll('.search-bar').forEach(el => {
+                    el.style.background = t.modalBg || '';
+                    el.style.borderColor = t.border || '';
+                    el.style.color = t.textColor || '';
+                });
+
+                document.querySelectorAll('.filter-btn').forEach(el => {
+                    el.style.borderColor = t.border || '';
+                    el.style.color = t.textColor || '';
+                });
+
+                document.querySelectorAll('.modal-content').forEach(el => {
+                    el.style.background = t.modalBg || '';
+                    el.style.borderColor = t.border || '';
+                    el.style.color = t.textColor || '';
+                });
+                document.querySelectorAll('.mini-tooltip').forEach(el => {
+                    el.style.background = t.tooltipBg || '';
+                    el.style.borderColor = t.border || '';
+                    el.style.color = t.textColor || '';
+                });
+                document.querySelectorAll('#floating-quiz-btn').forEach(el => {
+                    el.style.background = t.modalBg || '';
+                    el.style.borderColor = t.border || '';
+                });
+                document.querySelectorAll('#floating-link-btn').forEach(el => {
+                    el.style.background = t.modalBg || '';
+                    el.style.borderColor = t.border || '';
+                });
+
+
+                // almacenar la key actual (siempre) para que preview y apertura de settings la lean
+                CURRENT_THEME_KEY = key;
+
+                // Guardado opcional por dispositivo
+                if (saveForDevice === 'desktop') localStorage.setItem(THEME_KEY_DESKTOP, key);
+                if (saveForDevice === 'mobile') localStorage.setItem(THEME_KEY_MOBILE, key);
+            }
+
+            // Inicializar tema guardado por tipo de dispositivo (si existe), si no, fallback default
+            (function initThemeByDevice() {
+                const savedDesktop = localStorage.getItem(THEME_KEY_DESKTOP);
+                const savedMobile = localStorage.getItem(THEME_KEY_MOBILE);
+                const initial = DEVICE === 'desktop' ? (savedDesktop || Object.keys(THEMES)[0] || 'default') : (savedMobile || Object.keys(THEMES)[0] || 'default');
+                applyTheme(initial, null); // aplicar sin sobrescribir el storage
+                // asegurar CURRENT_THEME_KEY está definido
+                if (!CURRENT_THEME_KEY) CURRENT_THEME_KEY = initial;
+            })();
+
+            // Abrir settings: usa primero CURRENT_THEME_KEY (tema aplicado), luego storage, luego fallback
+            settingsBtn.addEventListener('click', () => {
+                const savedKey = (DEVICE === 'desktop') ? localStorage.getItem(THEME_KEY_DESKTOP) : localStorage.getItem(THEME_KEY_MOBILE);
+                const startKey = CURRENT_THEME_KEY || savedKey || Object.keys(THEMES)[0] || 'default';
+                const startIdx = THEME_KEYS.indexOf(startKey);
+                currentThemeIndex = startIdx >= 0 ? startIdx : 0;
+                updateCarousel(currentThemeIndex);
+                settingsModal.style.display = 'flex';
+            });
+            settingsClose.addEventListener('click', () => settingsModal.style.display = 'none');
+            settingsModal.addEventListener('click', (e) => { if (e.target === settingsModal) settingsModal.style.display = 'none'; });
+
+            const themePreview = document.getElementById('theme-preview');
+            const themeNameEl = document.getElementById('theme-name');
+            const prevBtn = document.getElementById('theme-prev');
+            const nextBtn = document.getElementById('theme-next');
+            const selectBtn = document.getElementById('theme-select');
+            const openInfoFromSettings = document.getElementById('open-info-from-settings');
+
+            // construir lista de keys a partir de THEMES (el objeto ya existe)
+            const THEME_KEYS = Object.keys(THEMES || {});
+
+            // índice del tema actualmente visible (para compatibilidad con updateCarousel)
+            let currentThemeIndex = 0;
+
+            // Función para crear la cuadrícula de temas
+            function initThemeGrid() {
+                const grid = document.getElementById('theme-grid');
+                if (!grid) return;
+                grid.innerHTML = '';
+
+                THEME_KEYS.forEach((key, idx) => {
+                    const t = THEMES[key];
+                    const btn = document.createElement('button');
+                    btn.className = 'theme-grid-btn';
+                    btn.style.cssText = `
+                        border: 4px outset ${t.border || '#99866e'};
+                        background: ${t.bg ? 'linear-gradient(135deg, ' + t.border + ' 0%, ' + t.modalBg + ' 100%)' : t.modalBg || '#f6d6b0'};
+                        width: 175px;
+                        aspect-ratio: 16 / 10;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0;
+                        position: relative;
+                        overflow: hidden;
+                    `;
+
+                    // Imagen de fondo (como preview)
+                    const bgImg = document.createElement('div');
+                    bgImg.style.cssText = `
+                        position: absolute;
+                        top: 0; left: 0;
+                        width: 100%; height: 100%;
+                        ${t.bg ? `background-image: ${t.bg}; background-size: cover; background-position: center;` : `background: ${t.modalBg || '#f6d6b0'};`}
+                        opacity: 0.6;
+                        z-index: 1;
+                    `;
+                    btn.appendChild(bgImg);
+
+                    // Icono del tema en el centro
+                    const iconImg = document.createElement('img');
+                    iconImg.src = t.icon || '';
+                    iconImg.alt = key;
+                    iconImg.style.cssText = `
+                        position: relative;
+                        z-index: 2;
+                        width: 100px;
+                        height: 100px;
+                        object-fit: contain;
+                        image-rendering: pixelated;
+                        pointer-events: none;
+                        filter: drop-shadow(0 0 5px black);
+                    `;
+                    btn.appendChild(iconImg);
+
+                    btn.addEventListener('click', () => {
+                        currentThemeIndex = idx;
+                        updateCarousel(idx);
+                        // Aplicar y guardar inmediatamente
+                        applyTheme(key, DEVICE);
+                        updateThemeGridVisuals();
+                    });
+
+                    btn.addEventListener('mouseover', () => {
+                        btn.style.transform = 'scale(1.05)';
+                        btn.style.boxShadow = `0 0 12px ${t.border || '#99866e'}`;
+                    });
+
+                    btn.addEventListener('mouseout', () => {
+                        btn.style.transform = 'scale(1)';
+                        btn.style.boxShadow = 'none';
+                    });
+
+                    grid.appendChild(btn);
+                });
+            }
+
+            // Actualizar visualización de la cuadrícula (resaltar el activo)
+            function updateThemeGridVisuals() {
+                const btns = document.querySelectorAll('.theme-grid-btn');
+                btns.forEach((btn, idx) => {
+                    if (idx === currentThemeIndex) {
+                        btn.style.border = `4px solid ${THEMES[THEME_KEYS[idx]].border}`;
+                        btn.style.boxShadow = `0 0 16px ${THEMES[THEME_KEYS[idx]].border}`;
+                    } else {
+                        btn.style.border = `4px outset ${THEMES[THEME_KEYS[idx]].border}`;
+                        btn.style.boxShadow = 'none';
+                    }
+                });
+
+                // Actualizar nombre visible
+                const themeNameEl = document.getElementById('theme-name');
+                if (themeNameEl) {
+                    themeNameEl.textContent = (THEME_KEYS[currentThemeIndex] || '').replace(/_/g, ' ').toUpperCase();
+                }
+            }
+
+            // updateCarousel: compatible con el código existente (solo actualiza index)
+            function updateCarousel(index) {
+                if (!THEME_KEYS.length) return;
+                currentThemeIndex = (index + THEME_KEYS.length) % THEME_KEYS.length;
+                const key = THEME_KEYS[currentThemeIndex];
+                // Aplicar como preview sin guardar inicialmente
+                applyTheme(key, null);
+                updateThemeGridVisuals();
+            }
+
+            settingsBtn.addEventListener('click', () => {
+                // seleccionar tema guardado para DEVICE si existe
+                const savedKey = (DEVICE === 'desktop') ? localStorage.getItem(THEME_KEY_DESKTOP) : localStorage.getItem(THEME_KEY_MOBILE);
+                const startKey = savedKey || Object.keys(THEMES)[0] || 'default';
+                const startIdx = THEME_KEYS.indexOf(startKey);
+                currentThemeIndex = startIdx >= 0 ? startIdx : 0;
+                updateCarousel(currentThemeIndex);
+                initThemeGrid(); // Generar/actualizar la cuadrícula
+                settingsModal.style.display = 'flex';
+            });
+
+            settingsClose.addEventListener('click', () => settingsModal.style.display = 'none');
+            settingsModal.addEventListener('click', (e) => { if (e.target === settingsModal) settingsModal.style.display = 'none'; });
+
+            // Inicializar cuadrícula al cargar la página
+            (function initThemeGridOnLoad() {
+                const savedKey = (DEVICE === 'desktop') ? localStorage.getItem(THEME_KEY_DESKTOP) : localStorage.getItem(THEME_KEY_MOBILE);
+                const startKey = savedKey || Object.keys(THEMES)[0] || 'default';
+                const startIdx = THEME_KEYS.indexOf(startKey);
+                currentThemeIndex = startIdx >= 0 ? startIdx : 0;
+                updateCarousel(currentThemeIndex);
+                initThemeGrid();
+            })();
+
+            // botón info dentro del modal (si existe)
+            const infoBtnInside = document.querySelector('#settings-modal #info-btn');
+            if (infoBtnInside) {
+                infoBtnInside.addEventListener('click', () => {
+                    settingsModal.style.display = 'none';
+                    const infoModal = (language === 'es') ? document.getElementById('info-modal_es') : document.getElementById('info-modal_en');
+                    if (!infoModal) return;
+                    infoModal.style.display = 'flex';
+                });
+            }
+
+            // Función para extraer colores de tags
+            function getItemColors(item) {
+                if (!item.tags) return [];
+                const tagsArr = item.tags.split(',').map(t => t.trim().toLowerCase());
+                // Devuelve los colores en el orden en que aparecen en los tags
+                return tagsArr.filter(tag => colorOrder.includes(tag));
+            }
+
+            // Ordena los items por color principal y secundarios
+            function sortItemsByColor(items) {
+                return items.slice().sort((a, b) => {
+                    const aColors = getItemColors(a);
+                    const bColors = getItemColors(b);
+
+                    // Si ninguno tiene color, van al final
+                    if (aColors.length === 0 && bColors.length === 0) return 0;
+                    if (aColors.length === 0) return 1;
+                    if (bColors.length === 0) return -1;
+
+                    // Orden por color principal
+                    const aMain = colorOrder.findIndex(c => c === aColors[0]);
+                    const bMain = colorOrder.findIndex(c => c === bColors[0]);
+                    if (aMain !== bMain) return aMain - bMain;
+
+                    // Si tienen el mismo color principal, compara secundarios
+                    for (let i = 1; i < Math.max(aColors.length, bColors.length); i++) {
+                        const aSec = aColors[i] ? colorOrder.findIndex(c => c === aColors[i]) : Infinity;
+                        const bSec = bColors[i] ? colorOrder.findIndex(c => c === bColors[i]) : Infinity;
+                        if (aSec !== bSec) return aSec - bSec;
+                    }
+
+                    // Si todo igual, por ID
+                    return (a.id || 0) - (b.id || 0);
+                });
+            }
+
+            // Ordena los items por ID
+            function sortItemsById(items) {
+                return items.slice().sort((a, b) => (a.id || 0) - (b.id || 0));
+            }
+
+            function sortTrinketsById(trinkets) {
+                return trinkets.slice().sort((a, b) => (a.trinketId || 0) - (b.trinketId || 0));
+            }
+
+            function sortTrinketsByColor(trinkets) {
+                return trinkets.slice().sort((a, b) => {
+                    const aColors = getItemColors(a);
+                    const bColors = getItemColors(b);
+
+                    // Si ninguno tiene color, van al final
+                    if (aColors.length === 0 && bColors.length === 0) return 0;
+                    if (aColors.length === 0) return 1;
+                    if (bColors.length === 0) return -1;
+
+                    // Orden por color principal
+                    const aMain = colorOrder.findIndex(c => c === aColors[0]);
+                    const bMain = colorOrder.findIndex(c => c === bColors[0]);
+                    if (aMain !== bMain) return aMain - bMain;
+
+                    // Si todo igual, por ID
+                    return (a.trinketId || 0) - (b.trinketId || 0);
+                });
+            }
+
+            // Modifica renderItems para usar el modo de orden
+            function renderItems(items) {
+                const container = document.getElementById('items');
+                container.innerHTML = '';
+                let sortedItems = items;
+                if (sortMode === "id") {
+                    sortedItems = sortItemsById(items);
+                } else if (sortMode === "color") {
+                    sortedItems = sortItemsByColor(items);
+                }
+                sortedItems.forEach(item => {
+                    if (!item.id) return;
+                    const img = createImg(
+                        `${baseUrl}All_Items/item_${item.id}.png`,
+                        item.name,
+                        () => showItemModal(item)
+                    );
+                    let wrap = document.createElement('div');
+                    wrap.className = 'img-wrap';
+                    if (item.cat === 'up' || item.cat === 'up2') wrap.classList.add('cat-up');
+                    if (item.cat === 'down') wrap.classList.add('cat-down');
+                    wrap.appendChild(img);
+                    container.appendChild(wrap);
+                });
+            }
+
+            function renderTrinkets(trinkets) {
+                const container = document.getElementById('trinkets');
+                container.innerHTML = '';
+                let sortedTrinkets = trinkets;
+                if (sortModeTrinkets === "id") {
+                    sortedTrinkets = sortTrinketsById(trinkets);
+                } else if (sortModeTrinkets === "color") {
+                    sortedTrinkets = sortTrinketsByColor(trinkets);
+                }
+                sortedTrinkets.forEach(trinket => {
+                    if (!trinket.trinketId) return;
+                    const img = createImg(
+                        `${baseUrl}All_Trinkets/trinket_${trinket.trinketId}.png`,
+                        trinket.name,
+                        () => showTrinketModal(trinket)
+                    );
+                    let wrap = document.createElement('div');
+                    wrap.className = 'img-wrap';
+                    wrap.appendChild(img);
+                    container.appendChild(wrap);
+                });
+            }
+
+            // Botones de ordenamiento para items
+            document.getElementById('sort-id-btn').onclick = function () {
+                const idBtn = document.getElementById('sort-id-btn');
+                const colorBtn = document.getElementById('sort-color-btn');
+
+                if (sortMode === "id") {
+                    // Si ya está en modo ID, desactivar
+                    sortMode = "default";
+                    idBtn.classList.remove('active');
+                } else {
+                    // Activar modo ID y desactivar color
+                    sortMode = "id";
+                    idBtn.classList.add('active');
+                    colorBtn.classList.remove('active');
+                }
+                renderByFilters();
+            };
+
+            document.getElementById('sort-color-btn').onclick = function () {
+                const idBtn = document.getElementById('sort-id-btn');
+                const colorBtn = document.getElementById('sort-color-btn');
+
+                if (sortMode === "color") {
+                    // Si ya está en modo color, desactivar
+                    sortMode = "default";
+                    colorBtn.classList.remove('active');
+                } else {
+                    // Activar modo color y desactivar ID
+                    sortMode = "color";
+                    colorBtn.classList.add('active');
+                    idBtn.classList.remove('active');
+                }
+                renderByFilters();
+            };
+
+            // Botones de ordenamiento para trinkets
+            document.getElementById('sort-id-trinkets-btn').onclick = function () {
+                const idBtn = document.getElementById('sort-id-trinkets-btn');
+                const colorBtn = document.getElementById('sort-color-trinkets-btn');
+
+                if (sortModeTrinkets === "id") {
+                    // Si ya está en modo ID, desactivar
+                    sortModeTrinkets = "default";
+                    idBtn.classList.remove('active');
+                } else {
+                    // Activar modo ID y desactivar color
+                    sortModeTrinkets = "id";
+                    idBtn.classList.add('active');
+                    colorBtn.classList.remove('active');
+                }
+                renderByFilters();
+            };
+
+            document.getElementById('sort-color-trinkets-btn').onclick = function () {
+                const idBtn = document.getElementById('sort-id-trinkets-btn');
+                const colorBtn = document.getElementById('sort-color-trinkets-btn');
+
+                if (sortModeTrinkets === "color") {
+                    // Si ya está en modo color, desactivar
+                    sortModeTrinkets = "default";
+                    colorBtn.classList.remove('active');
+                } else {
+                    // Activar modo color y desactivar ID
+                    sortModeTrinkets = "color";
+                    colorBtn.classList.add('active');
+                    idBtn.classList.remove('active');
+                }
+                renderByFilters();
+            };
+
+            // Toggle de idioma
+            document.getElementById('lang-toggle').addEventListener('click', function () {
+                language = (language === 'es') ? 'en' : 'es';
+                this.src = `https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/languages_${language}.png`;
+                document.getElementById('search-bar').placeholder =
+                    (language === 'es') ? 'Nombre, habitación, etc...' : 'Name, room, etc...';
+                loadAllData();
+            });
+
+            // Soporte para navegación con teclado
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    // Cerrar cualquier modal que esté abierto
+                    if (itemModal.style.display === 'flex') itemModal.style.display = 'none';
+                    if (trinketModal.style.display === 'flex') trinketModal.style.display = 'none';
+                    if (cardModal.style.display === 'flex') cardModal.style.display = 'none';
+                    if (document.getElementById('info-modal_es').style.display === 'flex') document.getElementById('info-modal_es').style.display = 'none';
+                    if (document.getElementById('info-modal_en').style.display === 'flex') document.getElementById('info-modal_en').style.display = 'none';
+                    return;
+                }
+
+                if (itemModal.style.display === 'flex') {
+                    const currentImg = document.querySelector('#modal-content-item img[style*="width:100px"]');
+                    const currentName = currentImg.alt;
+                    const currentIndex = allItems.findIndex(i => i.name === currentName);
+                    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                        showItemModal(allItems[currentIndex - 1]);
+                    } else if (e.key === 'ArrowRight' && currentIndex < allItems.length - 1) {
+                        showItemModal(allItems[currentIndex + 1]);
+                    }
+                } else if (trinketModal.style.display === 'flex') {
+                    const currentImg = document.querySelector('#modal-content-trinket img[style*="width:100px"]');
+                    const currentName = currentImg.alt;
+                    const currentIndex = allTrinkets.findIndex(t => t.name === currentName);
+                    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                        showTrinketModal(allTrinkets[currentIndex - 1]);
+                    } else if (e.key === 'ArrowRight' && currentIndex < allTrinkets.length - 1) {
+                        showTrinketModal(allTrinkets[currentIndex + 1]);
+                    }
+                } else if (cardModal.style.display === 'flex') {
+                    const currentImg = document.querySelector('#modal-content-card img[style*="width:100px"]');
+                    const currentName = currentImg.alt;
+                    const currentIndex = allCards.findIndex(c => c.name === currentName);
+                    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                        showCardModal(allCards[currentIndex - 1]);
+                    } else if (e.key === 'ArrowRight' && currentIndex < allCards.length - 1) {
+                        showCardModal(allCards[currentIndex + 1]);
+                    }
+                }
+            });
+
+            let tapCount = 0;
+            let lastTapTime = 0;
+            document.documentElement.addEventListener('click', function (e) {
+                // Evita que cuente clics dentro de modals o grids
+                if (
+                    e.target.closest('.modal') ||
+                    e.target.closest('.img-grid') ||
+                    e.target.closest('.filter-bar') ||
+                    e.target.closest('.search-bar-content')
+                ) return;
+
+                const now = Date.now();
+                if (now - lastTapTime < 500) {
+                    tapCount++;
+                } else {
+                    tapCount = 1;
+                }
+                lastTapTime = now;
+                if (tapCount === 3) {
+                    const isUp2 = Math.random() < 0.1;
+                    const catSrc = isUp2
+                        ? 'https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/cat_up2.png'
+                        : 'https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/cat_up.png';
+                    const catDownSrc = isUp2
+                        ? 'https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/cat_stunned2.png'
+                        : 'https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/cat_stunned.png';
+                    const cat = document.createElement('img');
+                    cat.src = catSrc;
+                    cat.className = 'blondigo-cat';
+                    cat.style.position = 'fixed';
+                    cat.style.left = '-120px';
+                    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+                    cat.style.top = Math.floor(Math.random() * (vh - 120)) + 'px';
+                    cat.style.width = '100px';
+                    cat.style.height = '100px';
+                    cat.style.zIndex = '9999';
+                    cat.style.pointerEvents = 'auto'; // Permitir clicks
+                    cat.style.opacity = '0';
+                    cat.style.transition = 'opacity 0.3s, left 3s linear';
+                    document.body.appendChild(cat);
+
+                    setTimeout(() => { cat.style.opacity = '1'; cat.style.left = '110vw'; }, 100);
+
+                    // Derribar el gato al hacer click
+                    cat.addEventListener('click', function (ev) {
+                        ev.stopPropagation();
+
+                        // Congelar posición actual del gato que está volando
+                        const rect = cat.getBoundingClientRect();
+                        cat.style.transition = 'none';
+                        cat.style.left = rect.left + 'px';
+                        cat.style.top = rect.top + 'px';
+
+                        cat.style.opacity = '1';
+
+                        // Crear un nuevo elemento para la versión "derribada" en la misma posición
+                        const down = document.createElement('img');
+                        down.src = catDownSrc;
+                        down.className = 'blondigo-cat';
+                        down.style.position = 'fixed';
+                        down.style.left = rect.left + 'px';
+                        down.style.top = rect.top + 'px';
+                        down.style.width = cat.style.width || '100px';
+                        down.style.height = cat.style.height || '100px';
+                        down.style.zIndex = '9999';
+                        down.style.pointerEvents = 'none'; // no recibir clicks
+                        down.style.opacity = '1';
+                        // Asegurar que esté encima
+                        document.body.appendChild(down);
+
+                        // Remover/ocultar el gato original inmediatamente para que no interfiera
+                        cat.remove();
+
+                        // Forzar reflow para que la transición funcione en el nuevo elemento
+                        void down.offsetWidth;
+
+                        // Animar caída del nuevo elemento
+                        down.style.transition = 'top 1.2s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.5s';
+                        down.style.top = '110vh';
+
+                        // Desvanecer y eliminar después de caer
+                        setTimeout(() => {
+                            down.style.opacity = '0';
+                            setTimeout(() => down.remove(), 600);
+                        }, 1200);
+                    });
+
+                    setTimeout(() => { cat.remove(); }, 3200);
+                    tapCount = 0;
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                if (e.target.value.trim().toLowerCase() === 'chucurrucu') {
+                    alert('Te quiero mucho Tania 💜');
+                }
+                if (e.target.value.trim().toLowerCase() === 'blondigo') {
+                    alert('🐈 El blondigo estuvo aquí 🐈');
+                }
+                if (e.target.value.trim().toLowerCase() === 'carbonaro') {
+                    alert('🐈 Si, el carbonaro también 🐈');
+                }
+                if (e.target.value.trim().toLowerCase() === 'plim') {
+                    alert('PLIM PLIM PLOOOOOOOM');
+                }
+                if (e.target.value.trim().toLowerCase() === 'ellandecito') {
+                    alert('Un besito?');
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+                const html = document.documentElement;
+                const items = document.querySelectorAll('.img-grid img');
+                if (val === 'rainbow') {
+                    html.classList.add('rainbow-effect');
+                    items.forEach(img => img.classList.add('rainbow-effect'));
+                } else {
+                    html.classList.remove('rainbow-effect');
+                    items.forEach(img => img.classList.remove('rainbow-effect'));
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Eliminar láser existente
+                document.querySelectorAll('.brimstone-laser').forEach(el => el.remove());
+
+                if (val === 'brimstone') {
+                    // Encontrar el elemento Brimstone en la página
+                    const brimstoneImg = Array.from(document.querySelectorAll('.img-grid img'))
+                        .find(img => img.src.includes('item_118.png'));
+                    if (!brimstoneImg) return;
+
+                    // Obtener la posición del item
+                    const rect = brimstoneImg.getBoundingClientRect();
+                    const startX = rect.left + (rect.width / 2);
+                    const startY = rect.top + (rect.height / 1);
+
+                    const laser = document.createElement('div');
+                    laser.className = 'brimstone-laser';
+                    laser.style.position = 'fixed';
+                    laser.style.top = startY + 'px';
+                    laser.style.left = startX + 'px';
+                    laser.style.transformOrigin = 'top center';
+                    laser.style.transform = 'translateX(-50%)';
+                    laser.style.width = '40px';
+                    laser.style.height = '200vh';
+                    laser.style.background = 'repeating-linear-gradient(45deg, #ff0000, #ff0000 10px, #a10000 10px, #a10000 20px)';
+                    laser.style.backgroundSize = '28px 28px';
+                    laser.style.animation = 'laserFlow 0.8s linear infinite';
+                    laser.style.boxShadow = '0 0 20px #ff0000';
+                    laser.style.zIndex = '9999';
+                    laser.style.borderRadius = '20px 20px 0 0'; // Bordes redondeados arriba
+
+
+                    // Actualiza las animaciones keyframes
+                    const style = document.createElement('style');
+                    style.textContent = `
+                    @keyframes laserFlow {
+                        0% { background-position: 0 0; }
+                        100% { background-position: 0 300px; }
+                    }
+                    @keyframes laserShake {
+                        0%, 100% { transform: translateX(-50%) rotate(0deg); }
+                        25% { transform: translateX(-50%) rotate(0.3deg); }
+                        75% { transform: translateX(-50%) rotate(-0.3deg); }
+                    }
+                `;
+                    document.head.appendChild(style);
+
+                    document.body.appendChild(laser);
+
+                    // Añadir shake
+                    setTimeout(() => {
+                        laser.style.animation = 'laserFlow 0.8s linear infinite, laserShake 0.05s linear infinite';
+                    }, 100);
+
+                    // Animación de desaparición
+                    setTimeout(() => {
+                        laser.style.transition = 'width 400ms ease-in, opacity 400ms ease-in';
+                        laser.style.width = '0px';
+                        laser.style.opacity = '0';
+                        keepBrimstone = false;
+                        brimstoneImg.style.filter = '';
+                        clearInterval(interval);
+
+                        setTimeout(() => {
+                            laser.remove();
+                            style.remove();
+                        }, 400);
+                    }, 3500);
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Limpiar efectos infernales previos
+                document.querySelectorAll('.brimstone-effect').forEach(el => el.remove());
+
+                if (val === 'brimstone') {
+                    // Encontrar el item Brimstone en la página
+                    const brimstoneImg = Array.from(document.querySelectorAll('.img-grid img'))
+                        .find(img => img.src.includes('item_118.png'));
+                    if (!brimstoneImg) return;
+
+                    // Añadir brillo al item
+                    brimstoneImg.style.transition = 'filter 0.3s';
+                    let keepBrimstone = true;
+                    const interval = setInterval(() => {
+                        if (keepBrimstone && brimstoneImg) {
+                            brimstoneImg.style.filter = 'brightness(5) drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 20px #ff0000) drop-shadow(0 0 30px #ff0000)';
+                        }
+                    }, 100);
+
+                    // Crear efecto infernal
+                    const hell = document.createElement('div');
+                    hell.className = 'brimstone-effect';
+                    hell.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background: radial-gradient(circle at center, transparent 0%, rgba(64,0,0,0.6) 100%);
+                    pointer-events: none;
+                    z-index: 9998;
+                    opacity: 0;
+                    transition: opacity 1s;
+                `;
+
+                    // Crear partículas de fuego
+                    for (let i = 0; i < 30; i++) {
+                        const ember = document.createElement('div');
+                        ember.style.cssText = `
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        background: #ff3300;
+                        border-radius: 50%;
+                        animation: ember ${1 + Math.random() * 1}s infinite;
+                    `;
+                        ember.style.left = Math.random() * 100 + 'vw';
+                        ember.style.bottom = -10 + 'px';
+                        hell.appendChild(ember);
+                    }
+
+                    // Añadir keyframes para las partículas
+                    const style = document.createElement('style');
+                    style.textContent = `
+                    @keyframes ember {
+                        0% { 
+                            transform: translateY(0) scale(1);
+                            opacity: 1;
+                        }
+                        100% { 
+                            transform: translateY(-${Math.random() * 200 + 100}px) scale(0);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+
+                    document.body.appendChild(hell);
+                    requestAnimationFrame(() => hell.style.opacity = '1');
+
+                    // Limpiar efecto después de que termine el láser
+                    setTimeout(() => {
+                        hell.style.opacity = '0';
+                        setTimeout(() => {
+                            hell.remove();
+                            style.remove();
+                        }, 1000);
+                    }, 3500);
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Limpiar efectos lunares previos
+                document.querySelectorAll('.luna-effect').forEach(el => el.remove());
+
+                if (val === 'luna') {
+                    // Encontrar el item Luna en la página
+                    const lunaImg = document.querySelector(`img[src$="item_589.png"]`);
+                    if (!lunaImg) return;
+
+                    // Añadir brillo al item
+                    lunaImg.style.transition = 'filter 0.3s';
+                    let keepLuna = true;
+                    const interval = setInterval(() => {
+                        if (keepLuna && lunaImg) {
+                            lunaImg.style.filter = 'brightness(2.5) drop-shadow(0 0 15px #ffffff) drop-shadow(0 0 30px #4169E1)';
+                        }
+                    }, 100);
+
+                    // Crear efecto de luna
+                    const luna = document.createElement('div');
+                    luna.className = 'luna-effect';
+                    luna.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,32,0.6) 100%);
+                    pointer-events: none;
+                    z-index: 9998;
+                    opacity: 0;
+                    transition: opacity 1s;
+                `;
+
+                    // Crear estrellas
+                    for (let i = 0; i < 50; i++) {
+                        const star = document.createElement('div');
+                        star.style.cssText = `
+                        position: absolute;
+                        width: 2px;
+                        height: 2px;
+                        background: white;
+                        border-radius: 50%;
+                        animation: twinkle ${1 + Math.random() * 2}s infinite alternate;
+                    `;
+                        star.style.left = Math.random() * 100 + 'vw';
+                        star.style.top = Math.random() * 100 + 'vh';
+                        luna.appendChild(star);
+                    }
+
+                    // Añadir keyframes para el parpadeo de estrellas
+                    const style = document.createElement('style');
+                    style.textContent = `
+                    @keyframes twinkle {
+                        0% { opacity: 0.2; }
+                        100% { opacity: 1; transform: scale(1.5); }
+                    }
+                `;
+                    document.head.appendChild(style);
+
+                    document.body.appendChild(luna);
+                    requestAnimationFrame(() => luna.style.opacity = '1');
+
+                    // Limpiar efecto después de 3.5 segundos
+                    setTimeout(() => {
+                        luna.style.opacity = '0';
+                        lunaImg.style.filter = '';
+                        setTimeout(() => {
+                            luna.remove();
+                            style.remove();
+                        }, 1000);
+                    }, 3500);
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Limpiar efectos previos
+                document.querySelectorAll('.milk-effect').forEach(el => el.remove());
+
+                if (val === 'soy milk') {
+                    // Encontrar Soy Milk en la página
+                    const milkImg = document.querySelector(`img[src$="item_330.png"]`);
+                    if (!milkImg) return;
+
+                    // Brillo al item
+                    milkImg.style.transition = 'filter 0.3s';
+                    let keepMilk = true;
+                    const interval = setInterval(() => {
+                        if (keepMilk && milkImg) {
+                            milkImg.style.filter = 'brightness(2.5) drop-shadow(0 0 15px #fff8dc) drop-shadow(0 0 30px #ffeb3b)';
+                        }
+                    }, 100);
+
+                    // Crear efecto ambiente
+                    const milk = document.createElement('div');
+                    milk.className = 'milk-effect';
+                    milk.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background: radial-gradient(circle at center, transparent 0%, rgba(255, 191, 3, 0.3) 100%);
+                    pointer-events: none;
+                    z-index: 9998;
+                    opacity: 0;
+                    transition: opacity 1s;
+                `;
+
+                    // Crear gotas grandes
+                    for (let i = 0; i < 20; i++) {
+                        const drop = document.createElement('div');
+                        drop.style.cssText = `
+                        position: absolute;
+                        width: ${12 + Math.random() * 12}px;
+                        height: ${26 + Math.random() * 16}px;
+                        background: rgba(255, 205, 205, 0.8);
+                        border-radius: 40% 40% 50% 50%;
+                        filter: blur(1px);
+                        animation: milkDrop ${1 + Math.random() * 4}s linear infinite;
+                    `;
+                        drop.style.left = Math.random() * 100 + 'vw';
+                        drop.style.top = -20 + 'px';
+                        milk.appendChild(drop);
+                    }
+
+                    // Añadir keyframes para las gotas
+                    const style = document.createElement('style');
+                    style.textContent = `
+                    @keyframes milkDrop {
+                        0% { 
+                            transform: translateY(0) scaleY(1);
+                            opacity: 1;
+                        }
+                        80% {
+                            opacity: 0.9;
+                        }
+                        100% { 
+                            transform: translateY(110vh) scaleY(1.2);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+
+                    document.body.appendChild(milk);
+                    requestAnimationFrame(() => milk.style.opacity = '1');
+
+                    // Limpiar efecto
+                    setTimeout(() => {
+                        milk.style.opacity = '0';
+                        milkImg.style.filter = '';
+                        setTimeout(() => {
+                            milk.remove();
+                            style.remove();
+                        }, 1000);
+                    }, 3500);
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Limpiar efectos previos
+                document.querySelectorAll('.ipecac-effect').forEach(el => el.remove());
+
+                if (val === 'ipecac') {
+                    // Encontrar Ipecac en la página
+                    const ipecacImg = document.querySelector(`img[src$="item_149.png"]`);
+                    if (!ipecacImg) return;
+
+                    // Brillo al item
+                    ipecacImg.style.transition = 'filter 0.3s';
+                    let keepIpecac = true;
+                    const interval = setInterval(() => {
+                        if (keepIpecac && ipecacImg) {
+                            ipecacImg.style.filter = 'brightness(2.5) drop-shadow(0 0 15px #32CD32) drop-shadow(0 0 30px #00FF00)';
+                        }
+                    }, 100);
+
+                    // Crear efecto ambiente tóxico
+                    const toxic = document.createElement('div');
+                    toxic.className = 'ipecac-effect';
+                    toxic.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background: radial-gradient(circle at center, transparent 0%, rgba(0,64,0,0.6) 100%);
+                    pointer-events: none;
+                    z-index: 9998;
+                    opacity: 0;
+                    transition: opacity 1s;
+                `;
+
+                    // Crear burbujas tóxicas
+                    for (let i = 0; i < 30; i++) {
+                        const bubble = document.createElement('div');
+                        bubble.style.cssText = `
+                        position: absolute;
+                        width: ${4 + Math.random() * 8}px;
+                        height: ${4 + Math.random() * 8}px;
+                        background: #32CD32;
+                        border-radius: 50%;
+                        filter: blur(1px);
+                        opacity: 0.6;
+                        animation: float ${3 + Math.random() * 4}s infinite;
+                    `;
+                        bubble.style.left = Math.random() * 100 + 'vw';
+                        bubble.style.top = Math.random() * 100 + 'vh';
+                        toxic.appendChild(bubble);
+                    }
+
+                    // Función para crear explosiones
+                    function createExplosion() {
+                        const explosion = document.createElement('div');
+                        explosion.style.cssText = `
+                        position: absolute;
+                        left: ${Math.random() * 100}vw;
+                        top: ${Math.random() * 100}vh;
+                        width: 10px;
+                        height: 10px;
+                        background: #32CD32;
+                        border-radius: 50%;
+                        filter: blur(2px);
+                        animation: explode 1s ease-out forwards;
+                    `;
+                        toxic.appendChild(explosion);
+                        setTimeout(() => explosion.remove(), 1000);
+                    }
+
+                    // Añadir keyframes para animaciones
+                    const style = document.createElement('style');
+                    style.textContent = `
+                    @keyframes float {
+                        0% { transform: translateY(0) scale(1);
+                            opacity: 1;
+                        }
+                        100% { 
+                            transform: translateY(-${Math.random() * 200 + 100}px) scale(0);
+                            opacity: 0;
+                        }
+                    }
+                    @keyframes explode {
+                        0% { 
+                            transform: scale(1);
+                            opacity: 1;
+                        }
+                        50% {
+                            transform: scale(30);
+                            opacity: 0.5;
+                        }
+                        100% { 
+                            transform: scale(40);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+
+                    document.body.appendChild(toxic);
+                    requestAnimationFrame(() => toxic.style.opacity = '1');
+
+                    // Crear explosiones periódicamente
+                    const explosionInterval = setInterval(() => {
+                        createExplosion();
+                    }, 500);
+
+                    // Limpiar efecto
+                    setTimeout(() => {
+                        clearInterval(explosionInterval);
+                        toxic.style.opacity = '0';
+                        ipecacImg.style.filter = '';
+                        setTimeout(() => {
+                            toxic.remove();
+                            style.remove();
+                        }, 1000);
+                    }, 3500);
+                }
+            });
+            // Añadir al evento input del search-bar
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Limpiar efectos previos
+                document.querySelectorAll('.sacred-effect').forEach(el => el.remove());
+
+                if (val === 'sacred heart') {
+                    const sacredImg = document.querySelector(`img[src$="item_182.png"]`);
+                    if (!sacredImg) return;
+
+                    // Brillo al item
+                    sacredImg.style.transition = 'filter 0.3s';
+                    let keepSacred = true;
+                    const interval = setInterval(() => {
+                        if (keepSacred && sacredImg) {
+                            sacredImg.style.filter = 'brightness(2.5) drop-shadow(0 0 15px #ff69b4) drop-shadow(0 0 30px #ff1493)';
+                        }
+                    }, 100);
+
+                    // Crear efecto divino
+                    const sacred = document.createElement('div');
+                    sacred.className = 'sacred-effect';
+                    sacred.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        background: radial-gradient(circle at center, transparent 0%, rgba(255,192,203,0.3) 100%);
+                        pointer-events: none;
+                        z-index: 9998;
+                        opacity: 0;
+                        transition: opacity 1s;
+                    `;
+
+                    // Crear rayos de luz
+                    for (let i = 0; i < 12; i++) {
+                        const ray = document.createElement('div');
+                        const angle = (i * 30) % 360;
+                        ray.style.cssText = `
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            width: 2px;
+                            height: 200vh;
+                            background: linear-gradient(to top, transparent, rgba(255,192,203,0.6), transparent);
+                            transform-origin: bottom center;
+                            transform: rotate(${angle}deg);
+                            animation: rayRotate 20s linear infinite;
+                        `;
+                        sacred.appendChild(ray);
+                    }
+
+                    // Crear corazones flotantes
+                    for (let i = 0; i < 20; i++) {
+                        const heart = document.createElement('div');
+                        heart.innerHTML = '❤';
+                        heart.style.cssText = `
+                            position: absolute;
+                            color: pink;
+                            font-size: ${20 + Math.random() * 20}px;
+                            opacity: ${0.3 + Math.random() * 0.7};
+                            left: ${Math.random() * 100}vw;
+                            top: ${Math.random() * 100}vh;
+                            animation: floatHeart ${3 + Math.random() * 4}s ease-in-out infinite;
+                        `;
+                        sacred.appendChild(heart);
+                    }
+
+                    // Añadir keyframes
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes rayRotate {
+                            from { transform: rotate(${Math.random() * 360}deg); }
+                            to { transform: rotate(${360 + Math.random() * 360}deg); }
+                        }
+                        @keyframes floatHeart {
+                            0%, 100% { transform: translate(0, 0); }
+                            50% { transform: translate(${-30 + Math.random() * 60}px, ${-30 + Math.random() * 60}px); }
+                        }
+                    `;
+                    document.head.appendChild(style);
+
+                    document.body.appendChild(sacred);
+                    requestAnimationFrame(() => sacred.style.opacity = '1');
+
+                    // Limpiar efecto
+                    setTimeout(() => {
+                        sacred.style.opacity = '0';
+                        sacredImg.style.filter = '';
+                        setTimeout(() => {
+                            sacred.remove();
+                            style.remove();
+                        }, 1000);
+                    }, 3500);
+                }
+            });
+
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Limpiar efectos previos
+                document.querySelectorAll('.wavy-effect').forEach(el => el.remove());
+
+                if (val === 'wavy cap') {
+                    const wavyImg = document.querySelector(`img[src$="item_582.png"]`);
+                    if (!wavyImg) return;
+
+                    // Efecto más intenso en el item
+                    wavyImg.style.filter = 'brightness(3) saturate(200%) drop-shadow(0 0 25px #9370DB) drop-shadow(0 0 50px #8A2BE2)';
+                    wavyImg.style.animation = 'pulse 0.5s infinite alternate';
+
+                    const wavy = document.createElement('div');
+                    wavy.className = 'wavy-effect';
+                    wavy.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    pointer-events: none;
+                    z-index: 9998;
+                    mix-blend-mode: screen;
+                    opacity: 1;
+                    animation: wavyBackground 4s infinite linear;
+                `;
+
+                    // Más esporas y más variadas
+                    for (let i = 0; i < 50; i++) {
+                        const spore = document.createElement('div');
+                        const size = 4 + Math.random() * 12;
+                        spore.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        background: ${Math.random() > 0.5 ? '#9370DB' : '#8A2BE2'};
+                        border-radius: 50%;
+                        filter: blur(${1 + Math.random() * 3}px) brightness(${1 + Math.random()});
+                        opacity: ${0.4 + Math.random() * 0.6};
+                        animation: float ${3 + Math.random() * 7}s infinite ease-in-out;
+                        box-shadow: 0 0 ${10 + Math.random() * 20}px ${Math.random() > 0.5 ? '#9370DB' : '#8A2BE2'};
+                    `;
+                        spore.style.left = Math.random() * 100 + 'vw';
+                        spore.style.top = Math.random() * 100 + 'vh';
+                        wavy.appendChild(spore);
+                    }
+
+                    const style = document.createElement('style');
+                    style.textContent = `
+                    @keyframes pulse {
+                        0% { transform: scale(1); }
+                        100% { transform: scale(1.2); }
+                    }
+                    @keyframes float {
+                        0%, 100% { 
+                            transform: translate(0, 0) rotate(0deg) scale(1); 
+                        }
+                        50% { 
+                            transform: 
+                                translate(${-100 + Math.random() * 200}px, ${-100 + Math.random() * 200}px)
+                                rotate(${Math.random() * 720}deg)
+                                scale(${1 + Math.random()});
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+                    document.body.appendChild(wavy);
+
+                    let time = 0;
+                    const animate = () => {
+                        time += 0.02;
+
+                        // Distorsión extrema de la página
+                        document.body.style.filter = `
+                        saturate(${100 + Math.sin(time) * 50}%)
+                    `;
+                        document.documentElement.style.filter = `
+                        blur(${Math.abs(Math.sin(time * 0.5))}px)
+                    hue-rotate(${Math.sin(time * 0.7) * 360}deg)
+                    `;
+
+                        document.body.style.transform = `
+                        perspective(${800 + Math.sin(time) * 200}px)
+                        rotate3d(
+                            ${Math.sin(time * 0.5) * 0.3},
+                            ${Math.cos(time * 0.5) * 0.3},
+                            ${Math.sin(time * 0.3) * 0.1},
+                            ${Math.sin(time) * 5}deg
+                        )
+                        scale(${1 + Math.sin(time * 0.8) * 0.1})
+                    `;
+
+                        // Distorsión psicodélica de imágenes
+                        document.querySelectorAll('.img-grid img').forEach((img, index) => {
+                            img.style.transform = `
+                            translate(
+                                ${Math.sin(time * 2 + index) * 15}px,
+                                ${Math.cos(time * 1.5 + index) * 15}px
+                            )
+                            rotate(${Math.sin(time + index) * 15}deg)
+                            scale(${1 + Math.sin(time * 3 + index * 0.1) * 0.2})
+                            skew(${Math.sin(time * 2) * 10}deg)
+                        `;
+                            img.style.filter = `
+                            brightness(${1 + Math.sin(time * 2) * 0.3})
+                            hue-rotate(${Math.sin(time * 0.7 + index) * 180}deg)
+                        `;
+                        });
+
+                        // Efecto en textos
+                        document.querySelectorAll('h2, h3, p').forEach((text, index) => {
+                            text.style.transform = `
+                            translate(
+                                ${Math.sin(time * 2 + index) * 10}px,
+                                ${Math.cos(time * 1.5 + index) * 8}px
+                            )
+                            rotate(${Math.sin(time + index) * 3}deg)
+                            scale(${1 + Math.sin(time * 2) * 0.1})
+                        `;
+                            text.style.filter = `blur(${Math.abs(Math.sin(time * 0.5))}px)`;
+                        });
+
+                        if (wavy.isConnected && document.getElementById('search-bar').value.trim().toLowerCase() === 'wavy cap') {
+                            requestAnimationFrame(animate);
+                        } else {
+                            cleanup();
+                            style.remove();
+                        }
+                    };
+
+                    requestAnimationFrame(animate);
+                };
+
+                const cleanup = () => {
+                    document.querySelectorAll('.wavy-effect').forEach(el => el.remove());
+                    document.body.style.filter = '';
+                    document.body.style.transform = '';
+                    document.querySelectorAll('*').forEach(el => {
+                        el.style.transform = '';
+                        el.style.filter = '';
+                        el.style.transition = '';
+                    });
+                };
+
+                requestAnimationFrame(animate);
+            });
+
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+
+                // Limpiar efectos previos
+                document.querySelectorAll('.tazazel-portal-effect').forEach(el => el.remove());
+
+                // Diccionario de personajes y sus imágenes
+                const characters = {
+                    "isaac": "isaac.png",
+                    "tainted isaac": "isaac_t.png",
+                    "magdalene": "magdalene.png",
+                    "tainted magdalene": "magdalene_t.png",
+                    "cain": "cain.png",
+                    "tainted cain": "cain_t.png",
+                    "judas": "judas.png",
+                    "tainted judas": "judas_t.png",
+                    "blue baby": "bluebaby.png",
+                    "tainted blue baby": "bluebaby_t.png",
+                    "eve": "eve.png",
+                    "tainted eve": "eve_t.png",
+                    "samson": "samson.png",
+                    "tainted samson": "samson_t.png",
+                    "azazel": "azazel.png",
+                    "tainted azazel": "azazel_t.png",
+                    "lazarus": "lazarus.png",
+                    "tainted lazarus": "lazarus_t.png",
+                    "eden": "eden.png",
+                    "tainted eden": "eden_t.png",
+                    "the lost": "thelost.png",
+                    "tainted the lost": "thelost_t.png",
+                    "lilith": "lilith.png",
+                    "tainted lilith": "lilith_t.png",
+                    "keeper": "keeper.png",
+                    "tainted keeper": "keeper_t.png",
+                    "apollyon": "apollyon.png",
+                    "tainted apollyon": "apollyon_t.png",
+                    "the forgotten": "theforgotten.png",
+                    "tainted the forgotten": "theforgotten_t.png",
+                    "bethany": "bethany.png",
+                    "tainted bethany": "bethany_t.png",
+                    "jacob and esau": "jacobandesau.png",
+                    "tainted jacob": "jacobandesau_t.png"
+                };
+
+                // Si el input coincide con algún personaje, muestra el efecto
+                if (characters[val]) {
+                    // Fondo oscuro bloqueante
+                    const effect = document.createElement('div');
+                    effect.className = 'tazazel-portal-effect';
+                    effect.style.cssText = `
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1.2s;
+            pointer-events: all;
+        `;
+
+                    // Portal giratorio
+                    const portal = document.createElement('img');
+                    portal.src = 'https://raw.githubusercontent.com/platinum-god/jokercard/main/characters/portal.png';
+                    portal.alt = 'Portal';
+                    portal.style.cssText = `
+            width:  100vw; height: 100vh;
+            object-fit: contain;
+            filter: drop-shadow(0 0 60px #000) brightness(1.2);
+            position: absolute;
+            opacity: 0;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%) scale(0.7) rotate(0deg);
+            transition: opacity 1.2s, transform 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+            z-index: 1;
+            animation: portal-spin 2.5s linear infinite;
+            pointer-events: none;
+            image-rendering: pixelated;
+        `;
+
+                    // Luz central del portal (pulsante)
+                    const portalLight = document.createElement('div');
+                    portalLight.style.cssText = `
+            position: absolute;
+            left: 50%; top: 50%;
+            width: 320px; height: 320px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;transparent 100%);
+            filter: blur(18px);
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            transition: opacity 1.2s;
+            animation: portal-light-pulse 2s infinite alternate;
+        `;
+
+                    // Personaje iluminado
+                    const characterImg = document.createElement('img');
+                    characterImg.src = `https://raw.githubusercontent.com/platinum-god/jokercard/main/characters/${characters[val]}`;
+                    characterImg.alt = val;
+                    characterImg.style.cssText = `
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 60px #fff) drop-shadow(0 0 40px #000000) brightness(2) saturate(1.5);
+            position: absolute;
+            left: 50%; top: 50%;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.1);
+            transition: opacity 1.2s, transform 1.2s cubic-bezier(.68,-0.55,.27,1.55), filter 1.2s;
+            z-index: 2;
+            cursor: pointer;
+            animation: azazel-pulse 1.2s infinite alternate;
+            image-rendering: pixelated;
+        `;
+
+                    // Fantasma del personaje
+                    const ghost = document.createElement('img');
+                    ghost.src = 'https://raw.githubusercontent.com/platinum-god/jokercard/main/characters/death.png';
+                    ghost.alt = 'Ghost';
+                    ghost.style.cssText = `
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            position: absolute;
+            left: 50%; top: 50%;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.7) translateY(0);
+            z-index: 3;
+            pointer-events: none;
+            transition: opacity 0.8s, transform 2s cubic-bezier(.68,-0.55,.27,1.55);
+            filter: drop-shadow(0 0 40px #fff);
+            image-rendering: pixelated;
+        `;
+
+                    effect.appendChild(portalLight);
+                    effect.appendChild(portal);
+                    effect.appendChild(characterImg);
+                    effect.appendChild(ghost);
+                    document.body.appendChild(effect);
+
+                    // Keyframes para portal, luz y pulso
+                    const style = document.createElement('style');
+                    style.textContent = `
+            @keyframes portal-spin {
+                0% { transform: translate(-50%, -50%) scale(0.7) rotate(0deg);}
+                100% { transform: translate(-50%, -50%) scale(0.7) rotate(360deg);}
+            }
+            @keyframes portal-light-pulse {
+                0% { opacity: 0.8; }
+                100% { opacity: 1; }
+            }
+            @keyframes azazel-pulse {
+                0% { filter: drop-shadow(0 0 60px #fff) drop-shadow(0 0 40px #ff00ff)}
+                100% { filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 60px #ff00ff)}
+            }
+        `;
+                    document.head.appendChild(style);
+
+                    // Fade in fondo, portal y luz
+                    setTimeout(() => {
+                        effect.style.opacity = '1';
+                        portal.style.opacity = '1';
+                        portal.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+                        portalLight.style.opacity = '1';
+                    }, 100);
+
+                    // Personaje aparece del centro con pulso
+                    setTimeout(() => {
+                        characterImg.style.opacity = '1';
+                        characterImg.style.transform = 'translate(-50%, -50%) scale(1)';
+                    }, 900);
+
+                    // Solo se puede clicar el personaje
+                    effect.addEventListener('click', function (ev) {
+                        if (ev.target !== characterImg) {
+                            ev.stopPropagation();
+                            ev.preventDefault();
+                        }
+                    }, true);
+
+                    // Al clicar el personaje: baja brillo/saturación y aparece fantasma
+                    characterImg.addEventListener('click', function (ev) {
+                        ev.stopPropagation();
+                        characterImg.style.animation = '';
+                        characterImg.style.transition = 'filter 1.2s, opacity 1.2s';
+                        characterImg.style.filter = 'drop-shadow(0 0 10px #222) brightness(0.6) saturate(0.5)';
+                        portalLight.style.opacity = '0.3';
+                        portal.style.opacity = '0';
+
+                        // Fantasma aparece y sube
+                        setTimeout(() => {
+                            ghost.style.opacity = '1';
+                            ghost.style.transform = 'translate(-50%, -50%) scale(1) translateY(-120px)';
+                        }, 700);
+
+                        // Desaparece todo después de que el fantasma suba
+                        setTimeout(() => {
+                            ghost.style.opacity = '0';
+                            effect.style.opacity = '0';
+                            setTimeout(() => {
+                                effect.remove();
+                                style.remove();
+                            }, 1200);
+                        }, 2200);
+                    });
+
+                    // Limpiar efecto al cambiar el input
+                    const cleanup = () => {
+                        effect.style.opacity = '0';
+                        portal.style.opacity = '0';
+                        characterImg.style.opacity = '0';
+                        portalLight.style.opacity = '0';
+                        ghost.style.opacity = '0';
+                        setTimeout(() => {
+                            effect.remove();
+                            style.remove();
+                        }, 1200);
+                    };
+
+                    const inputHandler = function (ev) {
+                        if (ev.target.value.trim().toLowerCase() !== val) {
+                            cleanup();
+                            document.getElementById('search-bar').removeEventListener('input', inputHandler);
+                        }
+                    };
+                    document.getElementById('search-bar').addEventListener('input', inputHandler);
+                }
+            });
+            (function preloadCharacterImages() {
+                const baseUrl = 'https://raw.githubusercontent.com/platinum-god/jokercard/main/characters/';
+                const images = [
+                    "isaac.png", "isaac_t.png", "magdalene.png", "magdalene_t.png",
+                    "cain.png", "cain_t.png", "judas.png", "judas_t.png",
+                    "bluebaby.png", "bluebaby_t.png", "eve.png", "eve_t.png",
+                    "samson.png", "samson_t.png", "azazel.png", "azazel_t.png",
+                    "lazarus.png", "lazarus_t.png", "eden.png", "eden_t.png",
+                    "thelost.png", "thelost_t.png", "lilith.png", "lilith_t.png",
+                    "keeper.png", "keeper_t.png", "apollyon.png", "apollyon_t.png",
+                    "theforgotten.png", "theforgotten_t.png", "bethany.png", "bethany_t.png",
+                    "jacobandesau.png", "jacobandesau_t.png", "portal.png", "death.png"
+                ];
+                images.forEach(img => {
+                    const image = new Image();
+                    image.src = baseUrl + img;
+                });
+            })();
+
+            const quizModal = document.getElementById('quiz-modal');
+            const quizModalContent = document.getElementById('quiz-modal-content');
+            const quizModalClose = document.getElementById('quiz-modal-close');
+            const floatingQuizBtn = document.getElementById('floating-quiz-btn');
+            floatingQuizBtn.onclick = function () {
+                startQuiz();
+            }
+
+            // Botón flotante de enlace (izquierda)
+            const floatingLinkBtn = document.getElementById('floating-link-btn');
+            floatingLinkBtn.onclick = function () {
+                // Cambia esta URL por la que quieras usar
+                window.open('https://platinum-god.github.io/jokercard/map.html', '_blank');
+            }
+
+            quizModalClose.onclick = () => quizModal.style.display = 'none';
+            quizModal.onclick = function (e) { if (e.target === quizModal) quizModal.style.display = 'none'; };
+
+            function startQuiz() {
+                if (!allItems.length) return;
+                showQuizQuestion();
+                quizModal.style.display = 'flex';
+            }
+
+            function showQuizQuestion() {
+                // Define los tipos de pregunta disponibles
+                const possibleQuestions = ['name', 'image', /*'stat1',*/ 'stat2', 'pool'];
+                // Elige uno al azar
+                const questionKind = possibleQuestions[Math.floor(Math.random() * possibleQuestions.length)];
+
+                const NEXT_DELAY = 1200;
+                const itemPools = [
+                    { key: "shop", img: `${baseUrl}pools/shop_door.png`, name: "Shop" },
+                    { key: "item room", img: `${baseUrl}pools/itemroom_door.png`, name: "Item Room" },
+                    { key: "planetarium", img: `${baseUrl}pools/planetarium_door.png`, name: "Planetarium" },
+                    { key: "library", img: `${baseUrl}pools/library_door.png`, name: "Library" },
+                    { key: "curse room", img: `${baseUrl}pools/curseroom_door.png`, name: "Curse Room" },
+                    { key: "secret room", img: `${baseUrl}pools/secretroom_door.png`, name: "Secret Room" },
+                    { key: "boss room", img: `${baseUrl}pools/bossroom_door.png`, name: "Boss Room" },
+                    { key: "devil room", img: `${baseUrl}pools/devilroom_door.png`, name: "Devil Room" },
+                    { key: "angel room", img: `${baseUrl}pools/angelroom_door.png`, name: "Angel Room" }
+                ];
+                const statTypes = [
+                    { key: 'hp', label: 'HP' },
+                    { key: 'dmg', label: 'Daño' },
+                    { key: 'cdn', label: 'Cadencia' },
+                    { key: 'shs', label: 'Velocidad de Bala' },
+                    { key: 'lck', label: 'Suerte' },
+                    { key: 'sp', label: 'Velocidad' },
+                    { key: 'rg', label: 'Rango' }
+                ];
+                const upDownTypes = [
+                    { key: 'down', label: 'Baja' }
+                ];
+
+                // Helpers
+                function pickRandom(arr) {
+                    return arr[Math.floor(Math.random() * arr.length)];
+                }
+                function getName(obj) {
+                    return obj.name;
+                }
+                function getImg(obj) {
+                    if (obj.kind === 'item') return `${baseUrl}All_Items/item_${obj.id}.png`;
+                    if (obj.kind === 'trinket') return `${baseUrl}All_Trinkets/trinket_${obj.trinketId}.png`;
+                    if (obj.kind === 'card') return `${baseUrl}All_Consumables/card_${obj.cardId}.png`;
+                    return '';
+                }
+                function getItemPoolsList(item) {
+                    const poolsList = [];
+                    if (item.pool) poolsList.push(String(item.pool).toLowerCase());
+                    if (item.pools && item.pools.length) {
+                        for (const p of item.pools) if (p) poolsList.push(String(p).toLowerCase());
+                    }
+                    if (item.tags) {
+                        const tags = item.tags.toLowerCase();
+                        for (const poolObj of itemPools) {
+                            if (tags.includes(poolObj.key.toLowerCase()) && !poolsList.includes(poolObj.key.toLowerCase())) {
+                                poolsList.push(poolObj.key.toLowerCase());
+                            }
+                        }
+                    }
+                    return [...new Set(poolsList)];
+                }
+
+                // Determina qué tipos de pregunta tienen datos válidos
+                const validCards = allCards.filter(card =>
+                    card.cardId &&
+                    ![98, 99, 100, 110, 111, 112, 113, 114].includes(Number(card.cardId))
+                );
+                const itemsWithStatChange = allItems.filter(item =>
+                    Array.isArray(item.stat_change) && item.stat_change.length > 0
+                );
+                const validPoolItems = allItems.filter(item => getItemPoolsList(item).length > 0);
+
+                let questionHtml = '';
+                let correctIdx = 0;
+                let options = [];
+                let mainImg = '';
+                let mainText = '';
+
+                if (questionKind === 'name') {
+                    const validCards = allCards.filter(card =>
+                        card.cardId &&
+                        ![98, 99, 100, 110, 111, 112, 113, 114].includes(Number(card.cardId))
+                    );
+                    const pool = [
+                        ...allItems.map(item => ({ ...item, kind: 'item' })),
+                        ...allTrinkets.map(trinket => ({ ...trinket, kind: 'trinket' })),
+                        ...validCards.map(card => ({ ...card, kind: 'card' }))
+                    ];
+                    const correct = pool[Math.floor(Math.random() * pool.length)];
+                    let sameTypePool = pool.filter(o => o.kind === correct.kind && getName(o) !== getName(correct));
+                    options = [correct];
+                    while (options.length < 4) {
+                        let candidate = sameTypePool[Math.floor(Math.random() * sameTypePool.length)];
+                        if (!options.some(o => getName(o) === getName(candidate))) options.push(candidate);
+                    }
+                    options = options.sort(() => Math.random() - 0.5);
+                    correctIdx = options.findIndex(o => getName(o) === getName(correct));
+                    mainImg = `<img src="${getImg(correct)}" style="width:90px;height:90px;image-rendering:pixelated;object-fit:contain;display:block;margin:0 auto;">`;
+                    mainText = `¿Cómo se llama este ${correct.kind === 'item' ? 'objeto' : correct.kind === 'trinket' ? 'trinket' : 'consumible'}?`;
+                    questionHtml = `
+            <h3 style="margin-top:0;">${mainText}</h3>
+            ${mainImg}
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:1em 0;">
+                ${options.map((o, idx) => `
+                    <button class="quiz-option" style="padding:8px 10px;font-size:1.1em;border-radius:8px;border:2px solid #99866e;background:#f6d6b0;cursor:pointer;font-family: 'Jersey 15';" data-correct="${idx === correctIdx}">
+                        ${getName(o)}
+                    </button>
+                `).join('')}
+            </div>
+        `;
+                } else if (questionKind === 'image') {
+                    const validCards = allCards.filter(card =>
+                        card.cardId &&
+                        ![98, 99, 100, 110, 111, 112, 113, 114].includes(Number(card.cardId))
+                    );
+                    const pool = [
+                        ...allItems.map(item => ({ ...item, kind: 'item' })),
+                        ...allTrinkets.map(trinket => ({ ...trinket, kind: 'trinket' })),
+                        ...validCards.map(card => ({ ...card, kind: 'card' }))
+                    ];
+                    const correct = pool[Math.floor(Math.random() * pool.length)];
+                    let sameTypePool = pool.filter(o => o.kind === correct.kind && getImg(o) !== getImg(correct));
+                    options = [correct];
+                    while (options.length < 4) {
+                        let candidate = sameTypePool[Math.floor(Math.random() * sameTypePool.length)];
+                        if (!options.some(o => getImg(o) === getImg(candidate))) options.push(candidate);
+                    }
+                    options = options.sort(() => Math.random() - 0.5);
+                    correctIdx = options.findIndex(o => getImg(o) === getImg(correct));
+                    mainText = `¿Qué imagen corresponde a <b>${getName(correct)}</b>?`;
+                    questionHtml = `
+            <h3 style="margin-top:0;">${mainText}</h3>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:1em 0;">
+                ${options.map((o, idx) => `
+                    <button class="quiz-option" style="padding:8px 10px;font-size:1.1em;border-radius:8px;border:2px solid #99866e;background:#f6d6b0;cursor:pointer;display:flex;flex-direction:column;align-items:center;" data-correct="${idx === correctIdx}">
+                        <img src="${getImg(o)}" style="width:60px;height:60px;object-fit:contain;image-rendering:pixelated;margin-bottom:4px;">
+                    </button>
+                `).join('')}
+            </div>
+        `;
+                    /* stat1 desactivada por ahora
+                            } else if (questionKind === 'stat1') {
+                                // ¿Qué stat modifica este objeto?
+                                const statTypes = [
+                                    { key: "dmg", label: "Daño" },
+                                    { key: "sp", label: "Velocidad" },
+                                    { key: "lck", label: "Suerte" },
+                                    { key: "rg", label: "Rango" },
+                                    { key: "cdn", label: "Cadencia" },
+                                    { key: "hp", label: "Vida" },
+                                    { key: "shs", label: "Velocidad de Bala" }
+                                ];
+                                const upDownTypes = [
+                                    { key: "up", label: "+" },
+                                    { key: "down", label: "-" }
+                                ];
+                                let item, statOptions, correctStat, tries = 0;
+                                do {
+                                    item = pickRandom(allItems);
+                                    statOptions = item.stat_change
+                                        ? item.stat_change.split(',').map(s => s.trim())
+                                        : [];
+                                    tries++;
+                                } while ((!statOptions.length) && tries < 100);
+                                if (!statOptions.length) {
+                                    alert("No se encontró ningún stat para este objeto. Se salta la pregunta.");
+                                    return showQuizQuestion();
+                                }
+                                correctStat = pickRandom(statOptions);
+            
+                                // Genera 3 opciones incorrectas que no estén en statOptions
+                                let allPossibleStats = statTypes
+                                    .map(st => upDownTypes.map(ud => `${st.key}_${ud.key}`))
+                                    .flat();
+                                let incorrectStats = allPossibleStats.filter(s => !statOptions.includes(s));
+                                let optionsStats = [correctStat];
+                                // Asegura que sean realmente incorrectas
+                                while (optionsStats.length < 4 && incorrectStats.length > 0) {
+                                    let candidate = pickRandom(incorrectStats);
+                                    if (!optionsStats.includes(candidate)) {
+                                        optionsStats.push(candidate);
+                                        incorrectStats = incorrectStats.filter(s => s !== candidate);
+                                    }
+                                }
+                                optionsStats = optionsStats.sort(() => Math.random() - 0.5);
+                                const correctIdx = optionsStats.findIndex(s => s === correctStat);
+            
+                                function statLabel(s) {
+                                    const st = statTypes.find(t => s.startsWith(t.key));
+                                    const ud = upDownTypes.find(u => s.endsWith(u.key));
+                                    return `${ud ? ud.label : ''} ${st ? st.label : s}`;
+                                }
+                                mainText = `¿Qué stat modifica este objeto?`;
+                                mainImg = `<img src="${baseUrl}All_Items/item_${item.id}.png" style="width:90px;height:90px;image-rendering:pixelated;object-fit:contain;display:block;margin:0 auto;">`;
+                                questionHtml = `
+                    <h3 style="margin-top:0;">${mainText}</h3>
+                    ${mainImg}
+                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:1em 0;">
+                        ${optionsStats.map((stat, idx) => `
+                            <button class="quiz-option" data-idx="${idx}" data-correct="${idx === correctIdx}" style="font-size:1.2em;padding:12px 8px;border-radius:12px;border:2px solid #99866e;background:#f6d6b0;cursor:pointer;">
+                                ${statLabel(stat)}
+                            </button>
+                        `).join('')}
+                    </div>
+                `; */
+                } else if (questionKind === 'stat2') {
+                    // ¿Cuál de estos items modifica [stat] ([up/down])?
+                    const statTypes = [
+                        { key: "dmg", label: "Daño" },
+                        { key: "sp", label: "Velocidad" },
+                        { key: "lck", label: "Suerte" },
+                        { key: "rg", label: "Rango" },
+                        { key: "cdn", label: "Cadencia" },
+                        { key: "hp", label: "Vida" },
+                        { key: "shs", label: "Velocidad de Bala" }
+                    ];
+                    const upDownTypes = [
+                        { key: "up", label: "+" },
+                        { key: "down", label: "-" }
+                    ];
+                    let found = false, statType, upDownType, matchingItems, tries = 0;
+                    while (!found && tries < 100) {
+                        tries++;
+                        statType = pickRandom(statTypes);
+                        upDownType = pickRandom(upDownTypes);
+                        matchingItems = allItems.filter(item =>
+                            item.stat_change &&
+                            item.stat_change.split(',').map(s => s.trim()).includes(`${statType.key}_${upDownType.key}`)
+                        );
+                        found = matchingItems.length > 0;
+                    }
+                    if (!found) {
+                        alert("No se encontró ningún item con ese cambio de stat. Se salta la pregunta.");
+                        return showQuizQuestion();
+                    }
+                    const correctItem = pickRandom(matchingItems);
+
+                    // Opciones incorrectas: items que NO tengan ese stat y NO sean el correcto
+                    const incorrectItems = allItems
+                        .filter(item =>
+                            item.stat_change &&
+                            !item.stat_change.split(',').map(s => s.trim()).includes(`${statType.key}_${upDownType.key}`) &&
+                            item.id !== correctItem.id
+                        )
+                        .sort(() => Math.random() - 0.5)
+                        .slice(0, 3);
+
+                    const optionsItems = [correctItem, ...incorrectItems].sort(() => Math.random() - 0.5);
+                    const correctIdx = optionsItems.findIndex(item => item.id === correctItem.id);
+
+                    mainText = `¿Cuál de estos objetos otorga ${upDownType.label} ${statType.label}?`;
+                    questionHtml = `
+        <h3 style="margin-top:0;">${mainText}</h3>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:1em 0;">
+            ${optionsItems.map((item, idx) => `
+                <button class="quiz-option" data-idx="${idx}" data-correct="${idx === correctIdx}" style="font-size:1.2em;padding:12px 8px;border-radius:12px;border:2px solid #99866e;background:#f6d6b0;cursor:pointer;">
+                    <img src="${baseUrl}All_Items/item_${item.id}.png" style="width:60px;height:60px;object-fit:contain;image-rendering:pixelated;margin-bottom:4px;">
+                </button>
+            `).join('')}
+        </div>
+    `;
+                } else {
+                    let item;
+                    let tries = 0;
+                    do {
+                        item = allItems[Math.floor(Math.random() * allItems.length)];
+                        tries++;
+                        if (tries > 200) break;
+                    } while (!getItemPoolsList(item) || getItemPoolsList(item).length === 0);
+
+                    const itemPoolsForThisItem = getItemPoolsList(item);
+                    if (!itemPoolsForThisItem || itemPoolsForThisItem.length === 0) {
+                        // no pool detectada, regenerar
+                        showQuizQuestion();
+                        return;
+                    }
+
+                    // Si el item tiene varias pools, elegimos UNA sola como la respuesta correcta
+                    const correctPoolKey = pickRandom(itemPoolsForThisItem);
+                    // Buscar el objeto pool con ese key (itemPools usa keys en lowercase en la comparación)
+                    const correctPool = itemPools.find(p => p.key.toLowerCase() === correctPoolKey);
+                    if (!correctPool) {
+                        showQuizQuestion();
+                        return;
+                    }
+
+                    // Los distractores deben excluir cualquier pool que pertenezca al item
+                    const distractors = itemPools
+                        .filter(p => !itemPoolsForThisItem.includes(p.key.toLowerCase()) && p.key.toLowerCase() !== correctPoolKey);
+
+                    // tomar hasta 3 distractores aleatorios
+                    const shuffled = distractors.sort(() => 0.5 - Math.random()).slice(0, 3);
+                    options = [correctPool, ...shuffled].sort(() => 0.5 - Math.random());
+                    correctIdx = options.findIndex(p => p.key.toLowerCase() === correctPoolKey);
+
+                    mainImg = `<img src="${baseUrl}All_Items/item_${item.id}.png"  style="width:90px;height:90px;image-rendering:pixelated;object-fit:contain;display:block;margin:0 auto;">`;
+                    mainText = `¿De qué item pool viene este objeto?`;
+                    questionHtml = `
+            <h3 style="margin-top:0;">${mainText}</h3>
+            ${mainImg}
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:1em 0;">
+                ${options.map((pool, idx) => `
+                    <button class="quiz-option" style="padding:8px 10px;font-size:1.1em;border-radius:8px;border:2px solid #99866e;background:#f6d6b0;cursor:pointer;font-family: 'Jersey 15';display:flex;flex-direction:column;align-items:center;" data-correct="${idx === correctIdx}">
+                        <img src="${pool.img}" style="width:90px;height:90px;object-fit:contain;image-rendering:pixelated;margin-bottom:4px;">
+                    </button>
+                `).join('')}
+            </div>
+        `;
+                }
+                quizModalContent.innerHTML = `
+        <span class="modal-close" id="quiz-modal-close">&times;</span>
+        ${questionHtml}
+        <div id="quiz-timer-bar" style="height:8px;width:100%;background:#948066;border-radius:5px;overflow:hidden;margin-top:16px;display:none;">
+            <div id="quiz-timer-fill" style="height:100%;width:0%;background:#c49b64;transition:width ${NEXT_DELAY}ms linear;"></div>
+        </div>
+    `;
+                let answered = false;
+                let timer;
+                document.querySelectorAll('.quiz-option').forEach((btn, idx) => {
+                    btn.onclick = function () {
+                        if (answered) return;
+                        answered = true;
+                        btn.style.background = btn.dataset.correct === "true" ? "#b6e6b0" : "#ffb0b0";
+                        document.getElementById('quiz-timer-bar').style.display = "block";
+                        // Animación visual de la barra de carga
+                        const fill = document.getElementById('quiz-timer-fill');
+                        fill.style.width = "0%";
+                        setTimeout(() => { fill.style.width = "100%"; }, 10);
+                        timer = setTimeout(() => showQuizQuestion(), NEXT_DELAY);
+                    };
+                });
+                quizModalContent.onkeydown = function (e) {
+                    if (!answered) return;
+                    if (e.key === "Enter" || e.key === " ") {
+                        clearTimeout(timer);
+                        showQuizQuestion();
+                    }
+                };
+                quizModalContent.tabIndex = 0;
+                quizModalContent.focus();
+                document.getElementById('quiz-modal-close').onclick = () => {
+                    quizModal.style.display = 'none';
+                    clearTimeout(timer);
+                };
+            }
+            (function setupMiniTooltip() {
+                // Detecta dispositivos con hover (solo desktop)
+                const supportsHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+                if (!supportsHover) return;
+
+                const tooltip = document.createElement('div');
+                tooltip.className = 'mini-tooltip';
+                document.body.appendChild(tooltip);
+
+                // Aplicar tema ya cargado (si existe) al tooltip al crearlo,
+                // para evitar que se quede con el estilo por defecto.
+                const docStyle = getComputedStyle(document.documentElement);
+                const themeBg = (docStyle.getPropertyValue('--tooltip-bg') || '').trim();
+                const themeBorder = (docStyle.getPropertyValue('--tooltip-border') || '').trim();
+                const themeText = (docStyle.getPropertyValue('--text-color') || docStyle.getPropertyValue('--tooltip-text') || '').trim();
+                if (themeBg) tooltip.style.background = themeBg;
+                if (themeBorder) tooltip.style.borderColor = themeBorder;
+                if (themeText) tooltip.style.color = themeText;
+
+                function escapeHtml(s) {
+                    return String(s).replace(/[&<>"']/g, function (m) {
+                        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
+                    });
+                }
+
+                function extractIdFromSrc(src) {
+                    if (!src) return { kind: null, id: '' };
+                    const mItem = src.match(/item_(\d+)\.png/i);
+                    if (mItem) return { kind: 'item', id: mItem[1] };
+                    const mTr = src.match(/trinket_(\d+)\.png/i);
+                    if (mTr) return { kind: 'trinket', id: mTr[1] };
+                    const mCard = src.match(/card_(\d+)\.png/i);
+                    if (mCard) return { kind: 'card', id: mCard[1] };
+                    return { kind: null, id: '' };
+                }
+
+                function findObjByImgSrc(src) {
+                    const info = extractIdFromSrc(src);
+                    if (!info.kind || !info.id) return null;
+                    if (info.kind === 'item') return allItems.find(i => String(i.id) === String(info.id)) || null;
+                    if (info.kind === 'trinket') return allTrinkets.find(t => String(t.trinketId) === String(info.id)) || null;
+                    if (info.kind === 'card') return allCards.find(c => String(c.cardId) === String(info.id)) || null;
+                    return null;
+                }
+
+                function buildStatIconsHtml(statChangeStr) {
+                    if (!statChangeStr) return '';
+                    const parts = statChangeStr.split(',').map(s => s.trim()).filter(Boolean);
+                    if (!parts.length) return '';
+                    const icons = parts.map(p => {
+                        const m = p.match(/^([a-z]+)[_\s-]?([a-z0-9+\-]+)?/i);
+                        if (!m) return '';
+                        const key = m[1].toLowerCase();
+                        const dir = (m[2] || '').toLowerCase();
+                        const statBase = (typeof baseUrl === 'string' && baseUrl) ? baseUrl.replace(/\/?$/, '/') : '';
+                        const statIcon = `${statBase}stats/${key}.png`;
+                        const dirIcon = (dir === 'up' || dir === '+') ? `${statBase}stats/statup.png` : ((dir === 'down' || dir === '-') ? `${statBase}stats/statdown.png` : '');
+                        return `<span class="stat-icon" title="${escapeHtml(p)}"><img src="${statIcon}" alt="${key}" onerror="this.style.display='none'"><img src="${dirIcon}" alt="${dir}" class="dir" onerror="this.style.display='none'"></span>`;
+                    }).filter(Boolean);
+                    if (!icons.length) return '';
+                    return `<div class="stat-icons">${icons.join('')}</div>`;
+                }
+
+                function buildQualityHtml(obj) {
+                    if (!obj) return '';
+                    const q = (typeof obj.quality !== 'undefined' && obj.quality !== null) ? Number(obj.quality) : NaN;
+                    if (!Number.isFinite(q) || q < 0 || q > 4) return '';
+                    const src = `${baseUrl}stats/${q}.png`;
+                    return `<img src="${src}" alt="quality-${q}" class="quality-img" style="vertical-align:middle;margin-right:6px;" onerror="this.style.display='none'">`;
+                }
+
+                function positionTooltipForImg(img) {
+                    const rect = img.getBoundingClientRect();
+                    tooltip.style.left = '0px'; tooltip.style.top = '0px';
+                    const ttRect = tooltip.getBoundingClientRect();
+                    const top = Math.max(8, rect.top - ttRect.height - 8);
+                    let left = rect.left + (rect.width / 2) - (ttRect.width / 2);
+                    left = Math.min(window.innerWidth - ttRect.width - 8, Math.max(8, left));
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                }
+
+                document.addEventListener('mouseover', (ev) => {
+                    const tgt = ev.target;
+                    const img = tgt && typeof tgt.closest === 'function' ? tgt.closest('.img-grid img') : null;
+                    if (!img) return;
+                    const name = img.alt || img.getAttribute('alt') || '';
+                    const idInfo = extractIdFromSrc(img.getAttribute('src') || img.src || '');
+                    const obj = findObjByImgSrc(img.getAttribute('src') || img.src || '');
+                    let statsHtml = '';
+                    if (obj && obj.stat_change) {
+                        statsHtml = buildStatIconsHtml(obj.stat_change);
+                    }
+                    const qualityHtml = buildQualityHtml(obj);
+                    tooltip.innerHTML = `
+            ${statsHtml}
+            <div class="tooltip-text" style="display:flex;align-items:center;justify-content:center;gap:6px;">
+                ${qualityHtml}
+                <strong>${escapeHtml(name || '')}</strong>
+                ${idInfo.id ? `<span class="tooltip-id">#${escapeHtml(idInfo.id)}</span>` : ''}
+            </div>
+        `;
+                    positionTooltipForImg(img);
+                    requestAnimationFrame(() => tooltip.classList.add('visible'));
+                });
+
+                document.addEventListener('mousemove', (ev) => {
+                    const hovered = document.querySelector('.img-grid img:hover');
+                    if (hovered && tooltip.classList.contains('visible')) {
+                        positionTooltipForImg(hovered);
+                    }
+                });
+
+                document.addEventListener('mouseout', (ev) => {
+                    const tgt = ev.target;
+                    const img = tgt && typeof tgt.closest === 'function' ? tgt.closest('.img-grid img') : null;
+                    if (!img) return;
+                    tooltip.classList.remove('visible');
+                });
+
+                window.addEventListener('scroll', () => tooltip.classList.remove('visible'), { passive: true });
+                window.addEventListener('resize', () => tooltip.classList.remove('visible'));
+
+                const statStyle = document.createElement('style');
+                statStyle.textContent = `
+        /* Tooltip más compacto */
+        .mini-tooltip {
+            font-size: 0.9rem;
+            white-space: normal;
+            max-width: 220px;
+        }
+
+        .mini-tooltip .quality-img {
+            width: 16px;
+            height: 16px;
+            image-rendering: pixelated;
+        }
+
+        /* Grid de stats: máximo 2 por fila, gaps pequeños */
+        .mini-tooltip .stat-icons {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            justify-items: center;
+            align-items: center;
+            margin: 0 0 6px 0;
+            max-width: 140px;
+        }
+
+        .mini-tooltip .stat-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0px;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* iconos más pequeños */
+        .mini-tooltip .stat-icon img {
+            width: 27px;
+            height: 27px;
+            image-rendering: pixelated;
+            display: inline-block;
+        }
+
+        .mini-tooltip .stat-icon img.dir {
+            width: 20px;
+            height: 20px;
+            opacity: 0.95;
+        }
+
+        .mini-tooltip .tooltip-text {
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.1;
+        }
+    `;
+                document.head.appendChild(statStyle);
+            })();
+
+            // Datos de personajes (añade los que necesites)
+            const CHARACTERS = [
+                { name: 'Isaac', img: 'isaac.png', unlock: '' },
+                { name: 'Jacob & Esaú', img: 'jacobandesau.png', unlock: 'Derrota a Madre (NO ES MAMA)', secret: true },
+                { name: 'Bethany', img: 'bethany.png', unlock: 'Derrota el Corazón de mama como Lazaro sin morir en toda la partida', secret: true },
+                { name: 'The Forgotten', img: 'theforgotten.png', unlock: 'Lleva la pala rota a la Boss Rush, completala y coge la segunda pieza de la pala, ve a la Dark Room y encuentra un monton de tierra', secret: true },
+                { name: 'Apollyon', img: 'apollyon.png', unlock: 'Derrota a Mega Satan' },
+                { name: 'Keeper', img: 'keeper.png', unlock: 'Dona 1000 monedas en el modo Greed', secret: true },
+                { name: 'Lilith', img: 'lilith.png', unlock: 'Derrota a Ultra Greed como Azazel' },
+                { name: 'The Lost', img: 'thelost.png', unlock: 'Muere en una habitacion de sacrificio con el trinket Missing Page', secret: true },
+                { name: 'Edén', img: 'eden.png', unlock: 'Completa el corazón de mamá 1 vez' },
+                { name: 'Lazarus', img: 'lazarus.png', unlock: 'Ten 4 corazones azules a la vez' },
+                { name: 'Azazel', img: 'azazel.png', unlock: 'Haz 3 pactos con el diablo en una partida' },
+                { name: 'Samson', img: 'samson.png', unlock: 'Completa 2 pisos sin recibir daño' },
+                { name: 'Eve', img: 'eve.png', unlock: 'No cojas ningún corazón en 2 pisos seguidos' },
+                { name: 'Blue Baby', img: 'bluebaby.png', unlock: 'Derrota el corazón de mama 10 veces', secret: true },
+                { name: 'Judas', img: 'judas.png', unlock: 'Derrota a Satan' },
+                { name: 'Cain', img: 'cain.png', unlock: 'Ten 55 monedas o más en una partida a la vez' },
+                { name: 'Magdalene', img: 'magdalene.png', unlock: 'Consigue 7 contenedores de corazón o más en una partida a la vez' }
+            ];
+
+            const TAINTEDCHARACTERS = [
+                { name: 'Tainted Isaac', img: 'isaac_t.png', unlock: 'Descubre la sala secreta en casa con Isaac', secret: true },
+                { name: 'Tainted Jacob', img: 'jacobandesau_t.png', unlock: 'Descubre la sala secreta en casa con Jacob & Esau', secret: true },
+                { name: 'Tainted Bethany', img: 'bethany_t.png', unlock: 'Descubre la sala secreta en casa con Bethany', secret: true },
+                { name: 'Tainted The Forgotten', img: 'theforgotten_t.png', unlock: 'Descubre la sala secreta en casa con The Forgotten', secret: true },
+                { name: 'Tainted Apollyon', img: 'apollyon_t.png', unlock: 'Descubre la sala secreta en casa con Apollyon', secret: true },
+                { name: 'Tainted Keeper', img: 'keeper_t.png', unlock: 'Descubre la sala secreta en casa con Keeper', secret: true },
+                { name: 'Tainted Lilith', img: 'lilith_t.png', unlock: 'Descubre la sala secreta en casa con Lilith', secret: true },
+                { name: 'Tainted The Lost', img: 'thelost_t.png', unlock: 'Descubre la sala secreta en casa con The Lost', secret: true },
+                { name: 'Tainted Edén', img: 'eden_t.png', unlock: 'Descubre la sala secreta en casa con Edén', secret: true },
+                { name: 'Tainted Lazarus', img: 'lazarus_t.png', unlock: 'Descubre la sala secreta en casa con Lazarus', secret: true },
+                { name: 'Tainted Azazel', img: 'azazel_t.png', unlock: 'Descubre la sala secreta en casa con Azazel', secret: true },
+                { name: 'Tainted Samson', img: 'samson_t.png', unlock: 'Descubre la sala secreta en casa con Samson', secret: true },
+                { name: 'Tainted Eve', img: 'eve_t.png', unlock: 'Descubre la sala secreta en casa con Eve', secret: true },
+                { name: 'Tainted Blue Baby', img: 'bluebaby_t.png', unlock: 'Descubre la sala secreta en casa con Blue Baby', secret: true },
+                { name: 'Tainted Judas', img: 'judas_t.png', unlock: 'Descubre la sala secreta en casa con Judas', secret: true },
+                { name: 'Tainted Cain', img: 'cain_t.png', unlock: 'Descubre la sala secreta en casa con Cain', secret: true },
+                { name: 'Tainted Magdalene', img: 'magdalene_t.png', unlock: 'Descubre la sala secreta en casa con Magdalene', secret: true }
+            ];
+
+            let currentCharacterIndex = 0;
+            let isTainted = false; // Toggle para saber si estamos en tainted o no
+
+            function initCharacterCarousel() {
+                const carousel = document.getElementById('character-carousel');
+                carousel.innerHTML = '';
+
+                const CURRENT_CHARACTERS = isTainted ? TAINTEDCHARACTERS : CHARACTERS;
+
+                CURRENT_CHARACTERS.forEach((char, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'character-item';
+                    if (idx === currentCharacterIndex) div.classList.add('center');
+
+                    const img = document.createElement('img');
+
+                    // Si tiene secret, mostrar el portal de entrada, si no, mostrar el personaje
+                    if (char.secret) {
+                        img.src = 'https://raw.githubusercontent.com/platinum-god/jokercard/main/characters/portal.png';
+                    } else {
+                        img.src = `https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/characters/${char.img}`;
+                    }
+
+                    img.alt = char.name;
+
+                    div.appendChild(img);
+
+                    carousel.appendChild(div);
+                });
+
+                // Crear portal en el centro (toggle)
+                const portalToggle = document.createElement('div');
+                portalToggle.id = 'character-portal-toggle';
+                portalToggle.style.cssText = `
+                    position: absolute;
+                    left: 0;
+                    top: -200px;
+                    transform: translate(-100%, -70%);
+                    width: 150px;
+                    height: 150px;
+                    cursor: pointer;
+                    z-index: 101;
+                    transition: all 0.3s;
+                `;
+
+                const portalImg = document.createElement('img');
+                portalImg.src = 'https://raw.githubusercontent.com/platinum-god/jokercard/main/characters/portal.png';
+                portalImg.alt = 'Toggle Tainted';
+                portalImg.style.cssText = `
+                    width: 200%;
+                    height: 150%;
+                    object-fit: contain;
+                    image-rendering: pixelated;
+                    filter: drop-shadow(0 0 20px #000000) brightness(1.2);
+                    animation: portal-spin-toggle 10s linear infinite;
+                `;
+
+                portalToggle.appendChild(portalImg);
+
+                // Event listener para el toggle
+                portalToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+
+                    // Crear efecto de distorsión al cambiar
+                    createTaintedEffect();
+                });
+
+                // Función para crear efecto de cambio a tainted
+                function createTaintedEffect() {
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        background: black;
+                        pointer-events: none;
+                        z-index: 10000;
+                        opacity: 0;
+                        transition: opacity 0.6s ease-in-out;
+                    `;
+
+                    document.body.appendChild(overlay);
+
+                    // Fade in (opaco)
+                    setTimeout(() => {
+                        overlay.style.opacity = '1';
+                    }, 10);
+
+                    // Cambiar personajes MIENTRAS la pantalla está negra
+                    setTimeout(() => {
+                        isTainted = !isTainted;
+                        currentCharacterIndex = 0;
+                        initCharacterCarousel();
+                    }, 450); // A mitad del fade in
+
+                    // Fade out (transparente)
+                    setTimeout(() => {
+                        overlay.style.opacity = '0';
+                        setTimeout(() => overlay.remove(), 600);
+                    }, 900);
+                }
+
+                // Hover effect
+                portalToggle.addEventListener('mouseover', () => {
+                    // Verifica que el evento sea directamente en el portal, no en sus hijos
+                    if (e.target === portalImg || e.target === portalToggle) {
+                        portalImg.style.filter = 'drop-shadow(0 0 30px #000000) brightness(1.5) saturate(1.5)';
+                        portalImg.style.transform = 'scale(1.1)';
+                    }
+                });
+
+                portalToggle.addEventListener('mouseout', (e) => {
+                    // Solo quitar el efecto si salimos completamente del portal
+                    if (!portalToggle.contains(e.relatedTarget)) {
+                        portalImg.style.filter = 'drop-shadow(0 0 20px #000000) brightness(1.2)';
+                        portalImg.style.transform = 'scale(1)';
+                    }
+                });
+
+                carousel.appendChild(portalToggle);
+
+                updateCharacterPosition();
+                updateCharacterInfo();
+            }
+
+            function selectCharacter(idx) {
+                currentCharacterIndex = idx;
+                updateCharacterPosition();
+                updateCharacterInfo();
+            }
+
+            function updateCharacterPosition() {
+                const items = document.querySelectorAll('.character-item:not(#character-portal-toggle)');
+                const totalItems = items.length;
+                const centerIdx = currentCharacterIndex;
+
+                items.forEach((item, idx) => {
+                    item.classList.remove('center');
+
+                    let distance = (idx - centerIdx + totalItems) % totalItems;
+                    if (distance > totalItems / 2) {
+                        distance -= totalItems;
+                    }
+
+                    const angle = (distance * 360) / totalItems + 90;
+                    const radius = 500;
+
+                    const x = Math.cos((angle * Math.PI) / 180) * radius;
+                    const y = Math.sin((angle * Math.PI) / 180) * radius - radius / 1.2;
+
+                    const scale = distance === 0 ? 1 : 0.7;
+                    const opacity = distance === 0 ? 1 : 0.6;
+                    const zIndex = distance === 0 ? 100 : 50 - Math.abs(distance);
+
+                    item.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${scale})`;
+                    item.style.opacity = opacity;
+                    item.style.zIndex = zIndex;
+
+                    if (distance === 0) {
+                        item.classList.add('center');
+                    }
+                });
+            }
+
+            function updateCharacterInfo() {
+                const CURRENT_CHARACTERS = isTainted ? TAINTEDCHARACTERS : CHARACTERS;
+                const char = CURRENT_CHARACTERS[currentCharacterIndex];
+                const charNameEl = document.getElementById('character-name');
+                const charUnlockEl = document.getElementById('character-unlock');
+                const unlockBtn = document.getElementById('character-unlock-btn');
+
+                charUnlockEl.textContent = char.unlock || 'Disponible desde el inicio';
+
+                // Si tiene secret (está bloqueado), mostrar nombre con ?
+                if (char.secret) {
+                    charNameEl.textContent = char.name.split('').map(() => '?').join('');
+                    charNameEl.style.color = '#999';
+                    charNameEl.style.textShadow = '0 0 10px rgba(255,0,255,0.5)';
+                    unlockBtn.style.display = 'block';
+
+                    // Evento del botón desbloquear
+                    unlockBtn.onclick = () => {
+                        // Cambiar secret a false
+                        char.secret = false;
+                        // Reinicializar el carousel para refrescar visualmente
+                        initCharacterCarousel();
+                        updateCharacterInfo();
+                    };
+                } else {
+                    charNameEl.textContent = char.name;
+                    charNameEl.style.color = '';
+                    charNameEl.style.textShadow = '';
+                    unlockBtn.style.display = 'none';
+                }
+            }
+
+            // Event listeners
+            document.getElementById('characters-btn').addEventListener('click', () => {
+                document.getElementById('characters-modal').style.display = 'flex';
+                if (document.querySelectorAll('.character-item').length === 0) {
+                    initCharacterCarousel();
+                }
+            });
+
+            document.getElementById('modal-close-characters').addEventListener('click', () => {
+                document.getElementById('characters-modal').style.display = 'none';
+            });
+
+            // Cerrar modal al hacer click fuera
+            document.getElementById('characters-modal').addEventListener('click', (e) => {
+                if (e.target.id === 'characters-modal') {
+                    document.getElementById('characters-modal').style.display = 'none';
+                }
+            });
+
+            // Navegación EXCLUSIVAMENTE por botones prev/next
+            (function attachCharacterNavButtons() {
+                const prevBtn = document.getElementById('characters-prev');
+                const nextBtn = document.getElementById('characters-next');
+                function step(delta) {
+                    const list = isTainted ? TAINTEDCHARACTERS : CHARACTERS;
+                    if (!list.length) return;
+                    currentCharacterIndex = (currentCharacterIndex + delta + list.length) % list.length;
+                    updateCharacterPosition();
+                    updateCharacterInfo();
+                }
+                if (prevBtn) prevBtn.addEventListener('click', (ev) => { ev.stopPropagation(); step(+1); });
+                if (nextBtn) nextBtn.addEventListener('click', (ev) => { ev.stopPropagation(); step(-1); });
+            })();
+
+            // Agregar keyframe para la animación del portal toggle
+            const portalStyle = document.createElement('style');
+            portalStyle.textContent = `
+                @keyframes portal-spin-toggle {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(-360deg); }
+                }
+            `;
+            document.head.appendChild(portalStyle);
+        </script>
+
+
+</body>
+
+</html>

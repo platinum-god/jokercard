@@ -1,0 +1,1279 @@
+[
+    {
+        "cardId": "1",
+        "name": "O - The Fool",
+        "pickup": "Where your journey begins",
+        "description": [
+            "Teletransporta al jugador a la primera habitación del piso actual.",
+            "Hay una carta de Fool garantizada en las Profundidades 2 si bombardeas la calavera con una X."
+        ],
+        "tags": "*, tarot, card, green"
+    },
+    {
+        "cardId": "2",
+        "name": "I - The Magician",
+        "pickup": "May you never miss your goal",
+        "description": [
+            "Para la sala actual, las lágrimas ahora tienen el efecto Doblador de cucharas, que les permite curvarse hacia los enemigos y les da una apariencia púrpura."
+        ],
+        "tags": "*, tarot, card, yellow"
+    },
+    {
+        "cardId": "3",
+        "name": "II - The High Priestess",
+        "pickup": "Mother is watching you",
+        "description": [
+            "Invoca el pie de mamá, que pisoteará a un enemigo aleatorio en la sala actual y le causará 300 de daño.",
+            "Si no hay enemigos en la sala actual, el pie apuntará a Isaac (y causará daño si impacta), sin embargo, se puede usar para romper rocas."
+        ],
+        "tags": "*, tarot, card, red"
+    },
+    {
+        "cardId": "4",
+        "name": "III - The Empress",
+        "pickup": "May your rage bring power",
+        "description": [
+            "Otorga al jugador el efecto Puta de Babilonia para la sala actual, aumentando el daño y la velocidad."
+        ],
+        "tags": "* speed up, tarot, card, blue, red"
+    },
+    {
+        "cardId": "5",
+        "name": "IV - The Emperor",
+        "pickup": "Challenge me!",
+        "description": [
+            "Teletransporta al jugador a la sala del jefe en el piso actual."
+        ],
+        "tags": "*, tarot, card, yellow"
+    },
+    {
+        "cardId": "6",
+        "name": "V - The Hierophant",
+        "pickup": "Two prayers for the lost",
+        "description": [
+            "Genera 2 corazones de alma en el suelo."
+        ],
+        "tags": "*, the lost item pool, tarot, card, blue, red"
+    },
+    {
+        "cardId": "7",
+        "name": "VI - The Lovers",
+        "pickup": "May you prosper and be in good health",
+        "description": [
+            "Genera 2 corazones rojos en el suelo.",
+            "Si se usa en una habitación súper secreta que contiene un corazón negro o un corazón eterno, generará esos tipos de corazones en su lugar."
+        ],
+        "tags": "* , the lost item pool, tarot, card, red"
+    },
+    {
+        "cardId": "8",
+        "name": "VII - The Chariot",
+        "pickup": "May nothing stand before you",
+        "description": [
+            "Otorga el mismo efecto que 'Mi pequeño unicornio', que hace a Isaac invencible e inflige 40 de daño de contacto a los enemigos por golpe."
+        ],
+        "tags": "*, tarot, card, yellow"
+    },
+    {
+        "cardId": "9",
+        "name": "VIII - Justice",
+        "pickup": "May your future become balanced",
+        "description": [
+            "Genera 1 bomba, 1 llave, 1 moneda, 1 corazón, que pueden ser variantes aleatorias de cada uno."
+        ],
+        "tags": "*, tarot, card, red"
+    },
+    {
+        "cardId": "10",
+        "name": "IX - The Hermit",
+        "pickup": "May you see what life has to offer",
+        "description": [
+            "Teletransporta al jugador a la Tienda.",
+            "En o debajo del Útero, esto actúa como un teletransporte aleatorio, ya que no hay tiendas en esos pisos."
+        ],
+        "tags": "*, tarot, card, blue"
+    },
+    {
+        "cardId": "11",
+        "name": "X - Wheel of Fortune",
+        "pickup": "Spin the wheel of destiny",
+        "description": [
+            "Genera una máquina tragamonedas o una máquina de la fortuna."
+        ],
+        "tags": "*, tarot, card, pink"
+    },
+    {
+        "cardId": "12",
+        "name": "XI - Strength",
+        "pickup": "May your power bring rage",
+        "description": [
+            "Otorga al jugador el efecto Magic Mush, que aumenta el tamaño y todas las estadísticas en 1 para la sala actual.",
+            "Si usas la carta de Fuerza con 12 contenedores de corazón, te bajará a 11 cuando salgas de la habitación."
+        ],
+        "tags": "*, tarot, card, pink"
+    },
+    {
+        "cardId": "13",
+        "name": "XII - The Hanged Man",
+        "pickup": "May you find enlightenment",
+        "description": [
+            "Otorga al jugador el efecto de vuelo para la sala actual, lo que le permite volar sobre obstáculos en la sala.",
+            "Esta tarjeta es inútil si tienes algún objeto que te permita volar permanentemente."
+        ],
+        "tags": "* , the lost item pool, tarot, card, grey, gray"
+    },
+    {
+        "cardId": "14",
+        "name": "XIII - Death",
+        "pickup": "Lay waste to all that oppose you",
+        "description": [
+            "Inflige 40 de daño a todos los enemigos en la habitación con un estilo similar al del Necronomicón."
+        ],
+        "tags": "*, tarot, card, grey, gray"
+    },
+    {
+        "cardId": "15",
+        "name": "XIV - Temperance",
+        "pickup": "May you be pure in heart",
+        "description": [
+            "Genera una máquina de donación de sangre."
+        ],
+        "tags": "* , the lost item pool, tarot, card, red, blue"
+    },
+    {
+        "cardId": "16",
+        "name": "XV - The Devil",
+        "pickup": "Revel in the power of your darkness",
+        "description": [
+            "Otorga el efecto del Libro de Belial a la sala actual, aumentando el daño."
+        ],
+        "tags": "* damage up, tarot, card, red"
+    },
+    {
+        "cardId": "17",
+        "name": "XVI - The Tower",
+        "pickup": "Destruction brings creation",
+        "description": [
+            "Genera algunas bombas troll en ubicaciones aleatorias en la sala actual.",
+            "Cada bomba causa 60 de daño (daño normal de bomba)."
+        ],
+        "tags": "*, tarot, card, purple"
+    },
+    {
+        "cardId": "18",
+        "name": "XVII - The Stars",
+        "pickup": "May you find what you desire",
+        "description": [
+            "Teletransporta al jugador a la sala de objetos.",
+            "En o debajo del Útero, esto actúa como un teletransporte aleatorio, ya que no hay salas de objetos en esos pisos."
+        ],
+        "tags": "*, tarot, card, blue"
+    },
+    {
+        "cardId": "19",
+        "name": "XVIII - The Moon",
+        "pickup": "May you find all you have lost",
+        "description": [
+            "Teletransporta al jugador a la habitación secreta."
+        ],
+        "tags": "*, tarot, card, blue"
+    },
+    {
+        "cardId": "20",
+        "name": "XIX - The Sun",
+        "pickup": "May the light heal and enlighten you",
+        "description": [
+            "Una carta con tres usos: curación completa, inflige 100 de daño a todos los enemigos en la sala actual y revela el mapa completo del piso actual (Mapa del tesoro + La brújula)"
+        ],
+        "tags": "*, tarot, card, yellow"
+    },
+    {
+        "cardId": "21",
+        "name": "XX - Judgement",
+        "pickup": "Judge lest ye be judged",
+        "description": [
+            "Engendra un mendigo",
+            "Tiene la posibilidad de ser un mendigo demonio.",
+            "Matar a un Mendigo Diablo, un Maestro de Llaves o un Mendigo del Juego de Conchas aumenta la probabilidad de encontrar Salas de Ángeles en lugar de Salas de Diablos. Consulta la página dedicada a las Salas de Diablos para más detalles."
+        ],
+        "tags": "*, tarot, card, blue"
+    },
+    {
+        "cardId": "22",
+        "name": "XXI - The World",
+        "pickup": "Open your eyes and see",
+        "description": [
+            "Revela el mapa completo y muestra los íconos de cada habitación que tenga uno.",
+            "Esto es completamente inútil si actualmente tienes tanto el Mapa del Tesoro como la Brújula."
+        ],
+        "tags": "*, tarot, card, pink"
+    },
+    {
+        "cardId": "23",
+        "name": "2 of Clubs",
+        "pickup": "Item multiplier",
+        "description": [
+            "Duplica la cantidad de bombas que tienes",
+            "Si no tienes bombas, te da dos"
+        ],
+        "tags": "*, playing, card, white, black"
+    },
+    {
+        "cardId": "24",
+        "name": "2 of Diamonds",
+        "pickup": "Item multiplier",
+        "description": [
+            "Duplica el número de monedas que tienes",
+            "Si no tienes monedas te da dos"
+        ],
+        "tags": "*, playing, card, white, red"
+    },
+    {
+        "cardId": "25",
+        "name": "2 of Spades",
+        "pickup": "Item multiplier",
+        "description": [
+            "Duplica el número de llaves que tienes",
+            "Si no tienes llaves te da dos"
+        ],
+        "tags": "*, playing, card, white, black"
+    },
+    {
+        "cardId": "26",
+        "name": "2 of Hearts",
+        "pickup": "Item multiplier",
+        "description": [
+            "Duplica tus corazones rojos actuales hasta alcanzar la salud completa",
+            "Esta tarjeta no sirve para el Bebé Azul"
+        ],
+        "tags": "* , the lost item pool, playing, card, white, red"
+    },
+    {
+        "cardId": "27",
+        "name": "Ace of Clubs",
+        "pickup": "Convert all",
+        "description": [
+            "Cuando se usa, convierte todos los objetos, cofres y enemigos que no sean jefes en la sala en bombas."
+        ],
+        "tags": "*, playing, card, white, black",
+        "unlock": "Desbloquea este objeto consiguiendo una racha de 3 victorias."
+    },
+    {
+        "cardId": "28",
+        "name": "Ace of Diamonds",
+        "pickup": "Convert all",
+        "description": [
+            "Cuando se usa, convierte todos los objetos, cofres y enemigos que no sean jefes en la sala en monedas."
+        ],
+        "tags": "*, playing, card, white, red",
+        "unlock": "Desbloquea este objeto derrotando a El Cordero en menos de 20 minutos."
+    },
+    {
+        "cardId": "29",
+        "name": "Ace of Spades",
+        "pickup": "Convert all",
+        "description": [
+            "Cuando se usa, convierte todos los objetos, cofres y enemigos que no sean jefes en la sala en llaves."
+        ],
+        "tags": "*, playing, card, white, black",
+        "unlock": "Desbloquea este objeto derrotando a El Cordero sin tomar corazones, monedas ni bombas."
+    },
+    {
+        "cardId": "30",
+        "name": "Ace of Hearts",
+        "pickup": "Convert all",
+        "description": [
+            "Cuando se usa, convierte todos los objetos, cofres y enemigos que no sean jefes en la sala en corazones."
+        ],
+        "tags": "*, playing, card, white, red",
+        "unlock": "Desbloquea este objeto derrotando cualquier piso después del Sótano I con solo la mitad de un corazón de salud (funciona como Los Perdidos)"
+    },
+    {
+        "cardId": "31",
+        "name": "The Joker",
+        "pickup": "???",
+        "description": [
+            "Te teletransporta a la Sala de tratos con el diablo en el piso actual."
+        ],
+        "tags": "*, playing, card, white, black"
+    },
+    {
+        "cardId": "32",
+        "name": "Rune of Hagalaz",
+        "pickup": "Destruction",
+        "description": [
+            "Cuando se usa, esta runa destruirá todos los objetos frágiles en la habitación actual, como excrementos, rocas y entradas a habitaciones secretas.",
+            "Esto incluye bloques clave"
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 1 (Pitch Black)"
+    },
+    {
+        "cardId": "33",
+        "name": "Rune of Jera",
+        "pickup": "Abundance",
+        "description": [
+            "Cuando se usa esta runa, se duplicarán todos los objetos que se recogen en el suelo de la habitación.",
+            "Crea copias de objetos recogidos en la Tienda que se pueden tomar de forma gratuita, incluso si aún no los has comprado.",
+            "Se puede usar para duplicar la cantidad de cofres de objetos en la primera sala de los pisos finales de Cofres\/Sala Oscura",
+            "Los cofres clonados tienen los mismos tipos de elementos que el primero.",
+            "No se puede utilizar para clonar baratijas u otras runas de Jera."
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 2 (High Brow)"
+    },
+    {
+        "cardId": "34",
+        "name": "Rune of Ehwaz",
+        "pickup": "Passage",
+        "description": [
+            "Crea una trampilla en el suelo.",
+            "Cavar en ciertos lugares con objetos o marcas en el piso garantizará un espacio de acceso una vez por piso."
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 3 (Traumatismo craneal)."
+    },
+    {
+        "cardId": "35",
+        "name": "Rune of Dagaz",
+        "pickup": "Purity",
+        "description": [
+            "Elimina la maldición que está vigente en el piso actual (excepto la Maldición del Laberinto)",
+            "También puede curar el efecto de la píldora Amnesia.",
+            "+1 Corazón del alma"
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 4 (Darkness Falls)"
+    },
+    {
+        "cardId": "36",
+        "name": "Rune of Ansuz",
+        "pickup": "Vision",
+        "description": [
+            "Cuando se usa, revela el mapa completo, incluidas todas las ubicaciones de las salas secretas y otras salas de iconos."
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 5 (El Tanque)."
+    },
+    {
+        "cardId": "37",
+        "name": "Rune of Perthro",
+        "pickup": "Change",
+        "description": [
+            "Vuelve a tirar todos los elementos del pedestal en la sala actual (uso único del D6)"
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 6 (Sistema Solar)"
+    },
+    {
+        "cardId": "38",
+        "name": "Rune of Berkano",
+        "pickup": "Companionship",
+        "description": [
+            "Invoca 3 arañas azules amistosas y 3 moscas azules."
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el Desafío n.° 20 (Purist)"
+    },
+    {
+        "cardId": "39",
+        "name": "Rune of Algiz",
+        "pickup": "Resistance",
+        "description": [
+            "Cuando se usa, te otorga un efecto de invencibilidad que dura 20 segundos."
+        ],
+        "tags": "*, purple, glow",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 8 (El gato te comió la lengua)."
+    },
+    {
+        "cardId": "40",
+        "name": "Blank Rune",
+        "pickup": "???",
+        "description": [
+            "Cuando se usa, otorga un efecto de runa mística aleatoria.",
+            "Los posibles efectos incluyen: Algiz, Ansuz, Berkano, Dagaz, Ehwaz, Hagalaz, Jera, Perthro",
+            "También tiene un 25% de probabilidad de generar otra Runa en blanco al usarla."
+        ],
+        "tags": "*",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 30 (Guardián)"
+    },
+    {
+        "cardId": "41",
+        "name": "Black Rune",
+        "pickup": "Void",
+        "description": [
+            "Cuando se usa, esta runa causa 40 de daño a todos los enemigos en la habitación y consume todos los elementos del pedestal en la habitación, lo que te da un aumento de estadísticas aleatorio por cada elemento consumido.",
+            "También consume todos los objetos de la sala y los convierte en moscas azules y arañas."
+        ],
+        "tags": "*, rock, black",
+        "unlock": "Desbloquea este objeto superando el modo Greedier con Apollyon."
+    },
+    {
+        "cardId": "42",
+        "name": "Chaos Card",
+        "pickup": "???",
+        "description": [
+            "Una carta que se puede lanzar como un proyectil directamente frente a Isaac, matando instantáneamente todo lo que golpea, incluidos la mayoría de los jefes.",
+            "Si se lanza contra un jefe de varias fases con múltiples formas como Satán, Mega Satán o Silencio, solo matará esa fase particular del jefe.",
+            "Si se lanza contra un jefe de varias fases que funciona con una sola barra de salud, como Isaac, ??? o El Cordero, morirá instantáneamente.",
+            "No matará a Delirium ni a La Bestia.",
+            "Destruirá rocas y defecará a su paso.",
+            "También se puede lanzar contra una puerta para abrirla (no funciona contra la puerta de Mega Satan)",
+            "¡Si le lanzas esto al jefe Gran Gideon, se activará una animación especial y se revelará un espacio de arrastre que contiene varios cofres y objetos!"
+        ],
+        "tags": "*, mtg, card, magic, gathering, brown",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 9 (Demo Man)"
+    },
+    {
+        "cardId": "43",
+        "name": "Credit Card",
+        "pickup": "Charge it!",
+        "description": [
+            "Cuando se usa, elimina la etiqueta de precio de todos los artículos en la tienda actual o trato del diablo, haciendo que todo sea gratis.",
+            "El efecto de la Tarjeta de Crédito solo dura la sala actual."
+        ],
+        "tags": "*, blue, green",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 10 (¡Maldito!)."
+    },
+    {
+        "cardId": "44",
+        "name": "Rules Card",
+        "pickup": "???",
+        "description": [
+            "Muestra un mensaje críptico aleatorio en pantalla, similar a los de la máquina de la fortuna. Puede aparecer uno de los siguientes mensajes:",
+            "'Las habitaciones pueden rendir más de lo esperado'",
+            "Algunas puertas requieren una bendición. Llévalas contigo.",
+            "Los muros se endurecerán con el tiempo. El tiempo es la esencia.",
+            "'Los guardianes dormidos necesitarán ser despertados con un sonido fuerte'",
+            "'Un trozo de papel es tu guía'",
+            "'Niega sus dones para alcanzar tu recompensa'",
+            "'Un mercado oscuro se encuentra bajo tus pies",
+            "'¡A Chub no le gusta el humo!'"
+        ],
+        "tags": "*, white, black, writing",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 11 (Cañón de cristal)."
+    },
+    {
+        "cardId": "45",
+        "name": "Card Against Humanity",
+        "pickup": "Something stinks...",
+        "description": [
+            "¡Cuando se usa, llena toda la habitación con caca!"
+        ],
+        "tags": "*, black, white, writing",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 12 (Cuando la vida te da limones)"
+    },
+    {
+        "cardId": "46",
+        "name": "Suicide King",
+        "pickup": "A true ending?",
+        "description": [
+            "Cuando se usa, te mata instantáneamente y genera 10 objetos para recoger en el suelo.",
+            "Cada una de las 10 cosas generadas puede ser cualquier tipo de consumible o, a veces, un elemento de pedestal (hasta un máximo de 3 elementos de pedestal).",
+            "Cualquier objeto de pedestal creado por Suicide King estará relacionado con la habitación donde se usó, lo que significa que usarlo en la habitación del Ángel generará objetos de la habitación del Ángel."
+        ],
+        "tags": "*, white, blue, red",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 7 (Rey Suicida)"
+    },
+    {
+        "cardId": "47",
+        "name": "Get Out Of Jail Free Card",
+        "pickup": "Open sesame",
+        "description": [
+            "Cuando se usa, abrirá todas las puertas en la habitación actual, similar a un uso único de la Llave de papá."
+        ],
+        "tags": "*, brown, orange",
+        "unlock": "Desbloquea esta carta superando el desafío n.° 22 (Velocidad)"
+    },
+    {
+        "cardId": "48",
+        "name": "? Card",
+        "pickup": "Double active",
+        "description": [
+            "Al usar esta tarjeta, se activará el uso de tu elemento de barra espaciadora de forma gratuita."
+        ],
+        "tags": "*, black, white, question, mark"
+    },
+    {
+        "cardId": "49",
+        "name": "Dice Shard",
+        "pickup": "",
+        "description": [
+            "Permite usar una sola vez los efectos D6 y D20 al mismo tiempo."
+        ],
+        "tags": "*, purple, broken, pip"
+    },
+    {
+        "cardId": "50",
+        "name": "Emergency Contact",
+        "pickup": "Help from above",
+        "description": [
+            "Cuando se usa, hará que dos Manos de Mamá bajen y agarren a un enemigo al azar."
+        ],
+        "tags": "*, mom, brown, paper, shop room pool"
+    },
+    {
+        "cardId": "51",
+        "name": "Holy Card",
+        "pickup": "You feel protected",
+        "description": [
+            "Otorga el efecto Manto Sagrado, que anulará tu próximo golpe de daño.",
+            "El efecto persiste entre habitaciones\/pisos.",
+            "Tainted Lost comienza con esta carta y, mientras juegas con este personaje, todas las cartas y runas tienen un 10 % de probabilidad de convertirse en una Carta Sagrada."
+        ],
+        "tags": "*, playing, card, white, cross, blue",
+        "unlock": "Desbloquea este objeto al derrotar a Delirium en el piso The Void con The Lost."
+    },
+    {
+        "cardId": "52",
+        "name": "Huge Growth",
+        "pickup": "Become immense!",
+        "description": [
+            "Hace que Isaac se vuelva enorme temporalmente, lo que le otorga +7 de aumento de daño y +30 de aumento de alcance durante el resto de la sala actual.",
+            "Agregado como parte del paquete de refuerzo Afterbirth+ n.° 1 y basado en el mod de Steam Workshop creado por Coper140"
+        ],
+        "tags": "*, mtg, card, magic, gathering, green, brown, giant growth",
+        "unlock": "Desbloquea este objeto obteniendo 5 artículos o consumibles que aumenten tu tamaño, por ejemplo, píldoras 'One Makes You Larger', hongos mágicos, etc."
+    },
+    {
+        "cardId": "53",
+        "name": "Ancient Recall",
+        "pickup": "Draw 3 cards",
+        "description": [
+            "Genera 3 cartas aleatorias en el suelo cuando se usa.",
+            "Agregado como parte del paquete de refuerzo Afterbirth+ n.° 1 y basado en el mod de Steam Workshop creado por Coper140"
+        ],
+        "tags": "*, mtg, card, magic, gathering, blue"
+    },
+    {
+        "cardId": "54",
+        "name": "Era Walk",
+        "pickup": "Savor the moment",
+        "description": [
+            "Cuando se usa, esta carta ralentizará a los enemigos y las lágrimas de Isaac en -1 Velocidad de Disparo, pero acelerará la velocidad de movimiento de Isaac en +0.50 durante el resto de la sala actual.",
+            "Agregado como parte del paquete de refuerzo Afterbirth+ n.° 1 y basado en el mod de Steam Workshop creado por Coper140"
+        ],
+        "tags": "*, mtg, card, magic, gathering, blue",
+        "unlock": "Desbloquea este objeto consiguiendo el reloj roto y el cronómetro en tu colección."
+    },
+    {
+        "cardId": "55",
+        "name": "Rune Shard",
+        "pickup": "It still glows faintly",
+        "description": [
+            "Activa un efecto rúnico aleatorio. Su efecto es más débil que el de las runas normales.",
+            "Estos solo aparecen si aún no se han desbloqueado todas las runas."
+        ],
+        "tags": "*, shart"
+    },
+    {
+        "cardId": "56",
+        "name": "O - The Fool?",
+        "pickup": "Let go and move on",
+        "description": [
+            "Cuando se usa, esta carta deja caer todos tus corazones (incluidos los corazones que no sean rojos), monedas, llaves y bombas al suelo.",
+            "Este efecto se realiza de la manera más eficiente posible: por ejemplo, si tienes 99 monedas, se crearán 3 monedas de 25 centavos, 2 de 10 centavos y 4 de un centavo. Si tienes 40 bombas, se generarán 4 objetos de pedestal ¡Boom!",
+            "Recoger todos los objetos caídos te deja con la misma salud y consumibles que tenías antes.",
+            "Esto te permite manipular tus consumibles de muchas maneras diferentes, por ejemplo, cambiándolos de tirada con el D6\/D20, reorganizando tus contenedores de corazones de hueso y más.",
+            "Si tienes el objeto Tarot Cloth, esta carta también dejará caer todos tus objetos pasivos al suelo como pedestales."
+        ],
+        "tags": "*, tarot, card, green",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Lost"
+    },
+    {
+        "cardId": "57",
+        "name": "I - The Magician?",
+        "pickup": "May no harm come to you",
+        "description": [
+            "Te otorga un aura azul que repele los proyectiles enemigos, lo que hace que se alejen lentamente de Isaac y eviten golpearlo.",
+            "Dura 60 segundos"
+        ],
+        "tags": "*, tarot, card, yellow",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Judas"
+    },
+    {
+        "cardId": "58",
+        "name": "II - The High Priestess?",
+        "pickup": "Run",
+        "description": [
+            "Hace que el pie de mamá siga pisoteando aleatoriamente durante 60 segundos el lugar donde se encuentra Isaac."
+        ],
+        "tags": "*, tarot, card, red",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Lilith"
+    },
+    {
+        "cardId": "59",
+        "name": "III - The Empress?",
+        "pickup": "May your love bring protection",
+        "description": [
+            "Otorga 2 puntos de vida adicionales y +1,5 de lágrimas durante 60 segundos."
+        ],
+        "tags": "* speed up, tarot, card, blue, red",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Eve"
+    },
+    {
+        "cardId": "60",
+        "name": "IV - The Emperor?",
+        "pickup": "May you find a worthy opponent",
+        "description": [
+            "Te teletransporta a una sala de jefe adicional, que suelta un objeto de la sala de jefe como siempre. Esta sala no forma parte del piso, y al salir de ella regresas al lugar desde el que te teletransportaste.",
+            "El jefe no es necesariamente del piso actual; por ejemplo, podrías encontrar un jefe de cuevas en el sótano."
+        ],
+        "tags": "*, tarot, card, yellow",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted ???"
+    },
+    {
+        "cardId": "61",
+        "name": "V - The Hierophant?",
+        "pickup": "Two prayers for the forgotten",
+        "description": [
+            "Genera 2 corazones de hueso en el suelo."
+        ],
+        "tags": "*, the lost item pool, tarot, card, blue, red",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier con Tainted Bethany."
+    },
+    {
+        "cardId": "62",
+        "name": "VI - The Lovers?",
+        "pickup": "May your heart shatter to pieces",
+        "description": [
+            "Genera un objeto de pedestal aleatorio del conjunto de objetos de la sala actual.",
+            "A cambio, convierte un contenedor de corazón o dos corazones de alma en un corazón roto. Los corazones rotos restan permanentemente de tus posibles contenedores de salud."
+        ],
+        "tags": "* , the lost item pool, tarot, card, red",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Magdalene"
+    },
+    {
+        "cardId": "63",
+        "name": "VII - The Chariot?",
+        "pickup": "May nothing walk past you",
+        "description": [
+            "Isaac se convierte en piedra y no puede moverse durante 10 segundos, pero su tasa de lágrimas aumenta significativamente durante la duración."
+        ],
+        "tags": "*, tarot, card, yellow",
+        "unlock": "Desbloquea esta carta al derrotar el desafío n.° 42 (Patata caliente)"
+    },
+    {
+        "cardId": "64",
+        "name": "VIII - Justice?",
+        "pickup": "May your sins come back to torment you",
+        "description": [
+            "Genera de 2 a 4 cofres dorados cerrados"
+        ],
+        "tags": "*, tarot, card, red",
+        "unlock": "Desbloquea esta carta al derrotar el desafío n.° 43 (Cantripped)"
+    },
+    {
+        "cardId": "65",
+        "name": "IX - The Hermit?",
+        "pickup": "May you see the value of all things in life",
+        "description": [
+            "Al usarlos, todos los objetos y objetos de la sala actual se convierten en dinero. Todo se vende a su precio de tienda: por ejemplo, objetos por 15 céntimos, corazones por 3 céntimos y sacos por 7 céntimos."
+        ],
+        "tags": "*, tarot, card, blue",
+        "unlock": "Desbloquea esta carta al derrotar el desafío n.° 44 (Redención Roja)"
+    },
+    {
+        "cardId": "66",
+        "name": "X - Wheel of Fortune?",
+        "pickup": "Throw the dice of fate",
+        "description": [
+            "Activa un efecto aleatorio de una sala de dados.",
+            "Vea el icono de dados arriba para cada efecto posible."
+        ],
+        "tags": "*, tarot, card, pink",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier con Tainted Cain."
+    },
+    {
+        "cardId": "67",
+        "name": "XI - Strength?",
+        "pickup": "May you break their resolve",
+        "description": [
+            "Todos los enemigos en la sala actual se ralentizan y reciben el doble de daño."
+        ],
+        "tags": "*, tarot, card, pink",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Samson"
+    },
+    {
+        "cardId": "68",
+        "name": "XII - The Hanged Man?",
+        "pickup": "May your greed know no bounds",
+        "description": [
+            "Te conviertes en el Guardián, obtienes triple disparo y -0,1 de reducción de velocidad durante 30 segundos.",
+            "Los enemigos dejan caer monedas aleatorias mientras este efecto está activo."
+        ],
+        "tags": "* , the lost item pool, tarot, card, grey, gray",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Keeper."
+    },
+    {
+        "cardId": "69",
+        "name": "XIII - Death?",
+        "pickup": "May life spring forth from the fallen",
+        "description": [
+            "Activa el efecto Libro de los Muertos, generando un hueso orbital o un Bony encantado por cada enemigo asesinado en la sala actual."
+        ],
+        "tags": "*, tarot, card, grey, gray",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Forgotten"
+    },
+    {
+        "cardId": "70",
+        "name": "XIV - Temperance?",
+        "pickup": "May your hunger be satiated",
+        "description": [
+            "Cuando se usa, esta carta activa 5 efectos de píldora aleatorios uno tras otro."
+        ],
+        "tags": "* , the lost item pool, tarot, card, red, blue",
+        "unlock": "Desbloquea esta carta derrotando el desafío n.° 45 (ELIMINAR ESTO)"
+    },
+    {
+        "cardId": "71",
+        "name": "XV - The Devil?",
+        "pickup": "Bask in the light of your mercy",
+        "description": [
+            "Activa el efecto Biblia (que otorga vuelo) y otorga un Serafín familiar durante 30 segundos."
+        ],
+        "tags": "* damage up, tarot, card, red",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Azazel"
+    },
+    {
+        "cardId": "72",
+        "name": "XVI - The Tower?",
+        "pickup": "Creation brings destruction",
+        "description": [
+            "Genera 6 grupos de rocas y objetos que normalmente aparecen en este piso.",
+            "No bloqueará ninguna puerta que exista.",
+            "Las rocas tienen una gran probabilidad de convertirse en rocas teñidas."
+        ],
+        "tags": "*, tarot, card, purple",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Apollyon"
+    },
+    {
+        "cardId": "73",
+        "name": "XVII - The Stars?",
+        "pickup": "May your loss bring fortune",
+        "description": [
+            "Elimina tu elemento más antiguo y genera 2 elementos de pedestal del grupo de la sala actual",
+            "Puede eliminar elementos pasivos o activos.",
+            "No elimina los elementos iniciales de tu personaje."
+        ],
+        "tags": "*, tarot, card, blue",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier con Tainted Isaac."
+    },
+    {
+        "cardId": "74",
+        "name": "XVIII - The Moon?",
+        "pickup": "May you remember lost memories",
+        "description": [
+            "Te teletransporta a la habitación ultra secreta en el piso.",
+            "La sala ultrasecreta es una sala roja que contiene un objeto de la sala del ángel. Solo se puede acceder con la Llave Roja, la Llave de Cristal o la Llave Rota. Usar esta carta también abrirá un camino de salas rojas que conducen a la planta normal."
+        ],
+        "tags": "*, tarot, card, blue",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier con Tainted Jacob."
+    },
+    {
+        "cardId": "75",
+        "name": "XIX - The Sun?",
+        "pickup": "May the darkness swallow all around you",
+        "description": [
+            "Cuando se usa, otorga +1.5 de aumento de daño, convierte tus corazones en corazones de hueso y el efecto Espíritu de la noche (lágrimas espectrales y la capacidad de volar) para el piso actual.",
+            "También otorga el efecto Maldición de la Oscuridad que no se puede eliminar en el piso actual."
+        ],
+        "tags": "*, tarot, card, yellow",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier con Tainted Jacob."
+    },
+    {
+        "cardId": "76",
+        "name": "XX - Judgement?",
+        "pickup": "May you redeem those found wanting",
+        "description": [
+            "Genera una máquina de reabastecimiento"
+        ],
+        "tags": "*, tarot, card, blue",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Lazarus"
+    },
+    {
+        "cardId": "77",
+        "name": "XXI - The World?",
+        "pickup": "Step into the abyss",
+        "description": [
+            "Crea una trampilla que da acceso a un espacio de acceso garantizado."
+        ],
+        "tags": "*, tarot, card, pink",
+        "unlock": "Desbloquea esta carta al derrotar al modo Ultra Greedier como Tainted Eden."
+    },
+    {
+        "cardId": "78",
+        "name": "Cracked Key",
+        "pickup": "???",
+        "description": [
+            "Este es un uso único del elemento Llave Roja.",
+            "El objetivo principal de la Llave Rota es desbloquear al personaje Corrupto en la planta principal sin necesidad de encontrar la Llave Roja. Puedes forzar la aparición de una llave rota dejando caer cualquier abalorio en una Sala de Jefes o de Objetos, en cualquier planta durante tu descenso a las Profundidades II. Al volver a la planta principal, el abalorio se convertirá en la Llave Rota en la misma planta o habitación donde lo dejaste caer."
+        ],
+        "tags": "*, Red Key Shard",
+        "unlock": "Desbloquea esta tarjeta abriendo la Caja de Mamá en el piso de Inicio."
+    },
+    {
+        "cardId": "79",
+        "name": "Queen of Hearts",
+        "pickup": "<3",
+        "description": [
+            "Deja caer de 1 a 20 corazones rojos llenos al suelo."
+        ],
+        "tags": "*,",
+        "unlock": "Desbloquea esta carta al derrotar a Mega Satan como Tainted Magdalene"
+    },
+    {
+        "cardId": "80",
+        "name": "Wild Card",
+        "pickup": "Again",
+        "description": [
+            "Al usarlo, copia el efecto de la carta, píldora, runa, piedra del alma o elemento activo que usaste más recientemente."
+        ],
+        "tags": "*, Uno Card",
+        "unlock": "Desbloquea esta carta al derrotar a Mega Satan como Tainted Eden"
+    },
+    {
+        "cardId": "81",
+        "name": "Soul of Isaac",
+        "pickup": "Reroll... or not",
+        "description": [
+            "Convierte todos los elementos del pedestal en la sala actual en elementos rotativos, que alternan entre el elemento antiguo y un elemento nuevo aleatorio cada segundo.",
+            "Esto te permite cambiar de objeto de manera efectiva como con The D6, pero también puedes elegir el objeto antiguo si lo deseas.",
+            "Isaac contaminado tiene este efecto de forma pasiva para todos los objetos.",
+            "Si usas más de uno en la misma habitación, cada elemento del pedestal pasará por +1 elemento aleatorio.",
+            "Los artículos se eligen del grupo de artículos relacionados con el artículo actual."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Isaac."
+    },
+    {
+        "cardId": "82",
+        "name": "Soul of Magdalene",
+        "pickup": "Give me your love!",
+        "description": [
+            "Cuando se usa, todos los enemigos en la sala actual dejan caer medio corazón rojo que desaparecerá después de 2 segundos si no se recoge."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Magdalene."
+    },
+    {
+        "cardId": "83",
+        "name": "Soul of Cain",
+        "pickup": "Opens the unopenable",
+        "description": [
+            "Cuando se usa, esta piedra del alma crea habitaciones rojas para cada salida posible en la habitación actual.",
+            "Aparecen contornos rojos de puertas donde esta Piedra del Alma creará salidas para",
+            "Consulte la descripción del elemento Llave Roja para obtener más información sobre cómo se comportan estas salas rojas."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Cain."
+    },
+    {
+        "cardId": "84",
+        "name": "Soul of Judas",
+        "pickup": "Right behind you",
+        "description": [
+            "Activa el efecto del objeto Artes Oscuras, que convierte a Isaac en un fantasma durante unos segundos. En esta forma, puedes caminar sobre los enemigos para marcarlos y matarlos. Tras unos segundos, atacará rápidamente a cada objetivo, infligiendo mayor daño por cada enemigo que golpee."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Judas."
+    },
+    {
+        "cardId": "85",
+        "name": "Soul of ???",
+        "pickup": "Chemical warfare",
+        "description": [
+            "Cuando se usa esto, provocará 8 pedos venenosos que dejan un monstruo marrón atrás y luego arrojará 7 bombas traseras muy rápidamente.",
+            "Pararse en el creep te otorga +1 aumento de daño y +1,35 aumento de lágrimas."
+        ],
+        "tags": "* Soul of Blue Baby",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Blue Baby."
+    },
+    {
+        "cardId": "86",
+        "name": "Soul of Eve",
+        "pickup": "Your very own murder",
+        "description": [
+            "En la sala actual, 14 pájaros muertos vuelan desde fuera de la pantalla y atacan a todos los enemigos, causando daño bajo pero frecuente."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Eve."
+    },
+    {
+        "cardId": "87",
+        "name": "Soul of Samson",
+        "pickup": "Slay a thousand",
+        "description": [
+            "Isaac obtiene el efecto ¡Furia! durante 10 segundos. Esto le otorga una espada de hueso y se lanza a una masacre, obteniendo +0,4 de velocidad y +3 de daño fijo."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Samson."
+    },
+    {
+        "cardId": "88",
+        "name": "Soul of Azazel",
+        "pickup": "Demon rage!",
+        "description": [
+            "Activa el efecto del objeto Mega Blast, que te otorga un láser gigante que inflige x5 de daño de desgarro por cada tic a todo lo que se encuentra en su camino y empuja a Isaac hacia atrás con la fuerza.",
+            "El efecto dura 8 segundos pero persiste entre habitaciones."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Azazel."
+    },
+    {
+        "cardId": "89",
+        "name": "Soul of Lazarus",
+        "pickup": "Life after death",
+        "description": [
+            "Al usarlo, mata a Isaac y lo revive con medio corazón rojo. Obtienes un par de segundos de invencibilidad para alejarte después.",
+            "El principal beneficio de esta Piedra del Alma es que se activa automáticamente si mueres, lo que significa que es efectivamente una vida pasiva adicional mientras la tienes."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Lazarus."
+    },
+    {
+        "cardId": "90",
+        "name": "Soul of Eden",
+        "pickup": "Embrace chaos",
+        "description": [
+            "Activa los efectos del D6 y el D20, reeditando todos los objetos y objetos de la sala. A diferencia del D6 normal, los objetos reeditados se pueden elegir de cualquier grupo de objetos."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Eden."
+    },
+    {
+        "cardId": "91",
+        "name": "Soul of the Lost",
+        "pickup": "Leave your body behind",
+        "description": [
+            "Al usarlo, Isaac muere y se convierte en El Perdido de la sala actual. Esto le otorga la habilidad de volar y el efecto del Manto Sagrado. Sin embargo, si recibe daño una segunda vez, muere como El Perdido.",
+            "El mismo efecto que tocar un fuego blanco, pero solo dura una habitación."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Lost"
+    },
+    {
+        "cardId": "92",
+        "name": "Soul of Lilith",
+        "pickup": "Motherhood",
+        "description": [
+            "Te da 1 familiar permanente aleatorio"
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Lilith."
+    },
+    {
+        "cardId": "93",
+        "name": "Soul of the Keeper",
+        "pickup": "$$$",
+        "description": [
+            "Genera hasta 25 monedas aleatorias en el suelo."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Keeper."
+    },
+    {
+        "cardId": "94",
+        "name": "Soul of Apollyon",
+        "pickup": "Bringer of calamity",
+        "description": [
+            "Crea 15 langostas aleatorias",
+            "Las langostas son variantes de las moscas azules, excepto que tienen efectos especiales basados en el color.",
+            "Guerra (Rojo): Explota al tocar al enemigo. La explosión inflige 60 de daño fijo.",
+            "Pestilencia (Verde): Envenena al enemigo al que ataca.",
+            "Hambruna (marrón): aplica un efecto de ralentización.",
+            "Muerte (Negro): Inflige x4 de daño en lugar de x2",
+            "Conquista (Blanco): genera de 2 a 5 a la vez"
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Apollyon."
+    },
+    {
+        "cardId": "95",
+        "name": "Soul of the Forgotten",
+        "pickup": "Skeletal protector",
+        "description": [
+            "Te otorga a El Olvidado como familiar temporal, con dos corazones de hueso y su arma de hueso. Se comporta igual que Esaú con Jacob, siguiendo tus movimientos con precisión.",
+            "Desaparece después de la sala actual o si recibe suficiente daño y muere."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Forgotten"
+    },
+    {
+        "cardId": "96",
+        "name": "Soul of Bethany",
+        "pickup": "Friends from beyond",
+        "description": [
+            "Crea 6 briznas, similar al efecto del Libro de las Virtudes.",
+            "La mayoría de los wisps serán los azules estándar, pero tienen la posibilidad de tener propiedades especiales aleatorias."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Bethany."
+    },
+    {
+        "cardId": "97",
+        "name": "Soul of Jacob and Esau",
+        "pickup": "Bound by blood",
+        "description": [
+            "Genera a Esaú como un familiar temporal, que copia tus movimientos exactos de la misma manera que funcionan los personajes de Jacob y Esaú.",
+            "Desaparece después de la sala actual o si recibe suficiente daño y muere."
+        ],
+        "tags": "* Soul Stone",
+        "unlock": "Desbloquea este objeto al derrotar a Hush y Boss Rush como Tainted Jacob."
+    },
+    {
+        "cardId": "98",
+        "name": "Pills",
+        "pickup": "",
+        "description": [
+            "Parálisis: le impide moverse por un breve tiempo.",
+            "Feromonas: Aplica el efecto de encanto a todos los enemigos en la habitación por un breve tiempo.",
+            "Pubertad: A Isaac le crece pelo durante el resto de la partida. Solo cambio estético. En Placenta+, tomar 3 pastillas de esta píldora le otorga la transformación a Adulto.",
+            "Pretty Fly: otorga a Isaac +1 orbital de vuelo, que bloquea los proyectiles enemigos y daña a los enemigos de tipo mosca al tocarlos.",
+            "Alcance reducido: reduce tu estadística de alcance en -2",
+            "Aumento de alcance: aumenta tu estadística de alcance en +2,5",
+            "¿Eres un mago? - Las lágrimas se dispararán en diagonal durante unos 60 segundos. El efecto persiste entre habitaciones mientras el periodo esté activo.",
+            "Reducir velocidad: reduce tu estadística de velocidad en -0,12",
+            "Acelerar: aumenta tu estadística de velocidad en +0,15",
+            "Lágrimas abajo: reduce tu estadística de lágrimas en -0,28",
+            "Lágrimas: aumenta tu estadística de lágrimas en 0,35",
+            "Telepíldoras: Te teletransportan a una sala aleatoria al usarlas. Tiene una pequeña probabilidad de llevarte a la sala \"SOY ERROR\" y una probabilidad aún menor de teletransportarte a un Mercado Negro.",
+            "Adicto: Recibes un corazón completo de daño por todas las fuentes de daño en la sala actual. Desbloqueado en el Desafío n.° 24: PAGA PARA JUGAR.",
+            "Amigos hasta el final: genera tres amigables moscas de ataque azules.",
+            "¡Infestado! - Destruye todas las cacas de la habitación y genera una araña de ataque azul en cada caca destruida.",
+            "¿Infestado? - Genera una araña de ataque azul por cada enemigo en la sala. Si no hay enemigos, esta píldora genera de 1 a 3 arañas azules.",
+            "Uno te hace más pequeño: reduce el tamaño de Isaac y el tamaño del hitbox.",
+            "Uno te hace más grande: aumenta el tamaño de Isaac, pero no afecta el tamaño de su hitbox.",
+            "Percs: Hace que Isaac solo reciba medio corazón de daño de todas las fuentes en la sala actual (efecto La Oblea). Desbloqueado en el Desafío n.° 24 - PAGA PARA JUGAR",
+            "Píldora de poder: te otorga invulnerabilidad y la capacidad de dañar a los enemigos por un breve tiempo (similar al efecto de The Gamekid)",
+            "Relajación: Hace que Isaac genere excrementos detrás de él mientras camina durante unos segundos. Similar a Diarrea Explosiva, pero con excrementos.",
+            "Retro Visión: Pixela la pantalla durante unos segundos, dificultando la visión. Sucede 3 veces en 30 segundos.",
+            "??? - Otorga el efecto de la maldición del laberinto en el piso actual. Se desbloquea en el desafío n.° 25: Ten un corazón.",
+            "¡Me siento como si caminara sobre la luz del sol! - Vuelve a Isaac invencible por unos segundos (similar a Tocón de Unicornio). Se desbloquea con el logro \"Coleccionista de Pecados\" (recoge todas las entradas del Bestiario).",
+            "¡Tragar!: Al usarlo, consumirá tu abalorio actual, destruyéndolo y otorgándote su efecto permanentemente. Se desbloquea con el logro \"¡Una vez más con la emoción!\" (completa una vuelta de la victoria derrotando al jefe cordero).",
+            "¡Horf!: Al usarlo, dispara un proyectil explosivo de ipecacuana. Se desbloquea con el logro \"Dedicación\" (participa en 31 diarias seguidas).",
+            "Tengo sueño... - Ralentiza a todos los enemigos durante el resto de la sala actual.",
+            "¡Estoy emocionado! - Acelera a todos los enemigos por el resto de la sala. El efecto se activa de nuevo 30 segundos después de su uso y de nuevo 60 segundos después.",
+            "Algo anda mal... - Genera un charco de escalofríos negros debajo de Isaac.",
+            "¡Vurp! - Genera la última píldora que usaste. Genera otra píldora ¡Vurp! si no usaste ninguna otra. Se desbloquea con el logro \"¡Lo rompiste!\" (recoge 50 objetos en una sola partida).",
+            "X-Lax: genera un charco de suciedad marrón resbaladiza debajo de Isaac.",
+            "Disminución de la velocidad de disparo: -0,15 velocidad de disparo",
+            "Aumento de velocidad de disparo: +0,15 de velocidad de disparo",
+            "Píldora experimental: aumenta una estadística aleatoria y disminuye otra. La cantidad cambiada equivale a la píldora equivalente para subir o bajar estadísticas. Si tienes doctorado, solo aumentará una estadística."
+        ],
+        "tags": "*"
+    },
+    {
+        "cardId": "99",
+        "name": "Gold Pill",
+        "pickup": "",
+        "description": [
+            "Cuando se usa produce un efecto de píldora aleatorio.",
+            "Se puede usar varias veces, pero cada vez que lo uses, tiene la posibilidad de desaparecer.",
+            "La píldora de oro puede generarse como una píldora de caballo, lo que hace que otorgue efectos aleatorios de píldora de caballo."
+        ],
+        "tags": "*",
+        "unlock": "Desbloquea esto al derrotar a Mega Satan como Tainted Cain"
+    },
+    {
+        "cardId": "100",
+        "name": "Horse Pills",
+        "pickup": "",
+        "description": [
+            "Las píldoras de caballo rara vez aparecen como versiones más grandes de píldoras normales con efectos más poderosos.",
+            "Los elementos que se sinergizan con las píldoras también tienen el mismo efecto con las píldoras de caballo.",
+            "En general, el efecto de una píldora de caballo duplica el de una píldora normal; por ejemplo, la aceleración será de +0,3 en lugar de +0,15. Las píldoras con efectos que no necesariamente se pueden duplicar son más fuertes; por ejemplo, Pretty Fly otorga un objeto Big Fan en lugar de un objeto orbital de mosca."
+        ],
+        "tags": "*",
+        "unlock": "Desbloquea esto al derrotar a Mega Satan como Tainted Eve"
+    },
+    {
+        "cardId": "101",
+        "name": "Golden Penny",
+        "pickup": "",
+        "description": [
+            "Al recogerlo, reaparecerá nuevamente en una ubicación aleatoria de la habitación.",
+            "Cada vez que recoges un centavo dorado, tiene un 5% de posibilidades de desaparecer por completo."
+        ],
+        "tags": "*",
+        "unlock": "Desbloquea esto al derrotar a Mega Satán como Tainted Keeper"
+    },
+    {
+        "cardId": "102",
+        "name": "Gold Key",
+        "pickup": "",
+        "description": [
+            "Una vez recogida, obtendrás un uso ilimitado de la llave para el resto del piso.",
+            "Usar una píldora 'Las bombas son la clave' con este efecto cambiará tu Llave dorada por una Bomba dorada."
+        ],
+        "tags": "*, yellow, skull"
+    },
+    {
+        "cardId": "103",
+        "name": "Golden Battery",
+        "pickup": "",
+        "description": [
+            "Carga completamente tu artículo activo al recogerlo",
+            "Además, recibes un corazón completo de daño al recogerlo. Hacerlo hará que esta Batería Dorada reaparezca en otro lugar del suelo."
+        ],
+        "tags": "*",
+        "unlock": "Desbloquea esto al derrotar a Mega Satan como Tainted Forgotten"
+    },
+    {
+        "cardId": "104",
+        "name": "Gold Bomb",
+        "pickup": "",
+        "description": [
+            "Una vez recogido, obtienes el uso ilimitado de bombas para el resto del piso.",
+            "Usar una píldora 'Las bombas son la llave' con este efecto cambiará tu bomba dorada por una llave dorada."
+        ],
+        "tags": "*, yellow",
+        "unlock": "Desbloquea este objeto superando el desafío n.º 23 (Bombardero azul)."
+    },
+    {
+        "cardId": "105",
+        "name": "Golden Troll Bomb",
+        "pickup": "",
+        "description": [
+            "Aparece de forma similar a las bombas de troll normales y no se pueden recoger.",
+            "Sin embargo, explotarán para siempre en lugar de desaparecer.",
+            "La baratija Tijeras de Seguridad convertirá esto en una bomba de oro."
+        ],
+        "tags": "*"
+    },
+    {
+        "cardId": "106",
+        "name": "Gold Heart",
+        "pickup": "",
+        "description": [
+            "Una vez recogido, el corazón de oro dejará caer dinero al suelo la próxima vez que Isaac pierda un corazón."
+        ],
+        "tags": "*, yellow heart, golden heart",
+        "unlock": "Desbloquea este objeto superando el desafío n.° 21 (XXXXXXXXL)"
+    },
+    {
+        "cardId": "107",
+        "name": "Bone Heart",
+        "pickup": "",
+        "description": [
+            "Se necesitan tres golpes para agotarlo y se puede rellenar con corazones rojos, pero desaparece para siempre cuando se agota."
+        ],
+        "tags": "*, bone heart, white heart",
+        "unlock": "Desbloquea este objeto desbloqueando al personaje Olvidado. Consulta los objetos Pala Rota y Pala de Mamá para obtener más información sobre cómo desbloquearlos."
+    },
+    {
+        "cardId": "108",
+        "name": "Rotten Heart",
+        "pickup": "",
+        "description": [
+            "Los corazones podridos llenan un contenedor entero igual que los corazones rojos normales, o el corazón más a la derecha si tienes la salud completa.",
+            "Cada vez que limpies una habitación, aparecerán 2 moscas azules por cada corazón podrido que tengas actualmente."
+        ],
+        "tags": "*",
+        "unlock": "Desbloquea esto entrando al piso de Cadáveres por primera vez."
+    },
+    {
+        "cardId": "109",
+        "name": "Black Sack",
+        "pickup": "",
+        "description": [
+            "Genera 2-3 píldoras, corazones negros\/de hueso y\/o bombas cuando se recogen.",
+            "Puede aparecer en lugar de un saco normal, incluso en tiendas por 7c.",
+            "Solo puede aparecer un corazón por saco como máximo."
+        ],
+        "tags": "*",
+        "unlock": "Desbloquea esto al derrotar a Mega Satán como Tainted Judas"
+    },
+    {
+        "cardId": "110",
+        "name": "Dice Rooms",
+        "pickup": "",
+        "description": [
+            "1 punto: Renueva todos tus objetos. (No cambia tus baratijas, píldoras ni cartas).",
+            "2 puntos: repite todos los objetos de la sala. (Efecto D20)",
+            "3 puntos: repite todos los pick-ups en todo el piso",
+            "4 Puntos: Renueva todos los objetos de pedestal en el suelo. (No cambia los objetos de trato diabólico).",
+            "5 puntos: repite y reinicia el piso actual (efecto Olvídame ahora)",
+            "6 puntos: repite todos tus objetos y todos los objetos que recoges en todo el piso (combinando 1 + 3 + 4 habitaciones)"
+        ],
+        "tags": "* pip"
+    },
+    {
+        "cardId": "111",
+        "name": "Donation Machine",
+        "pickup": "",
+        "description": [
+            "Recompensas en la siguiente cantidad de monedas donadas:",
+            "10 - 20 - 50 - 100 - 150 - 200 - 400 - 600 - 900 - 999"     
+        ],
+        "tags": "* Shop"
+    },
+    {
+        "cardId": "112",
+        "name": "Greed Machine",
+        "pickup": "",
+        "description": [
+            "Recompensas en la siguiente cantidad de monedas donadas:",
+            "2 - 14 - 33 - 68 - 111 - 234 - 439 - 500 - 666 - 897 - 999 - 1000"
+        ],
+        "tags": "* Shop"
+    },
+    {
+        "cardId": "113",
+        "name": "Sacrifice Room",
+        "pickup": "",
+        "description": [
+            "Recompensas en la siguiente cantidad de corazones rojos donados:",
+            "1 y 2 - 50% Nada / 50% 1 moneda / 100% una bomba si has matado al boss en menos de 1 minuto",
+            "3 - 33% Nada / 67% 'You Feel Blessed'",
+            "4 - 50% Nada / 50% Un cofre random",
+            "5 - 33% 3 monedas / 67% 'You Feel Blessed'",
+            "6 - 33% Teleport a sala de angel / 67% Un cofre randomm",
+            "7 - 33% Objeto de sala de angel / 67% Un corazon azul / 50% Objet Redemption si has estado en unasala de diablo",
+            "8 - 100% 7 bombas troll",
+            "9 - 100% Pela contra Uriel",
+            "10 - 50% 7 Corazones azules / 30 monedas",
+            "11 - 100% Pela contra Gabriel",
+            "12 - 50% Nada / 50% Teleport a la Dark Room 🔁"
+        ],  
+        "tags": "* Sacrifice Room"
+    },    
+    {
+        "cardId": "114",
+        "name": "Transformaciones",
+        "pickup": "",
+        "description": [
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/guppy.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Guppy</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/guppy.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Vuelo / Al atacar enemigos, hay un 66% de generar una mosca azul.</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/beelzebub.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Beelzebub</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/beelzebub.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Vuelo / Las moscas se vuelven amigables</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/funguy.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Fun Guy</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/funguy.png' style='width:50px; image-rendering: pixelated'></div>", 
+            "<p style='margin: 0;text-align:center'>+1 HP</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/seraphim.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Seraphim</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/seraphim.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Vuelo / +3 Corazones azules</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/bob.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Bob</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/bob.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Dejas un rastro verde que hace 6 de daño por segundo</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/spun.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Spun</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/spun.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>+2 Daño / +0.15 Speed / Dropea una pastilla</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/yesmother.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Yes Mother?</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/yesmother.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Un cuchillo te persigue por la espalda</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/conjoined.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Conjoined</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/conjoined.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Disparas 2 lágrimas extra diagonalmente</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/leviathan.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Leviathan</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/leviathan.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Vuelo / +2 corazones negros</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/ohcrap.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Oh Crap</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/ohcrap.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Al romper mierdas recupera medio corazón rojo</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/bookworm.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Bookworm</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/bookworm.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>25% de probabilidad de disparar una lagrima extra</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/adult.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Adult</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/adult.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>+1 HP</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/spiderbaby.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Spider Baby</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/spiderbaby.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Genera Una araña que hace daño con efectos aleatorios</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/stompy.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Stompy</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/stompy.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Puedes romper obstaculos al caminar / Probabilidad de generar un terremoto al recibir daño</p>",
+            "<div style='display: flex; align-items: center; justify-content: center; gap: 10px'><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/superbum.png' style='width:50px; image-rendering: pixelated'><h2 style='margin: 0;font-size: calc(20px + 4vw)'>Super Bum</h2><img src='https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/transformations/superbum.png' style='width:50px; image-rendering: pixelated'></div>",
+            "<p style='margin: 0;text-align:center'>Fusiona los familiares de corazones y llaves / Duplica todas las rewards</p>"
+        ],  
+        "tags": "* Transformation"
+    }
+]
