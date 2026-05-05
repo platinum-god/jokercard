@@ -2135,6 +2135,26 @@
                 });
             }
 
+            // Orden de colores usado para el ordenamiento por color
+            const colorOrder = [
+                'black',
+                'grey',
+                'gray',
+                'white',
+                'silver',
+                'yellow',
+                'orange',
+                'gold',
+                'red',
+                'pink',
+                'purple',
+                'blue',
+                'cyan',
+                'green',
+                'brown',
+                'bronze'
+            ];
+
             // Función para extraer colores de tags
             function getItemColors(item) {
                 if (!item.tags) return [];
