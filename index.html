@@ -510,6 +510,22 @@
             cursor: url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/tear.png'), auto !important;
         }
 
+        .delirium-effect {
+            filter: contrast(1.15) saturate(1.4) brightness(0.85) hue-rotate(5deg) sepia(0.05);
+        }
+
+        .delirium-effect::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px) 0 0 / 100% 4px,
+                radial-gradient(circle at 50% 20%, rgba(255,255,255,0.08), transparent 25%);
+            opacity: 0.55;
+            mix-blend-mode: screen;
+            z-index: 9999;
+        }
 
         #modal-content-settings {
             max-width: none;
@@ -919,10 +935,10 @@
             }
 
             .info-img {
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
                 margin-right: 10px;
-                padding: 2px;
+                padding: 5px;
             }
 
             .char-img {
@@ -1224,6 +1240,7 @@
             <p>Efectos especiales al buscar:</p>
             <ul>
                 <li>Brimstone</li>
+                <li>Delirium</li>
                 <li>Ludovico</li>
                 <li>Luna</li>
                 <li>Rainbow</li>
@@ -1253,9 +1270,10 @@
                 journey to platinum god as much as possible</p>
             <p>Anyone who uses it will know that this is for you 💜👀</p>
             <p>P.S. you'll find out what platinum god is</p>
-            <p>Efectos especiales al buscar:</p>
+            <p>Special effects when searching:</p>
             <ul>
                 <li>Brimstone</li>
+                <li>Delirium</li>
                 <li>Ludovico</li>
                 <li>Luna</li>
                 <li>Rainbow</li>
@@ -1349,6 +1367,10 @@
 
             // Mouse tracking for effects
             let mouseX = 0, mouseY = 0;
+            let deliriumPrevBackground = '';
+            let deliriumPrevBackgroundSize = '';
+            let deliriumPrevBackgroundRepeat = '';
+            let deliriumPrevBackgroundPosition = '';
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
@@ -2588,6 +2610,30 @@
             document.getElementById('search-bar').addEventListener('input', function (e) {
                 const val = e.target.value.trim().toLowerCase();
                 const html = document.documentElement;
+                if (val === 'delirium') {
+                    if (!html.classList.contains('delirium-effect')) {
+                        deliriumPrevBackground = html.style.backgroundImage || '';
+                        deliriumPrevBackgroundSize = html.style.backgroundSize || '';
+                        deliriumPrevBackgroundRepeat = html.style.backgroundRepeat || '';
+                        deliriumPrevBackgroundPosition = html.style.backgroundPosition || '';
+                    }
+                    html.classList.add('delirium-effect');
+                    html.style.backgroundImage = `url('${baseUrl}other/delirium.png')`;
+                    html.style.backgroundSize = 'cover';
+                    html.style.backgroundRepeat = 'no-repeat';
+                    html.style.backgroundPosition = 'center center';
+                    html.style.imageRendering = 'pixelated';
+                } else if (html.classList.contains('delirium-effect')) {
+                    html.classList.remove('delirium-effect');
+                    html.style.backgroundImage = deliriumPrevBackground;
+                    html.style.backgroundSize = deliriumPrevBackgroundSize;
+                    html.style.backgroundRepeat = deliriumPrevBackgroundRepeat;
+                    html.style.backgroundPosition = deliriumPrevBackgroundPosition;
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+                const html = document.documentElement;
                 const items = document.querySelectorAll('.img-grid img');
                 if (val === 'rainbow') {
                     html.classList.add('rainbow-effect');
@@ -3278,8 +3324,6 @@
                         el.style.transition = '';
                     });
                 };
-
-                requestAnimationFrame(animate);
             });
 
             document.getElementById('search-bar').addEventListener('input', function (e) {
