@@ -506,11 +506,10 @@
             pointer-events: none;
         }
 
-        .azazel-hide {
-            opacity: 0 !important;
-            pointer-events: none !important;
+        .tear-cursor {
+            cursor: url('https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/tear.png'), auto !important;
         }
-        
+
 
         #modal-content-settings {
             max-width: none;
@@ -1081,7 +1080,8 @@
         <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/other/quiz.png" alt="Quiz">
     </div>
     <div id="floating-link-btn" title="Enlace">
-        <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/All_Items/item_54.png" alt="Enlace">
+        <img src="https://raw.githubusercontent.com/platinum-god/jokercard/refs/heads/main/All_Items/item_54.png"
+            alt="Enlace">
     </div>
     <div class="content">
         <!-- Search bar -->
@@ -1221,6 +1221,17 @@
                 que en su camino al platinum god se lo pase lo mejor posible</p>
             <p>Todo aquel que la use sabrá que esto va por ti 💜👀</p>
             <p>P.D. ya descubriras lo que es el platinum god</p>
+            <p>Efectos especiales al buscar:</p>
+            <ul>
+                <li>Brimstone</li>
+                <li>Ludovico</li>
+                <li>Luna</li>
+                <li>Rainbow</li>
+                <li>Sacred heart</li>
+                <li>Soy milk</li>
+                <li>Sprinkler</li>
+                <li>Wavy cap</li>
+            </ul>
         </div>
     </div>
     <div id="info-modal_en" class="modal">
@@ -1242,6 +1253,17 @@
                 journey to platinum god as much as possible</p>
             <p>Anyone who uses it will know that this is for you 💜👀</p>
             <p>P.S. you'll find out what platinum god is</p>
+            <p>Efectos especiales al buscar:</p>
+            <ul>
+                <li>Brimstone</li>
+                <li>Ludovico</li>
+                <li>Luna</li>
+                <li>Rainbow</li>
+                <li>Sacred heart</li>
+                <li>Soy milk</li>
+                <li>Sprinkler</li>
+                <li>Wavy cap</li>
+            </ul>
         </div>
 
     </div>
@@ -1324,6 +1346,13 @@
             let sortModeTrinkets = "id";
 
             let language = 'es'; // Por defecto español
+
+            // Mouse tracking for effects
+            let mouseX = 0, mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
 
             // Helper para crear imágenes y eventos
             function createImg(src, alt, clickHandler) {
@@ -2496,6 +2525,64 @@
                 }
                 if (e.target.value.trim().toLowerCase() === 'ellandecito') {
                     alert('Un besito?');
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+                if (val === 'ludovico') {
+                    document.documentElement.classList.add('tear-cursor');
+                } else {
+                    document.documentElement.classList.remove('tear-cursor');
+                }
+            });
+            document.getElementById('search-bar').addEventListener('input', function (e) {
+                const val = e.target.value.trim().toLowerCase();
+                if (val === 'sprinkler') {
+                    const sprinklerImg = Array.from(document.querySelectorAll('.img-grid img')).find(img => img.src.includes('item_516.png'));
+                    if (!sprinklerImg) return;
+                    sprinklerImg.style.filter = 'drop-shadow(0 0 10px #00ff00)';
+                    const rect = sprinklerImg.getBoundingClientRect();
+                    const startX = rect.left + rect.width / 3;
+                    const startY = rect.top;
+                    let keepSprinkler = true;
+                    const tearInterval = setInterval(() => {
+                        if (!keepSprinkler) {
+                            clearInterval(tearInterval);
+                            return;
+                        }
+                        const tear = document.createElement('img');
+                        tear.src = baseUrl + 'other/tear.png';
+                        tear.style.position = 'fixed';
+                        tear.style.left = startX + 'px';
+                        tear.style.top = startY + 'px';
+                        tear.style.width = '20px';
+                        tear.style.height = '20px';
+                        tear.style.zIndex = '9999';
+                        tear.style.pointerEvents = 'none';
+                        document.body.appendChild(tear);
+                        const dx = mouseX - startX;
+                        const dy = mouseY - startY;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        const duration = 3000;
+                        const steps = 100;
+                        let step = 0;
+                        const animate = () => {
+                            step++;
+                            const progress = step / steps;
+                            tear.style.left = (startX + dx * progress) + 'px';
+                            tear.style.top = (startY + dy * progress) + 'px';
+                            if (step >= steps) {
+                                tear.remove();
+                            } else {
+                                requestAnimationFrame(animate);
+                            }
+                        };
+                        requestAnimationFrame(animate);
+                    }, 200);
+                    setTimeout(() => {
+                        keepSprinkler = false;
+                        sprinklerImg.style.filter = '';
+                    }, 3500);
                 }
             });
             document.getElementById('search-bar').addEventListener('input', function (e) {
